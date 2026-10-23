@@ -1,30 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Resources</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-<h1>Academic Support</h1>
-<h2>Accomodations</h2>
-<p>MAKE DROPDOWN: </p>
-<p class = "description">Description: The Academic Coaching Program provides holistic one-on-one peer support to help 
-    undergraduate and graduate students find and implement their conditions for success. 
-    Find specific topics addressed  <a href="https://www.cmu.edu/student-success/programs/coaching.html">here.</a> </p>
+<h2>Tabs</h2>
+<p>Click on the buttons inside the tabbed menu:</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Academics')">Academics</button>
+  <button class="tablinks" onclick="openCity(event, 'Health')">Health & Wellness</button>
+  <button class="tablinks" onclick="openCity(event, 'Community')">Community</button>
+  
+  <button class="tablinks" onclick="openCity(event, 'Career')">Career & Finances</button>
+  
+  <button class="tablinks" onclick="openCity(event, 'Tech')">Technology & Accessibility</button>
+</div>
+
+<div id="Academics" class="tabcontent">
+  <h3>Academic Support</h3>
+  <ul>
+  <li>Accommodations</li>
+  <li>Peer 1:1 Coaching</li>
+  <li>Workshops</li>
+  <li>Supplemental Instruction Supported Courses ></li>
+  </ul>
+</div>
+
+<div id="Health" class="tabcontent">
+  <h3>Emotional support</h3>
+ <ul>
+   <li>CaPS Initial Consultation</li> CaPS Initial Consultation 
+    <li>CaPS Groups and Connection Hours</li>
+    <li>Virtual Support – TimelyCare</li>
+
+ </ul>
+</div>
+
+<div id="Community" class="tabcontent">
+ <p>Community</p>
+</div>
+
+
+<div id="Career" class="tabcontent">
+<p>Career</p>
+</div>
+
+
+<div id="Tech" class="tabcontent">
+ <p>Tech</p>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
    
-<p>Schedule appointment 1-on-1 Academic Coaching: https://cmu.mywconline.net/index.php?scode=coaching </p>
-<p class = "location">Location: Posner Hall</p>
-<p class = "contact">Main Contact:success@andrew.cmu.edu</p>
-
-
-<h2>Academic Peer 1:1 Coaching </h2>
-<p>MAKE DROPDOWN:</p>
-    <p>
-    Description: The Academic Coaching Program provides holistic one-on-one peer support to help undergraduate and graduate students find and implement their conditions for success. Find specific topics addressed here. 
-    Schedule appointment 1-on-1 Academic Coaching: https://cmu.mywconline.net/index.php?scode=coaching 
-    Location: Posner Hall
-    Main Contact:success@andrew.cmu.edu  
-    </p>
-
 </body>
-</html>
+</html> 
