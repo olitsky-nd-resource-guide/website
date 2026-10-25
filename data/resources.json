@@ -1,0 +1,173 @@
+[
+  {
+    "id": "odr-academic-accommodations",
+    "officialName": "Academic Accommodations",
+    "aliases": ["ODR", "Disability Resources", "Accommodations"],
+    "provider": "Office of Disability Resources (ODR)",
+    "kind": "service",
+    "summary": "Get approved for accommodations such as extra exam time, then share them with your instructors each semester.",
+    "whoFor": "Enrolled CMU students with a sensory, physical, emotional or cognitive disability. You can apply at any time.",
+    "needTags": ["accommodations", "academics"],
+    "format": ["in-person", "virtual", "phone"],
+    "cost": "Free",
+    "steps": [
+      "Log in with your Andrew ID and complete the online application.",
+      "Wait for ODR to confirm they received your form.",
+      "Submit documentation following ODR's documentation guidelines.",
+      "Book a meeting with ODR to talk about your needs.",
+      "If approved, send your Summary of Accommodations Memo to your instructors through the portal at the start of each semester."
+    ],
+    "booking": {
+      "type": "link",
+      "value": "https://rainier.accessiblelearning.com/cmu/start",
+      "label": "Start the application"
+    },
+    "locations": [
+      {
+        "building": "Posner Hall",
+        "address": "4980 Margaret Morrison St, Pittsburgh, PA 15213",
+        "notes": "Mon to Fri, 8:30 am to 5 pm, by appointment only"
+      }
+    ],
+    "contacts": [
+      { "name": "Office of Disability Resources", "email": "access@andrew.cmu.edu" }
+    ],
+    "prepare": [
+      "Your Andrew ID and password",
+      "Current documentation from a licensed provider that includes your diagnosis, how it affects you, and recommended accommodations (CaPS can help you put this together)"
+    ],
+    "expect": "After you apply, you meet with ODR to discuss accommodations. If you want to change approved accommodations later, email ODR; they reply within 5 business days.",
+    "sourceUrls": [
+      "https://www.cmu.edu/disability-resources/students/obtaining-accommodations.html",
+      "https://www.cmu.edu/disability-resources/about/index.html",
+      "https://www.cmu.edu/disability-resources/policies-guidelines/index.html"
+    ],
+    "lastVerified": "2026-10-22",
+    "status": "active"
+  },
+  {
+    "id": "caps-initial-consultation",
+    "officialName": "Consultation",
+    "aliases": ["CaPS", "Counseling", "Therapy", "CaPS Initial Consultation"],
+    "provider": "Counseling & Psychological Services (CaPS)",
+    "kind": "service",
+    "summary": "A first conversation with a CaPS therapist to figure out what support fits you, from short-term therapy to groups or a referral.",
+    "whoFor": "Undergraduate and graduate students enrolled at the Pittsburgh campus.",
+    "needTags": ["mental-health"],
+    "format": ["in-person", "drop-in"],
+    "cost": "Free",
+    "limits": "Short-term therapy; most students use 6 to 8 sessions. No limit on consultations or crisis support.",
+    "steps": [
+      "Call CaPS at 412-268-2922 and ask to schedule a consultation.",
+      "Set a reminder. CaPS also emails a reminder the business day before.",
+      "Attend your appointment."
+    ],
+    "booking": { "type": "phone", "value": "412-268-2922", "label": "Call CaPS" },
+    "locations": [
+      { "building": "Highmark Center for Health, Wellness & Athletics", "room": "4th floor", "address": "100 Tech Street, Pittsburgh, PA 15213" },
+      { "building": "Morewood Gardens", "room": "2nd floor", "address": "1060 Morewood Avenue, Pittsburgh, PA 15213" }
+    ],
+    "contacts": [
+      { "name": "CaPS main line", "phone": "412-268-2922", "url": "https://www.cmu.edu/counseling/" }
+    ],
+    "prepare": [
+      "A few minutes to make the call",
+      "A rough idea of what you want help with (it's fine if you're not sure)"
+    ],
+    "script": "Hi, my name is ___ and I'd like to schedule a consultation.",
+    "expect": "You'll be seen within 5 business days. Sessions are 45 to 50 minutes. The first meeting focuses on getting to know your needs and deciding next steps together. If it's urgent, you can walk in or call to be screened for a same-day appointment.",
+    "sourceUrls": [
+      "https://www.cmu.edu/counseling/services/consultation.html",
+      "https://www.cmu.edu/counseling/about-us/faq.html"
+    ],
+    "lastVerified": "2026-10-22",
+    "status": "active",
+    "internalNotes": "Open question: which of the two offices hosts consultations?"
+  },
+  {
+    "id": "caps-neurodistinct-group",
+    "officialName": "Neurodistinct: A Neurodivergent Support Group",
+    "aliases": ["Neurospicy Support Group", "Neurospicy", "neurodivergent support group"],
+    "provider": "Counseling & Psychological Services (CaPS)",
+    "kind": "service",
+    "summary": "A weekly support group where neurodivergent students share experiences and support each other, led by a CaPS therapist.",
+    "whoFor": "Enrolled students living in Pennsylvania.",
+    "needTags": ["community", "mental-health"],
+    "format": ["in-person"],
+    "cost": "Free",
+    "steps": [
+      "Email the facilitator or call CaPS to schedule a pre-group consultation.",
+      "Attend the pre-group consultation to talk through whether the group fits your needs.",
+      "Join the group."
+    ],
+    "booking": { "type": "email", "value": "jaymej@andrew.cmu.edu", "label": "Email the facilitator" },
+    "contacts": [
+      { "name": "Jayme Jenkins, PhD, LP", "role": "Group facilitator", "email": "jaymej@andrew.cmu.edu" },
+      { "name": "CaPS main line", "phone": "412-268-2922" }
+    ],
+    "prepare": [
+      "A pre-group consultation before your first session"
+    ],
+    "script": "Hi, my name is ___ and I'd like to schedule a pre-group consultation for the Neurodistinct support group.",
+    "expect": "Groups are confidential: members agree not to share what's said outside the group.",
+    "schedule": {
+      "text": "Mondays, 3:30 to 4:30 pm",
+      "sourceUrl": "https://www.cmu.edu/counseling/services/groups-workshops.html"
+    },
+    "sourceUrls": ["https://www.cmu.edu/counseling/services/groups-workshops.html"],
+    "lastVerified": "2026-10-22",
+    "status": "active",
+    "internalNotes": "Open questions: confirm with CaPS that this is the group the outline called Neurospicy, and which room it meets in."
+  },
+  {
+    "id": "mindfulness-room",
+    "officialName": "The Mindfulness Room",
+    "provider": "Community Health & Well-Being",
+    "kind": "space",
+    "summary": "A quiet room to rest, breathe and recharge, with comfy seating, yoga mats and calm activities like coloring and puzzles.",
+    "whoFor": "Anyone in the CMU community.",
+    "needTags": ["rest-and-recharge"],
+    "format": ["in-person", "drop-in"],
+    "cost": "Free",
+    "steps": ["Walk in; no booking needed."],
+    "booking": { "type": "walk-in" },
+    "locations": [
+      { "building": "West Wing", "room": "Ground floor" }
+    ],
+    "contacts": [
+      { "name": "Michael Tumminia", "role": "Mindfulness Room advisor", "email": "mtummini@andrew.cmu.edu" }
+    ],
+    "prepare": [],
+    "space": {
+      "hours": "Open 24 hours during fall and spring semesters",
+      "noiseLevel": "quiet",
+      "seating": "Anti-gravity chairs, meditation cushions, yoga mats",
+      "bookingRequired": false,
+      "rules": "No homework or meetings; the room is for resting."
+    },
+    "sourceUrls": ["https://www.cmu.edu/wellbeing/wellbeing-spaces/mindfulness-room.html"],
+    "lastVerified": "2026-10-22",
+    "status": "active",
+    "internalNotes": "Open question: confirm the right contact (outline listed Harsh Agarwal). Official page says both first and ground floor; guestsAllowed not stated, so left out."
+  },
+  {
+    "id": "scotty-accountability-sessions",
+    "officialName": "Scotty Accountability Sessions",
+    "aliases": ["body doubling", "accountability"],
+    "provider": "Student Academic Success Center",
+    "kind": "service",
+    "summary": "Shared work sessions with other students to help each other stay on task.",
+    "whoFor": "Enrolled students.",
+    "needTags": ["executive-functioning", "academics"],
+    "format": ["in-person"],
+    "steps": ["Details to be confirmed with the Student Academic Success Center."],
+    "contacts": [
+      { "name": "Student Academic Success Center", "email": "success@andrew.cmu.edu", "phone": "412-268-6823" }
+    ],
+    "prepare": [],
+    "sourceUrls": ["https://www.cmu.edu/student-success/programs/coaching.html"],
+    "lastVerified": "2026-10-22",
+    "status": "unverified",
+    "internalNotes": "Not found on the official coaching page as of Oct 22, 2026. Hidden from the site until SASC confirms it still runs."
+  }
+]

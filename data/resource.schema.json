@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "resource.schema.json",
+  "title": "CMU Resource Guide: resource record",
+  "description": "One record per resource or space. The site renders resource pages, category pages, comparison cards and the guided flow from these records. Fields come from the Milestone 1 content audit (KAN-23) and US3/US4/US8.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "officialName",
+    "provider",
+    "kind",
+    "summary",
+    "whoFor",
+    "needTags",
+    "format",
+    "steps",
+    "contacts",
+    "prepare",
+    "sourceUrls",
+    "lastVerified",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "description": "Stable key used in URLs (resource.html?id=...). Lowercase words joined by hyphens. Never change it once published.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "officialName": {
+      "description": "The name exactly as the office writes it on its own page.",
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "description": "Old, informal or outline names that should still match in search, e.g. \"Neurospicy Support Group\".",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "provider": {
+      "description": "The office or program that runs it, e.g. \"CaPS\". Shown small; the site organizes by need, not by office.",
+      "type": "string"
+    },
+    "kind": {
+      "description": "\"service\" for something you use or book; \"space\" for a place you go (low-sensory spaces, US4).",
+      "enum": ["service", "space"]
+    },
+    "summary": {
+      "description": "One or two plain-language sentences: what it helps with.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300
+    },
+    "whoFor": {
+      "description": "Who can use it, in plain language, including limits such as \"students living in Pennsylvania\".",
+      "type": "string"
+    },
+    "needTags": {
+      "description": "Need categories this record appears under. One record, many tags, so there are no drifting copies. Slugs must match the category list (KAN-25).",
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }
+    },
+    "format": {
+      "description": "How students take part. Used for filters and comparison cards.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "enum": ["in-person", "virtual", "phone", "drop-in", "event-only"] },
+      "uniqueItems": true
+    },
+    "cost": {
+      "description": "\"Free\" or the cost, with any fees such as late-cancellation charges.",
+      "type": "string"
+    },
+    "limits": {
+      "description": "Caps or rules, e.g. \"12 scheduled sessions per academic year\".",
+      "type": "string"
+    },
+    "steps": {
+      "description": "Ordered, concrete actions to connect, rendered as a numbered list. Spaces can use one step, e.g. \"Walk in; no booking needed.\"",
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "booking": {
+      "description": "The single main way to start. Shown as the top button or link on the resource page.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["link", "phone", "email", "walk-in", "none"] },
+        "value": { "description": "URL, phone number or email address. Omit for walk-in or none.", "type": "string" },
+        "label": { "description": "Button text, e.g. \"Start the application\".", "type": "string" }
+      }
+    },
+    "locations": {
+      "description": "Where it happens. A list because some offices have more than one site (CaPS). Use virtual: true for online-only.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "building": { "type": "string" },
+          "room": { "type": "string" },
+          "address": { "type": "string" },
+          "virtual": { "type": "boolean" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "contacts": {
+      "description": "Who answers questions: the office line first, then any named person such as a group facilitator.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "minProperties": 2,
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "phone": { "type": "string" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "prepare": {
+      "description": "What to have ready: logins, documents, drafts, time. Leave empty only when there is truly nothing to prepare (e.g. a walk-in space).",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "script": {
+      "description": "Optional sample words for the call or email.",
+      "type": "string"
+    },
+    "expect": {
+      "description": "What happens after reaching out: wait time, session length, who you meet, what happens next.",
+      "type": "string"
+    },
+    "schedule": {
+      "description": "Time-bound info (session dates, weekly hours). Keep the text short and always link the live schedule.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text"],
+      "properties": {
+        "text": { "type": "string" },
+        "sourceUrl": { "type": "string", "format": "uri" }
+      }
+    },
+    "space": {
+      "description": "Extra details for kind \"space\" (US4, US10).",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "hours": { "type": "string" },
+        "noiseLevel": { "enum": ["silent", "quiet", "moderate", "varies"] },
+        "lighting": { "type": "string" },
+        "seating": { "type": "string" },
+        "bookingRequired": { "type": "boolean" },
+        "guestsAllowed": { "type": "boolean" },
+        "rules": { "type": "string" }
+      }
+    },
+    "sourceUrls": {
+      "description": "Official pages this record was checked against.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "format": "uri" }
+    },
+    "lastVerified": {
+      "description": "Date the record was last checked against its sources (YYYY-MM-DD). Shown on the page.",
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "description": "active = show it; unverified = keep in the file but hide from the site; discontinued = hide and keep for history.",
+      "enum": ["active", "unverified", "discontinued"]
+    },
+    "internalNotes": {
+      "description": "Team-only notes, e.g. an open question. Never rendered on the site.",
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "space" } } },
+      "then": { "required": ["space"] }
+    }
+  ]
+}
