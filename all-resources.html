@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Help Guide · Carnegie Mellon University</title>
+  <meta name="description" content="Say what's going on in your own words. We'll point you to the right place at CMU and show you exactly what to do next.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header">
+    <div class="navbar">
+        <a class="brand" href="home.html">
+        <img class="brand__logo" src="images/CMU-logo.png" alt="">
+        <span class="brand__text">
+          <strong>Student Help Guide</strong>
+          <span>Carnegie Mellon University</span>
+        </span>
+      </a>
+
+
+      <nav class="site-nav" aria-label="Main">
+
+        <!-- Bootstrap hamburger button -->
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse"
+                data-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Collapsible navigation -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul>
+            <li><a style="font-weight: 700;" href="#browse">Browse by need</a></li>
+            <li><a href="#choose">Help me choose</a></li>
+            <li><a class="is-urgent" href="#urgent">Urgent help</a></li>
+            <li><a href="#resources">My Resources (2)</a></li>
+            <li>
+              <button class="settings-btn" type="button"
+                      aria-label="Display settings">
+                <svg width="16" height="16"
+                     viewBox="0 0 16 16"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.4"
+                     stroke-linecap="round"
+                     aria-hidden="true">
+                  <path d="M2 4h7M13 4h1M2 12h1M7 12h7"/>
+                  <circle cx="11" cy="4" r="1.8"/>
+                  <circle cx="5" cy="12" r="1.8"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      
+      </nav>
+      
+
+      
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== Hero ===================== -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div>
+          <h1>
+            Browse by need
+          </h1>
+
+          <p class="hero__lead">
+            Everything in this guide, sorted by what you need. Scroll through, or jump to a topic.
+          </p>
+        </div>
+
+        <!-- Laptop + path illustration -->
+        <img class="hero__art hero__art--resources" src="images/resources-header-icon.png" alt="">
+      </div>
+    </section>
+
+
+<!-- ===================== Browse Categories ===================== -->
+  <!-- Plain toggle buttons (aria-pressed), not ARIA tabs: they filter the list below. -->
+  <nav class="browse-tabs" aria-label="Resource categories">
+    <div class="browse-tabs__inner">
+      <button class="browse-tab active" type="button" data-category="all" aria-pressed="true" aria-controls="resource-results">All Categories</button>
+      <button class="browse-tab" type="button" data-category="classes" aria-pressed="false" aria-controls="resource-results">Classes and studying</button>
+      <button class="browse-tab" type="button" data-category="planning" aria-pressed="false" aria-controls="resource-results">Planning and focus</button>
+      <button class="browse-tab" type="button" data-category="feelings" aria-pressed="false" aria-controls="resource-results">Feelings and mental health</button>
+      <button class="browse-tab" type="button" data-category="health" aria-pressed="false" aria-controls="resource-results">Health, food and money</button>
+      <button class="browse-tab" type="button" data-category="career" aria-pressed="false" aria-controls="resource-results">Career and work</button>
+      <button class="browse-tab" type="button" data-category="community" aria-pressed="false" aria-controls="resource-results">Community</button>
+    </div>
+  </nav>
+
+  <!-- ===================== Resources ===================== -->
+  <section class="resource-section" aria-label="Resources">
+
+  <!-- Icon sprite for the resource cards (referenced with <use href="#icon-...">) -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-person" viewBox="0 0 16 16"><circle cx="8" cy="5" r="2.75"/><path d="M2.75 14c.4-2.9 2.6-4.5 5.25-4.5s4.85 1.6 5.25 4.5"/></symbol>
+    <symbol id="icon-group" viewBox="0 0 16 16"><circle cx="5.5" cy="5.5" r="2.25"/><circle cx="11" cy="6" r="1.85"/><path d="M1.5 13.5c.35-2.4 1.9-3.75 4-3.75s3.65 1.35 4 3.75M10 9.9c2.2-.3 4 .8 4.5 3.1"/></symbol>
+    <symbol id="icon-laptop" viewBox="0 0 16 16"><rect x="3" y="3.5" width="10" height="7" rx=".75"/><path d="M1.5 12.75h13"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 16 16"><path d="M8 14.5s4.5-4.2 4.5-7.75a4.5 4.5 0 0 0-9 0C3.5 10.3 8 14.5 8 14.5z"/><circle cx="8" cy="6.75" r="1.6"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 16 16"><path d="M4.2 2h2.1l1 3-1.5 1a8 8 0 0 0 4.2 4.2l1-1.5 3 1v2.1c0 .7-.6 1.2-1.3 1.2A10.7 10.7 0 0 1 3 3.3C3 2.6 3.5 2 4.2 2z"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 16 16"><path d="M8 4.25C6.6 3.2 4.4 2.9 2 3.25v9c2.4-.35 4.6-.05 6 1 1.4-1.05 3.6-1.35 6-1v-9c-2.4-.35-4.6-.05-6 1zM8 4.25v9"/></symbol>
+    <symbol id="icon-list" viewBox="0 0 16 16"><path d="M6 4h8M6 8h8M6 12h8M2.5 4h.5M2.5 8h.5M2.5 12h.5"/></symbol>
+    <symbol id="icon-monitor" viewBox="0 0 16 16"><rect x="2" y="2.75" width="12" height="8.5" rx=".75"/><path d="M6 14h4M8 11.25V14"/></symbol>
+    <symbol id="icon-bookmark" viewBox="0 0 16 20"><path d="M2 1.5h12v17l-6-4.5-6 4.5z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></symbol>
+  </svg>
+
+    <div class="resource-filters" role="group" aria-label="Filter resources by format">
+      <span class="filter-label" aria-hidden="true">Show</span>
+      <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true" aria-controls="resource-results">Everything</button>
+      <button class="filter-btn" type="button" data-filter="one-on-one" aria-pressed="false" aria-controls="resource-results"><i class="filter-icon" data-icon="person" aria-hidden="true"></i>One-on-one</button>
+      <button class="filter-btn" type="button" data-filter="group" aria-pressed="false" aria-controls="resource-results"><i class="filter-icon" data-icon="group" aria-hidden="true"></i>Group</button>
+      <button class="filter-btn" type="button" data-filter="virtual" aria-pressed="false" aria-controls="resource-results"><i class="filter-icon" data-icon="virtual" aria-hidden="true"></i>Virtual</button>
+      <button class="filter-btn" type="button" data-filter="in-person" aria-pressed="false" aria-controls="resource-results"><i class="filter-icon" data-icon="location" aria-hidden="true"></i>In person</button>
+    </div>
+
+    <!-- Announces "No matching resources" when filters hide everything. -->
+    <p class="resource-status" id="resource-status" role="status" aria-live="polite"></p>
+
+    <div class="resource-sections" id="resource-results">
+
+    <!-- SECTION 01 -->
+    <section class="resource-category" data-category="classes" aria-labelledby="classes-title">
+      <div class="resource-category__heading">
+        <span class="resource-category__number">01</span>
+        <div>
+          <h2 id="classes-title">Classes and studying</h2>
+          <p>Study groups for hard courses, writing help, and accommodations for class and exams.</p>
+        </div>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource-card" data-resource-id="sasc-supplemental-instruction" data-formats="group in-person" aria-labelledby="title-sasc-supplemental-instruction">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-sasc-supplemental-instruction">Study with others in a hard course</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Study with others in a hard course">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Supplemental Instruction, SASC</p>
+          <p class="resource-card__desc">Small study sessions for selected tough courses, led by a student who did well in it.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-group"/></svg>Group</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>In person</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="sasc-supplemental-instruction">
+              <span>Compare<span class="sr-only"> Study with others in a hard course</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Study with others in a hard course</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="sasc-communication-support" data-formats="one-on-one virtual in-person" aria-labelledby="title-sasc-communication-support">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-sasc-communication-support">Help with writing or a presentation</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Help with writing or a presentation">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Communication Support, SASC</p>
+          <p class="resource-card__desc">One person helps you with a paper, slides or a tricky email.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-person"/></svg>One-on-one</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Virtual or in person</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="sasc-communication-support">
+              <span>Compare<span class="sr-only"> Help with writing or a presentation</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Help with writing or a presentation</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="odr-academic-accommodations" data-formats="virtual" aria-labelledby="title-odr-academic-accommodations">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-odr-academic-accommodations">Getting academic accommodations</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Getting academic accommodations">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Office of Disability Resources</p>
+          <p class="resource-card__desc">Changes like extra exam time or a quieter room. A map of the 5 steps and where each one happens.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-list"/></svg>Step-by-step guide</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>ODR online portal</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="odr-academic-accommodations">
+              <span>Compare<span class="sr-only"> Getting academic accommodations</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="accomodations.html">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Getting academic accommodations</span></span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 02 -->
+    <section class="resource-category" data-category="planning" aria-labelledby="planning-title">
+      <div class="resource-category__heading">
+        <span class="resource-category__number">02</span>
+        <div>
+          <h2 id="planning-title">Planning, focus and getting started</h2>
+          <p>For putting things off, staying organized, managing time and building routines.</p>
+        </div>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource-card" data-resource-id="sasc-success-coaching" data-formats="one-on-one virtual in-person" aria-labelledby="title-sasc-success-coaching">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-sasc-success-coaching">One-on-one coaching for planning and focus</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save One-on-one coaching for planning and focus">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Success Coaching, SASC</p>
+          <p class="resource-card__desc">A trained peer coach helps you plan your week and build routines that stick.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-person"/></svg>One-on-one</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Virtual or in person</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="sasc-success-coaching">
+              <span>Compare<span class="sr-only"> One-on-one coaching for planning and focus</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: One-on-one coaching for planning and focus</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="caps-executive-functioning-clinic" data-formats="group virtual" aria-labelledby="title-caps-executive-functioning-clinic">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-caps-executive-functioning-clinic">Executive Functioning Skills Clinic</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Executive Functioning Skills Clinic">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">CaPS</p>
+          <p class="resource-card__desc">Practical ways to plan, start and finish work, learned with a few other students.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-group"/></svg>Group</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Virtual</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="caps-executive-functioning-clinic">
+              <span>Compare<span class="sr-only"> Executive Functioning Skills Clinic</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Executive Functioning Skills Clinic</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="sasc-study-planning-workshops" data-formats="group in-person" aria-labelledby="title-sasc-study-planning-workshops">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-sasc-study-planning-workshops">Study and planning workshops</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Study and planning workshops">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Student Academic Success Center</p>
+          <p class="resource-card__desc">Drop into a single session on time, motivation or study habits.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-monitor"/></svg>Workshop</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>In person</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="sasc-study-planning-workshops">
+              <span>Compare<span class="sr-only"> Study and planning workshops</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Study and planning workshops</span></span>
+            </a>
+          </div>
+        </article>
+      </div>
+      <!-- PLACEHOLDER: "See 10 tools" has no destination yet; replace href="#" when that page exists. -->
+      <aside class="resource-tools" aria-label="Tools to try on your own">
+        <div>
+          <p class="resource-tools__eyebrow">Try on your own. Not run by CMU.</p>
+          <p class="resource-tools__title">Timers, focus apps and planners</p>
+        </div>
+        <a class="resource-tools__link" href="#" data-placeholder-link>See 10 tools</a>
+      </aside>
+    </section>
+
+    <!-- SECTION 03 -->
+    <section class="resource-category" data-category="feelings" aria-labelledby="feelings-title">
+      <div class="resource-category__heading">
+        <span class="resource-category__number">03</span>
+        <div>
+          <h2 id="feelings-title">Feelings, stress and mental health</h2>
+          <p>Counseling, support groups and someone to talk to right now.</p>
+        </div>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource-card" data-resource-id="caps-first-conversation" data-formats="one-on-one" aria-labelledby="title-caps-first-conversation">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-caps-first-conversation">A first conversation with a counselor</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save A first conversation with a counselor">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">CaPS</p>
+          <p class="resource-card__desc">A private, free call about what’s going on, so you can find out what fits.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-person"/></svg>One-on-one</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-phone"/></svg>Phone first</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="caps-first-conversation">
+              <span>Compare<span class="sr-only"> A first conversation with a counselor</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: A first conversation with a counselor</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="timelycare-talknow" data-formats="virtual" aria-labelledby="title-timelycare-talknow">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-timelycare-talknow">Talk to someone online now</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Talk to someone online now">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">TimelyCare TalkNow, outside service</p>
+          <p class="resource-card__desc">Video or phone with a counselor, no appointment needed.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-book"/></svg>On your own</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-phone"/></svg>Video or phone</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="timelycare-talknow">
+              <span>Compare<span class="sr-only"> Talk to someone online now</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Talk to someone online now</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="caps-support-groups" data-formats="group" aria-labelledby="title-caps-support-groups">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-caps-support-groups">Support groups and connection hours</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Support groups and connection hours">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">CaPS</p>
+          <p class="resource-card__desc">Meet students who share an experience or identity.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-group"/></svg>Group</li>
+            <li class="is-unconfirmed"><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>[CONFIRM]</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="caps-support-groups">
+              <span>Compare<span class="sr-only"> Support groups and connection hours</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Support groups and connection hours</span></span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 04 -->
+    <section class="resource-category" data-category="health" aria-labelledby="health-title">
+      <div class="resource-category__heading">
+        <span class="resource-category__number">04</span>
+        <div>
+          <h2 id="health-title">Health, food and money</h2>
+          <p>Health Services, the CMU Pantry and help with urgent costs.</p>
+        </div>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource-card" data-resource-id="uhs-doctor-or-nurse" data-formats="one-on-one in-person" aria-labelledby="title-uhs-doctor-or-nurse">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-uhs-doctor-or-nurse">See a doctor or nurse</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save See a doctor or nurse">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">University Health Services</p>
+          <p class="resource-card__desc">Care when you are sick or hurt.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-person"/></svg>One-on-one</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>In person</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="uhs-doctor-or-nurse">
+              <span>Compare<span class="sr-only"> See a doctor or nurse</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: See a doctor or nurse</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="cmu-pantry" data-formats="in-person" aria-labelledby="title-cmu-pantry">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-cmu-pantry">Free groceries and personal care items</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Free groceries and personal care items">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">CMU Pantry</p>
+          <p class="resource-card__desc">Pick up food and supplies, no questions asked.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-book"/></svg>On your own</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>In person</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="cmu-pantry">
+              <span>Compare<span class="sr-only"> Free groceries and personal care items</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Free groceries and personal care items</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tartan-emergency-support-fund" data-formats="one-on-one virtual" aria-labelledby="title-tartan-emergency-support-fund">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tartan-emergency-support-fund">Help with an urgent cost</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Help with an urgent cost">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Tartan Emergency Support Fund</p>
+          <p class="resource-card__desc">Support for an urgent basic need you can’t cover.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-person"/></svg>One-on-one</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Online form</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="tartan-emergency-support-fund">
+              <span>Compare<span class="sr-only"> Help with an urgent cost</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Help with an urgent cost</span></span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 05 -->
+    <section class="resource-category" data-category="career" aria-labelledby="career-title">
+      <div class="resource-category__heading">
+        <span class="resource-category__number">05</span>
+        <div>
+          <h2 id="career-title">Career and work</h2>
+          <p>Career coaching, workplace accommodations and job search help.</p>
+        </div>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource-card" data-resource-id="olitsky-career-coaching" data-formats="one-on-one virtual in-person" aria-labelledby="title-olitsky-career-coaching">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-olitsky-career-coaching">Career coaching for neurodivergent students</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Career coaching for neurodivergent students">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Olitsky Career Readiness Program</p>
+          <p class="resource-card__desc">Focus and workload strategies for a job, plus help asking for workplace accommodations.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-person"/></svg>One-on-one</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Virtual or in person</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="olitsky-career-coaching">
+              <span>Compare<span class="sr-only"> Career coaching for neurodivergent students</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Career coaching for neurodivergent students</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="cpdc-career-consultant" data-formats="one-on-one virtual in-person" aria-labelledby="title-cpdc-career-consultant">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-cpdc-career-consultant">Your college’s career consultant</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Your college’s career consultant">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Career and Professional Development Center</p>
+          <p class="resource-card__desc">General help with jobs, internships and resumes.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-person"/></svg>One-on-one</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Virtual or in person</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="cpdc-career-consultant">
+              <span>Compare<span class="sr-only"> Your college’s career consultant</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Your college’s career consultant</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="olitsky-professional-power-hour" data-formats="group" aria-labelledby="title-olitsky-professional-power-hour">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-olitsky-professional-power-hour">Work-along hour for job tasks</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Work-along hour for job tasks">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Professional Power Hour, Olitsky Program</p>
+          <p class="resource-card__desc">Get applications done quietly next to other people. Some call this body doubling.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-group"/></svg>Group</li>
+            <li class="is-unconfirmed"><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>[CONFIRM]</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="olitsky-professional-power-hour">
+              <span>Compare<span class="sr-only"> Work-along hour for job tasks</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Work-along hour for job tasks</span></span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 06 -->
+    <section class="resource-category" data-category="community" aria-labelledby="community-title">
+      <div class="resource-category__heading">
+        <span class="resource-category__number">06</span>
+        <div>
+          <h2 id="community-title">Community and belonging</h2>
+          <p>Groups, mentors and events where you can meet people.</p>
+        </div>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource-card" data-resource-id="caps-neurodiversity-group" data-formats="group" aria-labelledby="title-caps-neurodiversity-group">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-caps-neurodiversity-group">Meet other neurodivergent students</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Meet other neurodivergent students">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Neurodiversity group, CaPS</p>
+          <p class="resource-card__desc">Connect with people who get it, in a small, regular group.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-group"/></svg>Group</li>
+            <li class="is-unconfirmed"><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>[CONFIRM]</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="caps-neurodiversity-group">
+              <span>Compare<span class="sr-only"> Meet other neurodivergent students</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Meet other neurodivergent students</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tartanconnect" data-formats="virtual" aria-labelledby="title-tartanconnect">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tartanconnect">Find a student organization</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Find a student organization">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">TartanConnect</p>
+          <p class="resource-card__desc">Browse clubs and groups by interest, then go to an event when you are ready.</p>
+          <ul class="resource-card__meta" aria-label="Format">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-book"/></svg>On your own</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Online directory</li>
+          </ul>
+          <div class="resource-card__actions">
+            <label class="compare-check">
+              <input class="compare-check__input" type="checkbox" value="tartanconnect">
+              <span>Compare<span class="sr-only"> Find a student organization</span></span>
+            </label>
+            <!-- PLACEHOLDER: replace href="#" with this resource's detail page once it exists. -->
+            <a class="next-steps-link" href="#" data-placeholder-link>
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">See next steps<span class="sr-only">: Find a student organization</span></span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    </div>
+  </section>
+  </main>
+
+      <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <img class="brand__logo" src="images/CMU-logo.png" alt="Carnegie Mellon University">
+        <p>Made with the Olitsky Career Readiness Program.</p>
+      </div>
+
+      <div id="urgent">
+        <h2 class="serif-h4">Urgent help</h2>
+        <ul>
+          <li>Counseling &amp; Psychological Services:</li>
+          <li><a href="tel:4122682922"><strong>412-268-2922</strong></a></li>
+          <li>Call or text <a href="tel:988"><strong>988</strong></a></li>
+          <li>In danger right now: <a href="tel:911"><strong>911</strong></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="serif-h4">About</h2>
+        <ul>
+          <li><a href="#">Privacy and accessibility</a></li>
+          <li><a href="#">Suggest a change</a></li>
+          <li><a href="#">About this guide</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <div class="container">
+        <p>This guide is not a crisis service. Carnegie Mellon University, Pittsburgh, PA</p>
+      </div>
+    </div>
+  </footer>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+<!-- Your custom JavaScript -->
+<script src="global.js"></script>
+
+</body>
+</html>
