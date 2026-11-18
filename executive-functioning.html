@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Executive Functioning Skills Clinic · Student Help Guide · Carnegie Mellon University</title>
+  <meta name="description" content="Join the CaPS Executive Functioning Skills Clinic: a small virtual group where you learn practical ways to plan, start and finish work.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="images/CMU-logo.png" alt="">
+        <span class="brand__text">
+          <strong>Student Help Guide</strong>
+          <span>Carnegie Mellon University</span>
+        </span>
+      </a>
+
+
+      <nav class="site-nav" aria-label="Main">
+
+        <!-- Bootstrap hamburger button -->
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse"
+                data-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Collapsible navigation -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul>
+            <li><a href="all-resources.html">Browse by need</a></li>
+            <li><a href="#choose">Help me choose</a></li>
+            <li><a class="is-urgent" href="#urgent">Urgent help</a></li>
+            <li><a href="#resources">My Resources (2)</a></li>
+            <li>
+              <button class="settings-btn" type="button"
+                      aria-label="Display settings">
+                <svg width="16" height="16"
+                     viewBox="0 0 16 16"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.4"
+                     stroke-linecap="round"
+                     aria-hidden="true">
+                  <path d="M2 4h7M13 4h1M2 12h1M7 12h7"/>
+                  <circle cx="11" cy="4" r="1.8"/>
+                  <circle cx="5" cy="12" r="1.8"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      
+      </nav>
+      
+
+      
+    </div>
+  </header>
+
+  <main id="main" class="detail">
+
+  <!-- Icons used on this page (referenced with <use href="#icon-...">) -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-group" viewBox="0 0 16 16"><circle cx="5.5" cy="5.5" r="2.25"/><circle cx="11" cy="6" r="1.85"/><path d="M1.5 13.5c.35-2.4 1.9-3.75 4-3.75s3.65 1.35 4 3.75M10 9.9c2.2-.3 4 .8 4.5 3.1"/></symbol>
+    <symbol id="icon-laptop" viewBox="0 0 16 16"><rect x="3" y="3.5" width="10" height="7" rx=".75"/><path d="M1.5 12.75h13"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4.75V8l2.25 1.5"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 16 16"><path d="M8 14.5s4.5-4.2 4.5-7.75a4.5 4.5 0 0 0-9 0C3.5 10.3 8 14.5 8 14.5z"/><circle cx="8" cy="6.75" r="1.6"/></symbol>
+    <symbol id="icon-doc" viewBox="0 0 16 16"><rect x="3.5" y="2" width="9" height="12" rx=".75"/><path d="M6 5.5h4M6 8h4M6 10.5h2.5"/></symbol>
+    <symbol id="icon-bookmark" viewBox="0 0 16 20"><path d="M2 1.5h12v17l-6-4.5-6 4.5z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></symbol>
+  </svg>
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero detail-hero">
+    <div class="container detail-hero__inner">
+      <div class="detail-hero__text">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="./">Home</a></li>
+            <li><a href="all-resources.html?category=planning">Planning, focus and getting started</a></li>
+          </ol>
+        </nav>
+
+        <h1>Executive Functioning Skills Clinic</h1>
+        <p class="detail-hero__lead">Learn practical ways to plan, start and finish work, in a small group with a few other students.</p>
+        <p class="detail-hero__official">Official name: Executive Functioning Skills Clinic, Counseling and Psychological Services (CaPS)</p>
+
+        <div class="detail-hero__actions">
+          <!-- PLACEHOLDER: replace href="#" with mailto: and the facilitator's email. -->
+          <a class="btn-primary-arrow" href="#" data-placeholder-link>
+            <span class="btn-primary-arrow__text">Email the facilitator</span>
+            <span class="btn-primary-arrow__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+          </a>
+          <!-- Shares saved state with the bookmark on the resources page. -->
+          <button class="save-btn" type="button" aria-pressed="false" data-save-resource="caps-executive-functioning-clinic">
+            <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            <span class="save-btn__label">Save</span>
+          </button>
+        </div>
+        <p class="detail-hero__note">Or call CaPS at <a href="tel:4122682922">412-268-2922</a> and ask about the clinic.</p>
+      </div>
+
+      <!-- Document + map pins + dotted path illustration -->
+      <img class="hero__art" src="images/headers/one-on-one-coaching-header.png" alt="">
+    </div>
+  </section>
+
+  <!-- ===================== Quick facts ===================== -->
+  <div class="container">
+    <dl class="detail-facts">
+      <div class="detail-facts__item">
+        <img class="detail-facts__icon" src="images/details-icons/format.png" alt="">
+        <div><dt>Format</dt><dd>Group</dd></div>
+      </div>
+      <div class="detail-facts__item">
+        <img class="detail-facts__icon" src="images/details-icons/where.png" alt="">
+        <div><dt>Where</dt><dd>Virtual</dd></div>
+      </div>
+      <div class="detail-facts__item">
+        <img class="detail-facts__icon" src="images/details-icons/howLong.png" alt="">
+        <div><dt>How long</dt><dd>3 sessions, Wed 1 to 2 pm</dd></div>
+      </div>
+      <div class="detail-facts__item">
+        <!-- IMAGE TODO: add images/details-icons/cost.png -->
+        <img class="detail-facts__icon" src="images/details-icons/cost.png" alt="">
+        <div><dt>Cost</dt><dd>Free</dd></div>
+      </div>
+    </dl>
+  </div>
+
+  <!-- ===================== Steps ===================== -->
+  <section class="container detail-section" aria-labelledby="steps-title">
+    <header class="detail-section__head">
+      <h2 class="detail-h2" id="steps-title">How to start, step by step</h2>
+      <p>Three steps. Everyone has a short call before joining.</p>
+    </header>
+
+    <ol class="detail-steps">
+
+      <li class="detail-step">
+        <img class="detail-step__img" src="images/stepByStepIcons/email-confirmation.png" alt="">
+
+        <div class="detail-step__body">
+          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">1</span><span class="sr-only">Step 1: </span>Email the facilitator or call CaPS</h3>
+          <ul class="detail-chips">
+            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>your CMU email, or phone 412-268-2922</li>
+            <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: your name and Andrew ID</li>
+          </ul>
+          <p>Say you want to join the Executive Functioning Skills Clinic. You can use the email below.</p>
+        </div>
+      </li>
+
+      <li class="detail-step">
+        <img class="detail-step__img" src="images/stepByStepIcons/meeting.png" alt="">
+
+        <div class="detail-step__body">
+          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">2</span><span class="sr-only">Step 2: </span>Have a short call first</h3>
+          <ul class="detail-chips">
+            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>Phone or Zoom with CaPS</li>
+            <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: a few minutes</li>
+          </ul>
+          <p>CaPS calls this a pre-group consultation. It is a short chat to check the group fits what you need.</p>
+          <p class="detail-tip"><strong>Not sure it fits?</strong> That is what this call is for. You can ask about other options too.</p>
+        </div>
+      </li>
+
+      <li class="detail-step">
+        <img class="detail-step__img" src="images/stepByStepIcons/calendar.png" alt="">
+
+        <div class="detail-step__body">
+          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">3</span><span class="sr-only">Step 3: </span>Join the 3 sessions</h3>
+          <ul class="detail-chips">
+            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>Zoom</li>
+            <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: the link CaPS sends you</li>
+          </ul>
+          <p>The group meets on Wednesdays from 1 to 2 pm. <span class="is-unconfirmed">[CONFIRM SPRING DATES]</span></p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ===================== What to expect ===================== -->
+  <section class="container" aria-labelledby="expect-title">
+    <div class="detail-expect">
+      <h2 class="detail-h2 detail-h2--sm" id="expect-title">What to expect</h2>
+      <div class="detail-expect__grid">
+        <div>
+          <img class="detail-expect__icon" src="images/what-to-expect-icons/before.png" alt="">
+          <h3>Before</h3>
+          <p>Have your Andrew ID and a rough idea of what gets in the way when you plan or start work.</p>
+        </div>
+        <div>
+          <img class="detail-expect__icon" src="images/what-to-expect-icons/during.png" alt="">
+          <h3>During</h3>
+          <p>A facilitator shares strategies and you try them with a few other students.</p>
+        </div>
+        <div>
+          <img class="detail-expect__icon" src="images/what-to-expect-icons/after.png" alt="">
+          <h3>After</h3>
+          <p>Keep using what works. Ask CaPS about other groups or one-on-one support if you want more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Email template + contact ===================== -->
+  <section class="container detail-contact-row" aria-label="Contact CaPS">
+    <div class="detail-email">
+
+      <img class="detail-email__icon" src="images/details-icons/send-email.png" alt="">
+      <div class="detail-email__body">
+        <div class="detail-email__head">
+          <h2 class="detail-email__title">Rather send an email?</h2>
+          <button class="detail-email__copy" type="button" data-copy-target="email-template">Copy email</button>
+        </div>
+        <p class="detail-email__template" id="email-template">Hi,&nbsp; I&rsquo;m a CMU student and I&rsquo;d like to join the Executive Functioning Skills Clinic. Could we set up the pre-group consultation? I&rsquo;m free [DAYS AND TIMES].&nbsp; Thank you, [YOUR NAME]</p>
+        <p class="detail-email__status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <aside class="detail-contact" aria-labelledby="contact-title">
+      <img class="detail-contact__icon" src="images/details-icons/contact.png" alt="">
+      <h2 class="detail-contact__title" id="contact-title">Contact</h2>
+      <dl class="detail-contact__list">
+        <div><dt>Office</dt><dd>Counseling and Psychological Services (CaPS)</dd></div>
+        <div><dt>Email</dt><dd><span class="is-unconfirmed">[FACILITATOR EMAIL]</span></dd></div>
+        <div><dt>Where</dt><dd>Phone <a href="tel:4122682922">412-268-2922</a></dd></div>
+      </dl>
+    </aside>
+  </section>
+
+  <!-- ===================== Other ways to get help ===================== -->
+  <section class="container detail-section detail-others" aria-labelledby="others-title">
+    <h2 class="detail-h2 detail-h2--sm" id="others-title">Not quite right? Other ways to get help</h2>
+    <p class="detail-others__intro">
+      <span>Rather work with one person? <a href="one-on-one-coaching.html">One-on-one coaching</a></span>
+      <span>Stress or feelings in the way? <a href="all-resources.html?category=feelings">Talk to CaPS</a></span>
+    </p>
+    <div class="detail-others__grid">
+      <a class="mini-card" href="one-on-one-coaching.html">
+        <span class="mini-card__eyebrow mini-card__eyebrow--red">One-on-one</span>
+        <span class="mini-card__title">One-on-one coaching for planning and focus</span>
+        <span class="mini-card__sub">SASC, 45 minutes</span>
+        <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+      </a>
+      <a class="mini-card" href="all-resources.html?category=career">
+        <span class="mini-card__eyebrow mini-card__eyebrow--blue">Group</span>
+        <span class="mini-card__title">Professional Power Hour</span>
+        <span class="mini-card__sub">Olitsky Program, work alongside others</span>
+        <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+      </a>
+      <a class="mini-card" href="all-resources.html?category=planning">
+        <span class="mini-card__eyebrow mini-card__eyebrow--blue">Workshop</span>
+        <span class="mini-card__title">Study and planning workshops</span>
+        <span class="mini-card__sub">SASC, one session</span>
+        <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+      </a>
+    </div>
+  </section>
+
+  </main>
+
+      <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <img class="brand__logo" src="images/CMU-logo.png" alt="Carnegie Mellon University">
+        <p>Made with the Olitsky Career Readiness Program.</p>
+      </div>
+
+      <div id="urgent">
+        <h2 class="serif-h4">Urgent help</h2>
+        <ul>
+          <li>Counseling &amp; Psychological Services:</li>
+          <li><a href="tel:4122682922"><strong>412-268-2922</strong></a></li>
+          <li>Call or text <a href="tel:988"><strong>988</strong></a></li>
+          <li>In danger right now: <a href="tel:911"><strong>911</strong></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="serif-h4">About</h2>
+        <ul>
+          <li><a href="#">Privacy and accessibility</a></li>
+          <li><a href="#">Suggest a change</a></li>
+          <li><a href="#">About this guide</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <div class="container">
+        <p>This guide is not a crisis service. Carnegie Mellon University, Pittsburgh, PA</p>
+      </div>
+    </div>
+  </footer>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+<!-- Your custom JavaScript -->
+<script src="global.js"></script>
+
+</body>
+</html>
