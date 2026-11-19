@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -18,8 +18,8 @@
   <!-- ===================== Header ===================== -->
   <header class="site-header">
     <div class="navbar">
-      <a class="brand" href="index.html">
-        <img class="brand__logo" src="images/CMU-logo.png" alt="">
+      <a class="brand" href="../index.html">
+        <img class="brand__logo" src="../images/CMU-logo.png" alt="">
         <span class="brand__text">
           <strong>Student Help Guide</strong>
           <span>Carnegie Mellon University</span>
@@ -42,10 +42,10 @@
         <!-- Collapsible navigation -->
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul>
-            <li><a href="all-resources.html">Browse by need</a></li>
+            <li><a href="../all-resources.html">All resources</a></li>
             <li><a href="#choose">Help me choose</a></li>
             <li><a class="is-urgent" href="#urgent">Urgent help</a></li>
-            <li><a href="#resources">My Resources (2)</a></li>
+            <li><a href="#resources">My Resources</a></li>
             <li>
               <button class="settings-btn" type="button"
                       aria-label="Display settings">
@@ -91,19 +91,19 @@
       <div class="detail-hero__text">
         <nav class="breadcrumb-trail" aria-label="Breadcrumb">
           <ol>
-            <li><a href="./">Home</a></li>
-            <li><a href="all-resources.html?category=classes">Classes and studying</a></li>
+            <li><a href="../">Home</a></li>
+            <li><a href="../all-resources.html?category=classes">Classes and studying</a></li>
           </ol>
         </nav>
 
-        <h1>Getting academic accommodations</h1>
-        <p class="detail-hero__lead">Changes like extra exam time or a quieter room, so a disability doesn&rsquo;t get in the way of your classes.</p>
-        <p class="detail-hero__official">Official name: Academic accommodations, Office of Disability Resources (ODR)</p>
+        <h1>One-on-one coaching for planning and focus</h1>
+        <p class="detail-hero__lead">Meet a trained peer coach to plan your week, get past procrastination and build routines that work for you.</p>
+        <p class="detail-hero__official">Official name: Success Coaching, Student Academic Success Center (SASC)</p>
 
         <div class="detail-hero__actions">
           <!-- PLACEHOLDER: replace href="#" with the ODR online portal URL. -->
           <a class="btn-primary-arrow" href="#" target="_blank" rel="noopener" data-placeholder-link>
-            <span class="btn-primary-arrow__text">Start the application</span>
+            <span class="btn-primary-arrow__text">Book in WCOnline</span>
             <span class="btn-primary-arrow__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
           </a>
           <!-- Shares saved state with the bookmark on the resources page. -->
@@ -112,11 +112,11 @@
             <span class="save-btn__label">Save</span>
           </button>
         </div>
-        <p class="detail-hero__note">Opens the ODR online portal in a new tab. Sign in with your Andrew ID.</p>
+        <p class="detail-hero__note">Opens WCOnline, the booking site SASC uses, in a new tab.</p>
       </div>
 
       <!-- Document + map pins + dotted path illustration -->
-      <img class="hero__art" src="images/accomodations-header.png" alt="">
+      <img class="hero__art" src="../images/headers/one-on-one-coaching-header.png" alt="">
     </div>
   </section>
 
@@ -124,16 +124,16 @@
   <div class="container">
     <dl class="detail-facts">
       <div class="detail-facts__item">
-        <img class="detail-facts__icon" src="images/details-icons/format.png" alt="">
-        <div><dt>Format</dt><dd>Step-by-step guide</dd></div>
+        <img class="detail-facts__icon" src="../images/details-icons/format.png" alt="">
+        <div><dt>Format</dt><dd>One-on-one</dd></div>
       </div>
       <div class="detail-facts__item">
-        <img class="detail-facts__icon" src="images/details-icons/where.png" alt="">
-        <div><dt>Where</dt><dd>ODR portal, Zoom or office</dd></div>
+        <img class="detail-facts__icon" src="../images/details-icons/where.png" alt="">
+        <div><dt>Where</dt><dd>Virtual or in person</dd></div>
       </div>
       <div class="detail-facts__item">
-        <img class="detail-facts__icon" src="images/details-icons/howLong.png" alt="">
-        <div><dt>How long</dt><dd class="is-unconfirmed">[CONFIRM WITH ODR]</dd></div>
+        <img class="detail-facts__icon" src="../images/details-icons/howLong.png" alt="">
+        <div><dt>How long</dt><dd>1 hour</dd></div>
       </div>
     </dl>
   </div>
@@ -142,88 +142,61 @@
   <section class="container detail-section" aria-labelledby="steps-title">
     <header class="detail-section__head">
       <h2 class="detail-h2" id="steps-title">How to start, step by step</h2>
-      <p>Five steps across the ODR portal, your email and one meeting.</p>
+      <p>Four steps, all in WCOnline and your email.</p>
     </header>
 
     <ol class="detail-steps">
 
       <li class="detail-step">
-      
-        <img class="detail-step__img" src="images/stepByStepIcons/apply-online.png" alt="">         
+        <img class="detail-step__img" src="../images/stepByStepIcons/sign-in.png" alt="">
 
         <div class="detail-step__body">
-          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">1</span><span class="sr-only">Step 1: </span>Apply online</h3>
+          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">1</span><span class="sr-only">Step 1: </span>Open WCOnline and sign in</h3>
           <ul class="detail-chips">
-            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>ODR online portal</li>
+            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>WCOnline, the SASC booking site</li>
             <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: your Andrew ID</li>
           </ul>
-          <p>Sign in and choose Start New Application. It asks a few questions about you and your classes.</p>
-          <p class="detail-tip"><strong>Start term means</strong> the term you want accommodations to start, not when you started at CMU.</p>
-          <!-- PLACEHOLDER: replace href="#" with the ODR online portal URL. -->
-          <a class="next-steps-link" href="#" target="_blank" rel="noopener" data-placeholder-link>
-            <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
-            <span class="next-steps-link__text">Open the application</span>
-          </a>
+          <p>The first time, it asks you to register. The college and major questions help match you with a coach, and you can say no to emails.</p>
         </div>
       </li>
 
       <li class="detail-step">
-
-        <img class="detail-step__img" src="images/stepByStepIcons/email-confirmation.png" alt="">         
+        <img class="detail-step__img" src="../images/stepByStepIcons/open-browser.png" alt="">
 
         <div class="detail-step__body">
-          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">2</span><span class="sr-only">Step 2: </span>Get a confirmation</h3>
+          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">2</span><span class="sr-only">Step 2: </span>Choose &ldquo;Success Coaching&rdquo;</h3>
+          <ul class="detail-chips">
+            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>WCOnline, menu at the top</li>
+            <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: nothing</li>
+          </ul>
+          <p>The site lists other SASC services too. Pick Success Coaching. You see one week at a time, so use the arrows for next week.</p>
+        </div>
+      </li>
+
+      <li class="detail-step">
+        <img class="detail-step__img" src="../images/stepByStepIcons/calendar.png" alt="">
+
+        <div class="detail-step__body">
+          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">3</span><span class="sr-only">Step 3: </span>Pick a time and fill the short form</h3>
+          <ul class="detail-chips">
+            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>WCOnline, booking form</li>
+            <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: one sentence on what&rsquo;s hard</li>
+          </ul>
+          <p>Tick the topics that fit. If the checkboxes already say it, write &ldquo;see above&rdquo; in the text box.</p>
+          <p class="detail-tip"><strong>Not sure about your deadlines?</strong> It&rsquo;s fine to say so on the form.</p>
+        </div>
+      </li>
+
+      <li class="detail-step">
+        <img class="detail-step__img" src="../images/stepByStepIcons/email-confirmation.png" alt="">
+
+        <div class="detail-step__body">
+          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">4</span><span class="sr-only">Step 4: </span>Look for the confirmation email</h3>
           <ul class="detail-chips">
             <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>your CMU email</li>
             <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: nothing</li>
           </ul>
-          <p>ODR emails you to say they got your form. If you don&rsquo;t see it in a few days, check spam, then email ODR.</p>
-        </div>
-      </li>
-
-      <li class="detail-step">
-        <img class="detail-step__img" src="images/stepByStepIcons/documentation.png" alt="">         
-
-        <div class="detail-step__body">
-          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">3</span><span class="sr-only">Step 3: </span>Send your documentation</h3>
-          <ul class="detail-chips">
-            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>upload in the ODR portal</li>
-            <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: documents about your disability</li>
-          </ul>
-          <p>A letter or report from a provider who knows you. The documentation guidelines say what it should include. Upload it in the same portal where you applied.</p>
-          <p class="detail-tip"><strong>Don&rsquo;t have documents yet?</strong> Email ODR anyway. They can tell you your options.</p>
-        </div>
-      </li>
-
-      <li class="detail-step">
-        
-          <img class="detail-step__img" src="images/stepByStepIcons/meeting.png" alt="">         
-       
-        <div class="detail-step__body">
-          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">4</span><span class="sr-only">Step 4: </span>Meet with ODR</h3>
-          <ul class="detail-chips">
-            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>Zoom or the ODR office</li>
-            <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: to talk about what gets in your way</li>
-          </ul>
-          <p>A staff member talks with you about how classes and exams go and what changes could help. Then they decide on your accommodations.</p>
-          <!-- PLACEHOLDER: replace href="#" with ODR's meeting request link. -->
-          <a class="next-steps-link" href="#" data-placeholder-link>
-            <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
-            <span class="next-steps-link__text">Request a meeting</span>
-          </a>
-        </div>
-      </li>
-
-      <li class="detail-step">
-        <img class="detail-step__img" src="images/stepByStepIcons/share-letter.png" alt="">         
-        <div class="detail-step__body">
-          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">5</span><span class="sr-only">Step 5: </span>Share your letter, every semester</h3>
-          <ul class="detail-chips">
-            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>ODR portal, after approval</li>
-            <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: your class list</li>
-          </ul>
-          <p>Once approved, send your Summary of Accommodations Memorandum to your instructors from the portal at the start of each semester.</p>
-          <p class="detail-tip"><strong>Can&rsquo;t find the memo?</strong> It only shows up in the portal after you&rsquo;re approved.</p>
+          <p>It has your time and whether you meet on Zoom or in person. Need to change it? Use the link in that email.</p>
         </div>
       </li>
 
@@ -236,46 +209,48 @@
       <h2 class="detail-h2 detail-h2--sm" id="expect-title">What to expect</h2>
       <div class="detail-expect__grid">
         <div>
-          <img class="detail-expect__icon" src="images/what-to-expect-icons/before.png" alt="">
+          <img class="detail-expect__icon" src="../images/what-to-expect-icons/before.png" alt="">
           <h3>Before</h3>
-          <p>Have your Andrew ID. If you already have documents from a provider, keep them handy.</p>
+          <p>Have your Andrew ID ready and think of one thing you&rsquo;d like help with.</p>
         </div>
         <div>
-          <img class="detail-expect__icon" src="images/what-to-expect-icons/during.png" alt="">
+          <img class="detail-expect__icon" src="../images/what-to-expect-icons/during.png" alt="">
           <h3>During</h3>
-          <p>You talk with ODR about how classes and exams go and what could help.</p>
+          <p>Talk with your coach about what&rsquo;s challenging and choose strategies to try.</p>
         </div>
         <div>
-          <img class="detail-expect__icon" src="images/what-to-expect-icons/after.png" alt="">
+          <img class="detail-expect__icon" src="../images/what-to-expect-icons/after.png" alt="">
           <h3>After</h3>
-          <p>Once approved, send your letter to instructors at the start of every semester.</p>
+          <p>Try your strategies and book another session if you&rsquo;d like more support.</p>
         </div>
       </div>
+      <p class="detail-tip"><strong>Need to cancel or reschedule?</strong> If you miss or cancel appointments late three times in a semester, your booking access may be temporarily disabled. Email <a href="mailto:tutoring@andrew.cmu.edu">tutoring@andrew.cmu.edu</a> to restore access.</p>
     </div>
   </section>
 
   <!-- ===================== Email template + contact ===================== -->
-  <section class="container detail-contact-row" aria-label="Contact ODR">
+  <section class="container detail-contact-row" aria-label="Contact SASC">
     <div class="detail-email">
 
-      <img class="detail-email__icon" src="images/details-icons/send-email.png" alt="">
+      <img class="detail-email__icon" src="../images/details-icons/send-email.png" alt="">
       <div class="detail-email__body">
         <div class="detail-email__head">
           <h2 class="detail-email__title">Rather send an email?</h2>
           <button class="detail-email__copy" type="button" data-copy-target="email-template">Copy email</button>
         </div>
-        <p class="detail-email__template" id="email-template">Hi,&nbsp; I&rsquo;m a CMU student and I&rsquo;d like to learn about academic accommodations. [I don&rsquo;t have documents yet. / I have documents from my provider.] Could you tell me what to do next?&nbsp; Thank you, [YOUR NAME]</p>
+        <p class="detail-email__template" id="email-template">Hi,&nbsp; I&rsquo;m a CMU student and I&rsquo;d like to meet with a success coach about managing my time and getting started on assignments. I&rsquo;m free [DAYS AND TIMES]. Could you help me book a meeting?&nbsp; Thank you, [YOUR NAME]</p>
         <p class="detail-email__status" role="status" aria-live="polite"></p>
       </div>
     </div>
 
     <aside class="detail-contact" aria-labelledby="contact-title">
-      <img class="detail-contact__icon" src="images/details-icons/contact.png" alt="">
+      <img class="detail-contact__icon" src="../images/details-icons/contact.png" alt="">
       <h2 class="detail-contact__title" id="contact-title">Contact</h2>
       <dl class="detail-contact__list">
-        <div><dt>Office</dt><dd>Office of Disability Resources</dd></div>
-        <div><dt>Email</dt><dd><a href="mailto:access@andrew.cmu.edu">access@andrew.cmu.edu</a></dd></div>
-        <div><dt>Where</dt><dd><span class="is-unconfirmed">[BUILDING AND ROOM]</span> or Zoom</dd></div>
+        <div><dt>Office</dt><dd>Student Academic Success Center</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:success@andrew.cmu.edu">success@andrew.cmu.edu</a></dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:4122686823">412-268-6823</a></dd></div>
+        <div><dt>Where</dt><dd>Posner Hall or online</dd></div>
       </dl>
     </aside>
   </section>
@@ -284,26 +259,26 @@
   <section class="container detail-section detail-others" aria-labelledby="others-title">
     <h2 class="detail-h2 detail-h2--sm" id="others-title">Not quite right? Other ways to get help</h2>
     <p class="detail-others__intro">
-      <span>Need changes at an internship or job? <a href="all-resources.html?category=career">Olitsky career coaching</a></span>
-      <span>Help with course content? <a href="all-resources.html?category=classes">Supplemental Instruction</a></span>
+      <span>Help with course content? <a href="../all-resources.html?category=classes">Supplemental Instruction</a></span>
+      <span>Stress or feelings in the way? <a href="../all-resources.html?category=feelings">Talk to CaPS</a></span>
     </p>
     <div class="detail-others__grid">
-      <a class="mini-card" href="all-resources.html?category=career">
-        <span class="mini-card__eyebrow mini-card__eyebrow--red">One-on-one</span>
-        <span class="mini-card__title">Career coaching for neurodivergent students</span>
-        <span class="mini-card__sub">Olitsky Program, workplace accommodations</span>
+      <a class="mini-card" href="../all-resources.html?category=planning">
+        <span class="mini-card__eyebrow mini-card__eyebrow--blue">Group</span>
+        <span class="mini-card__title">Executive Functioning Skills Clinic</span>
+        <span class="mini-card__sub">CaPS, virtual, 3 sessions</span>
         <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
       </a>
-      <a class="mini-card" href="all-resources.html?category=planning">
-        <span class="mini-card__eyebrow mini-card__eyebrow--red">One-on-one</span>
-        <span class="mini-card__title">One-on-one coaching for planning and focus</span>
-        <span class="mini-card__sub">Success Coaching, SASC</span>
+      <a class="mini-card" href="../all-resources.html?category=career">
+        <span class="mini-card__eyebrow mini-card__eyebrow--blue">Group</span>
+        <span class="mini-card__title">Professional Power Hour</span>
+        <span class="mini-card__sub">Olitsky Program, work alongside others</span>
         <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
       </a>
-      <a class="mini-card" href="all-resources.html?category=feelings">
-        <span class="mini-card__eyebrow mini-card__eyebrow--red">One-on-one</span>
-        <span class="mini-card__title">A first conversation with a counselor</span>
-        <span class="mini-card__sub">CaPS, free and private</span>
+      <a class="mini-card" href="../all-resources.html?category=planning">
+        <span class="mini-card__eyebrow mini-card__eyebrow--blue">Workshop</span>
+        <span class="mini-card__title">Study and planning workshops</span>
+        <span class="mini-card__sub">SASC, one session</span>
         <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
       </a>
     </div>
@@ -315,7 +290,7 @@
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div>
-        <img class="brand__logo" src="images/CMU-logo.png" alt="Carnegie Mellon University">
+        <img class="brand__logo" src="../images/CMU-logo.png" alt="Carnegie Mellon University">
         <p>Made with the Olitsky Career Readiness Program.</p>
       </div>
 
@@ -352,7 +327,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
 <!-- Your custom JavaScript -->
-<script src="global.js"></script>
+<script src="../global.js"></script>
 
 </body>
 </html>
