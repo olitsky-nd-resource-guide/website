@@ -35,9 +35,11 @@
     --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
     --font-sans: "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   
-    /* Layout */
-    --container: 1120px;
-    --gutter: 24px;
+    /* Layout: every page lines up to this width. The gutter grows with the
+       screen (48px at 1280px wide) so content fills the page like the mockups,
+       capped at 1440px of content on very wide screens. */
+    --gutter: clamp(24px, 3.75vw, 64px);
+    --container: calc(1440px + 2 * var(--gutter));
   }
   
   /* =================================
@@ -219,7 +221,7 @@
     justify-content: space-between;
     gap: 24px;
     width: 100%;
-    padding-right: var(--gutter);
+    padding-right: 24px; /* header stays tight to the edge, independent of the page gutter */
   }
   
   .brand {
@@ -308,14 +310,15 @@
   
   .hero__inner {
     display: grid;
-    /* Full-width hero: text starts further left, art column lines up
-       under the "Help me choose" nav item (~414px from the right edge). */
+    /* Same box as every other page; the homepage art is larger than
+       the detail page art, as in the mockup. */
     --hero-art-col: 390px;
     grid-template-columns: minmax(0, 1fr) var(--hero-art-col);
     align-items: center;
     gap: 48px;
-    max-width: none;
-    padding: 72px var(--gutter) 80px clamp(24px, 6vw, 96px);
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 72px var(--gutter) 80px;
   }
   
   .hero h1 { white-space: nowrap; }
@@ -433,7 +436,7 @@
      tablet and phone (see Responsive below), where the hero is one column. */
   .hero__art { justify-self: center; align-self: center; width: 100%; max-width: var(--hero-art-col); height: auto; }
   /* Resources illustration is taller than the laptop, so show it smaller. */
-  .hero .hero__art--resources { max-width: 250px; }
+  .hero .hero__art--resources { max-width: 250px; justify-self: end; }
   
   /* ==========================================================
      Sections
@@ -722,6 +725,8 @@
     display: flex;
     align-items: center;
     gap: 0;
+    max-width: var(--container);
+    margin: 0 auto;
     padding: 0 var(--gutter);
     overflow-x: auto;
     scrollbar-width: thin;
@@ -761,6 +766,8 @@
   ================================= */
   
   .resource-section {
+    max-width: var(--container);
+    margin: 0 auto;
     padding: 28px var(--gutter) 72px;
   }
   
@@ -1118,7 +1125,6 @@
      RESOURCE DETAIL PAGE (accomodations.html)
   ================================= */
   
-  .detail .container { max-width: calc(1184px + 2 * var(--gutter)); }
   
   /* Hero */
   .detail-hero__inner {
@@ -1349,8 +1355,23 @@
     color: var(--color-neutral-gray-700);
   }
   .detail-tip strong { color: var(--color-neutral-ink); }
+  /* Links inside step text and tips: red and underlined so they read as links before hover. */
+  .detail-step__body p a {
+    color: var(--color-brand-carnegie-red);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .detail-step__body p a:hover { color: var(--color-brand-skibo-red); text-decoration-thickness: 2px; }
   .detail-expect > .detail-tip {
     margin: 24px 0 0;
+    padding: 12px 16px;
+    background: var(--color-surface-tip);
+    font: 400 14px/1.6 var(--font-sans);
+    color: var(--color-neutral-gray-700);
+  }
+  /* Disclaimer above the filters on the tools page. */
+  .tool-directory > .detail-tip {
+    margin: 0 0 24px;
     padding: 12px 16px;
     background: var(--color-surface-tip);
     font: 400 14px/1.6 var(--font-sans);
@@ -1398,21 +1419,42 @@
     gap: 12px 16px;
   }
   .detail-email__title { font: 700 24px/1.25 var(--font-serif); color: var(--color-neutral-black); }
-  .detail-email__copy {
+  .detail-email__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .detail-email__open {
     padding: 10px 18px;
     background: var(--color-neutral-black);
     color: var(--color-neutral-white);
-    border: 0;
+    font: 700 14px/1 var(--font-sans);
+    text-decoration: none;
+  }
+  .detail-email__open:hover { background: var(--color-neutral-gray-700); color: var(--color-neutral-white); text-decoration: none; }
+  .detail-email__copy {
+    padding: 9px 17px; /* 1px less than .detail-email__open to make room for the border */
+    background: var(--color-neutral-white);
+    border: 1px solid var(--color-neutral-black);
+    color: var(--color-neutral-black);
     font: 700 14px/1 var(--font-sans);
     cursor: pointer;
   }
-  .detail-email__copy:hover { background: var(--color-neutral-gray-700); }
+  .detail-email__copy:hover { background: var(--color-neutral-black); color: var(--color-neutral-white); }
   .detail-email__template {
     margin-top: 16px;
     padding: 24px;
     background: var(--color-surface-paper);
     font: 400 19px/1.6 var(--font-serif);
     color: var(--color-neutral-ink);
+  }
+  .detail-email__template p { margin: 0 0 14px; }
+  .detail-email__template p:last-child { margin-bottom: 0; }
+  .detail-email__subject {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-neutral-border);
+    font: 600 16px/1.5 var(--font-sans);
+  }
+  .detail-email__label {
+    margin-right: 8px;
+    font-weight: 400;
+    color: var(--color-neutral-gray-600);
   }
   .detail-email__status { margin-top: 10px; font: 400 13px/1.4 var(--font-sans); color: var(--color-neutral-gray-600); }
   .detail-email__status:empty { display: none; }

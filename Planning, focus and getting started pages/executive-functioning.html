@@ -101,8 +101,7 @@
         <p class="detail-hero__official">Official name: Executive Functioning Skills Clinic, Counseling and Psychological Services (CaPS)</p>
 
         <div class="detail-hero__actions">
-          <!-- PLACEHOLDER: replace href="#" with mailto: and the facilitator's email. -->
-          <a class="btn-primary-arrow" href="#" data-placeholder-link>
+          <a class="btn-primary-arrow" href="mailto:eunkefer@andrew.cmu.edu">
             <span class="btn-primary-arrow__text">Email the facilitator</span>
             <span class="btn-primary-arrow__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
           </a>
@@ -133,12 +132,7 @@
       </div>
       <div class="detail-facts__item">
         <img class="detail-facts__icon" src="../images/details-icons/howLong.png" alt="">
-        <div><dt>How long</dt><dd>3 sessions, Wed 1 to 2 pm</dd></div>
-      </div>
-      <div class="detail-facts__item">
-        <!-- IMAGE TODO: add images/details-icons/cost.png -->
-        <img class="detail-facts__icon" src="../images/details-icons/cost.png" alt="">
-        <div><dt>Cost</dt><dd>Free</dd></div>
+        <div><dt>How long</dt><dd>3 sessions, 1 hour each</dd></div>
       </div>
     </dl>
   </div>
@@ -156,12 +150,12 @@
         <img class="detail-step__img" src="../images/stepByStepIcons/email-confirmation.png" alt="">
 
         <div class="detail-step__body">
-          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">1</span><span class="sr-only">Step 1: </span>Email the facilitator or call CaPS</h3>
+          <h3 class="detail-step__title"><span class="detail-step__num" aria-hidden="true">1</span><span class="sr-only">Step 1: </span>Check the schedule, then reach out</h3>
           <ul class="detail-chips">
-            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>your CMU email, or phone 412-268-2922</li>
+            <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>CaPS website, then email or phone</li>
             <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: your name and Andrew ID</li>
           </ul>
-          <p>Say you want to join the Executive Functioning Skills Clinic. You can use the email below.</p>
+          <p>Check the <a href="https://www.cmu.edu/counseling/services/groups-workshops.html" target="_blank" rel="noopener">current group schedule</a>, then email Erin Unkefer or call CaPS at <a href="tel:4122682922">412-268-2922</a> to ask about joining. You can use the email below.</p>
         </div>
       </li>
 
@@ -174,7 +168,7 @@
             <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>Phone or Zoom with CaPS</li>
             <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: a few minutes</li>
           </ul>
-          <p>CaPS calls this a pre-group consultation. It is a short chat to check the group fits what you need.</p>
+          <p>Talk with a CaPS clinician about what you need, how the group works, and whether it&rsquo;s a good fit. You can also ask questions.</p>
           <p class="detail-tip"><strong>Not sure it fits?</strong> That is what this call is for. You can ask about other options too.</p>
         </div>
       </li>
@@ -188,7 +182,7 @@
             <li class="detail-chip detail-chip--where"><svg aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>Zoom</li>
             <li class="detail-chip"><svg aria-hidden="true" focusable="false"><use href="#icon-doc"/></svg>You need: the link CaPS sends you</li>
           </ul>
-          <p>The group meets on Wednesdays from 1 to 2 pm. <span class="is-unconfirmed">[CONFIRM SPRING DATES]</span></p>
+          <p>The group meets for 3 sessions, 1 hour each. <a href="https://www.cmu.edu/counseling/services/groups-workshops.html" target="_blank" rel="noopener">Check the current schedule</a> for upcoming dates.</p>
         </div>
       </li>
 
@@ -227,9 +221,19 @@
       <div class="detail-email__body">
         <div class="detail-email__head">
           <h2 class="detail-email__title">Rather send an email?</h2>
-          <button class="detail-email__copy" type="button" data-copy-target="email-template">Copy email</button>
+          <div class="detail-email__actions">
+            <a class="detail-email__open" href="mailto:eunkefer@andrew.cmu.edu" data-email-open="email-template" data-email-to="eunkefer@andrew.cmu.edu">Write this email</a>
+            <button class="detail-email__copy" type="button" data-copy-target="email-template">Copy message</button>
+          </div>
         </div>
-        <p class="detail-email__template" id="email-template">Hi,&nbsp; I&rsquo;m a CMU student and I&rsquo;d like to join the Executive Functioning Skills Clinic. Could we set up the pre-group consultation? I&rsquo;m free [DAYS AND TIMES].&nbsp; Thank you, [YOUR NAME]</p>
+        <div class="detail-email__template" id="email-template">
+          <p class="detail-email__subject"><span class="detail-email__label">Subject</span> <span data-email-part="subject">Joining the Executive Functioning Skills Clinic</span></p>
+          <div data-email-part="body">
+            <p>Hi Erin,</p>
+            <p>I&rsquo;m a CMU student and I&rsquo;d like to join the Executive Functioning Skills Clinic. Could we set up the pre-group consultation? I&rsquo;m free [DAYS AND TIMES].</p>
+          </div>
+          <p data-email-part="closing">Thank you,<br>[YOUR NAME]</p>
+        </div>
         <p class="detail-email__status" role="status" aria-live="polite"></p>
       </div>
     </div>
@@ -239,7 +243,8 @@
       <h2 class="detail-contact__title" id="contact-title">Contact</h2>
       <dl class="detail-contact__list">
         <div><dt>Office</dt><dd>Counseling and Psychological Services (CaPS)</dd></div>
-        <div><dt>Email</dt><dd><span class="is-unconfirmed">[FACILITATOR EMAIL]</span></dd></div>
+        <div><dt>Facilitator</dt><dd>Erin Unkefer</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:eunkefer@andrew.cmu.edu">eunkefer@andrew.cmu.edu</a></dd></div>
         <div><dt>Where</dt><dd>Phone <a href="tel:4122682922">412-268-2922</a></dd></div>
       </dl>
     </aside>
@@ -256,7 +261,7 @@
       <a class="mini-card" href="one-on-one-coaching.html">
         <span class="mini-card__eyebrow mini-card__eyebrow--red">One-on-one</span>
         <span class="mini-card__title">One-on-one coaching for planning and focus</span>
-        <span class="mini-card__sub">SASC, 45 minutes</span>
+        <span class="mini-card__sub">SASC, 1 hour</span>
         <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
       </a>
       <a class="mini-card" href="../all-resources.html?category=career">
@@ -265,7 +270,7 @@
         <span class="mini-card__sub">Olitsky Program, work alongside others</span>
         <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
       </a>
-      <a class="mini-card" href="../all-resources.html?category=planning">
+      <a class="mini-card" href="../Classes%20and%20studying%20pages/academic-workshops.html">
         <span class="mini-card__eyebrow mini-card__eyebrow--blue">Workshop</span>
         <span class="mini-card__title">Study and planning workshops</span>
         <span class="mini-card__sub">SASC, one session</span>

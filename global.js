@@ -1,5 +1,28 @@
 
 // =================================
+// RESOURCES IN MORE THAN ONE CATEGORY
+// =================================
+// A card is written once, in its main category on all-resources.html.
+// data-also-in="planning community" adds a copy to those categories too.
+// Copies keep the same data-resource-id, so bookmarks and Compare treat
+// them as one resource. This runs first so the code below wires up copies.
+
+document.querySelectorAll(".resource-card[data-also-in]").forEach(card => {
+  card.dataset.alsoIn.split(/\s+/).filter(Boolean).forEach(category => {
+    const grid = document.querySelector(`.resource-category[data-category="${category}"] .resource-grid`);
+    if (!grid) return;
+    const copy = card.cloneNode(true);
+    copy.removeAttribute("data-also-in");
+    // Element ids must stay unique on the page.
+    copy.querySelectorAll("[id]").forEach(el => { el.id += "--" + category; });
+    const labelledBy = copy.getAttribute("aria-labelledby");
+    if (labelledBy) copy.setAttribute("aria-labelledby", labelledBy + "--" + category);
+    grid.appendChild(copy);
+  });
+});
+
+
+// =================================
 // SAVED RESOURCES (bookmarks)
 // =================================
 // Saved resource IDs live in localStorage so they survive refreshes and
@@ -63,8 +86,8 @@ function setSaved(id, saved) {
 document.querySelectorAll(BOOKMARK_SELECTOR).forEach(button => {
   button.addEventListener("click", () => {
     const saved = button.getAttribute("aria-pressed") !== "true";
-    showBookmarkState(button, saved);
     setSaved(bookmarkId(button), saved);
+    syncBookmarkButtons(); // updates every copy of this resource on the page
   });
 });
 
@@ -87,6 +110,10 @@ document.querySelectorAll(".compare-check__input").forEach(input => {
   input.addEventListener("change", () => {
     if (input.checked) compareSelection.add(input.value);
     else compareSelection.delete(input.value);
+    // Keep copies of the same resource in other categories in step.
+    document.querySelectorAll(".compare-check__input").forEach(other => {
+      if (other.value === input.value) other.checked = input.checked;
+    });
   });
 });
 
@@ -103,17 +130,62 @@ document.querySelectorAll("[data-placeholder-link]").forEach(link => {
 
 
 // =================================
-// COPY BUTTONS
+// EMAIL TEMPLATES
 // =================================
-// <button data-copy-target="some-id"> copies the text of #some-id and
-// reports the result in the nearest .detail-email__status (if any).
+// An email template is split into parts:
+//   [data-email-part="subject"]  the subject line
+//   [data-email-part="body"]     the message; each <p> is one paragraph
+//   [data-email-part="closing"]  the sign-off; <br> starts a new line
+//
+// <a data-email-open="some-id" data-email-to="name@andrew.cmu.edu">
+//   opens the student's email app with the recipient, subject and message
+//   filled in. Leave data-email-to empty to let the student fill in "To".
+// <button data-copy-target="some-id">
+//   copies the message (body and closing) and reports the result in the
+//   nearest .detail-email__status (if any).
+
+// Text of an element with <br> as line breaks and tidy spacing.
+function emailText(el) {
+  if (!el) return "";
+  const clone = el.cloneNode(true);
+  clone.querySelectorAll("br").forEach(br => br.replaceWith("\n"));
+  return clone.textContent
+    .split("\n")
+    .map(line => line.replace(/ /g, " ").replace(/\s+/g, " ").trim())
+    .filter(Boolean)
+    .join("\n");
+}
+
+function emailParts(template) {
+  const body = template.querySelector('[data-email-part="body"]');
+  const paragraphs = body
+    ? [...body.querySelectorAll("p")].map(emailText).filter(Boolean)
+    : [emailText(template)];
+  const closing = emailText(template.querySelector('[data-email-part="closing"]'));
+  return {
+    subject: emailText(template.querySelector('[data-email-part="subject"]')),
+    message: [...paragraphs, closing].filter(Boolean).join("\n\n"),
+  };
+}
+
+document.querySelectorAll("[data-email-open]").forEach(link => {
+  const template = document.getElementById(link.dataset.emailOpen);
+  if (!template) return;
+  const { subject, message } = emailParts(template);
+  const to = link.dataset.emailTo || "";
+  const query = [];
+  if (subject) query.push("subject=" + encodeURIComponent(subject));
+  // Email links expect CRLF line breaks.
+  if (message) query.push("body=" + encodeURIComponent(message.replace(/\n/g, "\r\n")));
+  link.href = "mailto:" + to + (query.length ? "?" + query.join("&") : "");
+});
 
 document.querySelectorAll("[data-copy-target]").forEach(button => {
   button.addEventListener("click", async () => {
     const source = document.getElementById(button.dataset.copyTarget);
     const status = button.closest(".detail-email")?.querySelector(".detail-email__status");
     if (!source) return;
-    const text = source.textContent.replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const text = emailParts(source).message;
 
     let copied = false;
     try {
@@ -134,7 +206,7 @@ document.querySelectorAll("[data-copy-target]").forEach(button => {
 
     if (status) {
       status.textContent = copied
-        ? "Copied. Paste it into a new email and fill in the parts in brackets."
+        ? "Copied the message. Paste it into a new email, add the subject and fill in the parts in brackets."
         : "Couldn't copy automatically. Select the text above and copy it.";
     }
   });
@@ -146,6 +218,51 @@ window.StudentHelpGuide = {
   getSavedResources: () => [...savedResources],
   getCompareSelection: () => [...compareSelection]
 };
+
+
+// =================================
+// TOOLS PAGE FILTERS (assistive-technology.html)
+// =================================
+// Buttons use data-tool-filter; cards list their filters in data-tools.
+// assistive-technology.html?filter=timers (etc.) opens on one filter.
+
+const toolButtons = document.querySelectorAll("[data-tool-filter]");
+const toolCards = document.querySelectorAll(".resource-card[data-tools]");
+
+if (toolButtons.length && toolCards.length) {
+  const toolFilters = [...toolButtons].map(button => button.dataset.toolFilter);
+  const fromUrl = new URLSearchParams(window.location.search).get("filter");
+  let selectedTool = toolFilters.includes(fromUrl) ? fromUrl : "all";
+  const toolStatus = document.getElementById("tool-status");
+
+  function updateTools() {
+    toolButtons.forEach(button => {
+      const active = button.dataset.toolFilter === selectedTool;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    let visible = 0;
+    toolCards.forEach(card => {
+      const show = selectedTool === "all" || card.dataset.tools.split(" ").includes(selectedTool);
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    if (toolStatus) toolStatus.textContent = visible ? "" : "No tools match this filter.";
+  }
+
+  toolButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      selectedTool = button.dataset.toolFilter;
+      const url = new URL(window.location.href);
+      if (selectedTool === "all") url.searchParams.delete("filter");
+      else url.searchParams.set("filter", selectedTool);
+      window.history.replaceState(null, "", url);
+      updateTools();
+    });
+  });
+
+  updateTools();
+}
 
 
 // =================================

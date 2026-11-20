@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tools to try on your own · Student Help Guide · Carnegie Mellon University</title>
+  <meta name="description" content="Apps, timers and websites students can try on their own for focus, routines, research, writing and reading on screen. Suggestions, not endorsements.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="../index.html">
+        <img class="brand__logo" src="../images/CMU-logo.png" alt="">
+        <span class="brand__text">
+          <strong>Student Help Guide</strong>
+          <span>Carnegie Mellon University</span>
+        </span>
+      </a>
+
+
+      <nav class="site-nav" aria-label="Main">
+
+        <!-- Bootstrap hamburger button -->
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse"
+                data-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Collapsible navigation -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul>
+            <li><a href="../all-resources.html">All resources</a></li>
+            <li><a href="#choose">Help me choose</a></li>
+            <li><a class="is-urgent" href="#urgent">Urgent help</a></li>
+            <li><a href="#resources">My Resources</a></li>
+            <li>
+              <button class="settings-btn" type="button"
+                      aria-label="Display settings">
+                <svg width="16" height="16"
+                     viewBox="0 0 16 16"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.4"
+                     stroke-linecap="round"
+                     aria-hidden="true">
+                  <path d="M2 4h7M13 4h1M2 12h1M7 12h7"/>
+                  <circle cx="11" cy="4" r="1.8"/>
+                  <circle cx="5" cy="12" r="1.8"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      
+      </nav>
+      
+
+      
+    </div>
+  </header>
+
+  <main id="main" class="detail">
+
+  <!-- Icons used on this page (referenced with <use href="#icon-...">) -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-laptop" viewBox="0 0 16 16"><rect x="3" y="3.5" width="10" height="7" rx=".75"/><path d="M1.5 12.75h13"/></symbol>
+    <symbol id="icon-tag" viewBox="0 0 16 16"><path d="M2 2.5h5.5l6.5 6.5-5 5-6.5-6.5z"/><circle cx="5.25" cy="5.75" r="1"/></symbol>
+    <symbol id="icon-bookmark" viewBox="0 0 16 20"><path d="M2 1.5h12v17l-6-4.5-6 4.5z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></symbol>
+  </svg>
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero detail-hero">
+    <div class="container detail-hero__inner">
+      <div class="detail-hero__text">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../">Home</a></li>
+            <li><a href="../all-resources.html?category=planning">Planning, focus and getting started</a></li>
+          </ol>
+        </nav>
+
+        <h1>Tools to try on your own</h1>
+        <p class="detail-hero__lead">Apps, timers and websites that can help with focus, routines, research, writing and reading on screen.</p>
+        <p class="detail-hero__official">Not run by CMU. Each link opens the tool&rsquo;s own website.</p>
+
+        <div class="detail-hero__actions">
+          <a class="btn-primary-arrow" href="https://www.cmu.edu/disability-resources/students/assistive-technology.html" target="_blank" rel="noopener">
+            <span class="btn-primary-arrow__text">CMU&rsquo;s assistive technology list</span>
+            <span class="btn-primary-arrow__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+          </a>
+        </div>
+        <p class="detail-hero__note">Opens the Office of Disability Resources list in a new tab.</p>
+      </div>
+
+      <img class="hero__art" src="../images/accomodations-header.png" alt="">
+    </div>
+  </section>
+
+  <!-- ===================== Tools ===================== -->
+  <section class="container detail-section tool-directory" aria-labelledby="tools-title">
+    <h2 class="sr-only" id="tools-title">Tools</h2>
+    <p class="detail-tip"><strong>These are suggestions, not endorsements.</strong> What works for someone else may not work for you. Prices and features can change, so check each site.</p>
+
+    <!-- Plain toggle buttons (aria-pressed). ?filter=timers (etc.) opens on one filter. -->
+    <div class="resource-filters" role="group" aria-label="Filter tools by need">
+      <span class="filter-label" aria-hidden="true">Show</span>
+      <button class="filter-btn active" type="button" data-tool-filter="all" aria-pressed="true" aria-controls="tool-results">All</button>
+      <button class="filter-btn" type="button" data-tool-filter="timers" aria-pressed="false" aria-controls="tool-results">Timers and alarms</button>
+      <button class="filter-btn" type="button" data-tool-filter="focus" aria-pressed="false" aria-controls="tool-results">Focus and distraction</button>
+      <button class="filter-btn" type="button" data-tool-filter="routines" aria-pressed="false" aria-controls="tool-results">Routines and to-dos</button>
+      <button class="filter-btn" type="button" data-tool-filter="research" aria-pressed="false" aria-controls="tool-results">Research and writing</button>
+      <button class="filter-btn" type="button" data-tool-filter="accessibility" aria-pressed="false" aria-controls="tool-results">Accessibility</button>
+    </div>
+
+    <p class="resource-status" id="tool-status" role="status" aria-live="polite"></p>
+
+    <div class="resource-grid" id="tool-results">
+        <article class="resource-card" data-resource-id="tool-otter" data-tools="accessibility research" aria-labelledby="title-tool-otter">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-otter">Otter.ai</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Otter.ai">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Note taking and transcription</p>
+          <p class="resource-card__desc">Records lectures and meetings and turns them into searchable notes and summaries.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Free plan, student discount</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Web, Mac, Windows, iPhone, Android</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://otter.ai/" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Otter.ai (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-teleprompter" data-tools="accessibility" aria-labelledby="title-tool-teleprompter">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-teleprompter">Voice-activated teleprompter</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Voice-activated teleprompter">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Presenting</p>
+          <p class="resource-card__desc">Scrolls your script as you speak, so you can present without losing your place.</p>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://telepromptermirror.com/telepromptersoftware.htm" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Voice-activated teleprompter (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-colorveil" data-tools="accessibility" aria-labelledby="title-tool-colorveil">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-colorveil">Colorveil</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Colorveil">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Reading on screen</p>
+          <p class="resource-card__desc">Puts a color tint over your screen to ease eye strain or visual stress when reading.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Free</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Windows PC</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://www.east-tec.com/colorveil/" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Colorveil (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-pomofocus" data-tools="timers focus" aria-labelledby="title-tool-pomofocus">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-pomofocus">Pomofocus</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Pomofocus">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Pomodoro timer</p>
+          <p class="resource-card__desc">A simple Pomodoro timer that splits work into focus blocks and short breaks.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Free, optional premium</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Web, Mac, Windows, Linux</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://pomofocus.io" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Pomofocus (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-cuckoo" data-tools="timers focus" aria-labelledby="title-tool-cuckoo">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-cuckoo">Cuckoo</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Cuckoo">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Shared timer</p>
+          <p class="resource-card__desc">A work and break timer you can share, so a group works on the same clock.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Web</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://cuckoo.team" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Cuckoo (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-time-timer" data-tools="timers" aria-labelledby="title-tool-time-timer">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-time-timer">Time Timer</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Time Timer">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Visual timer</p>
+          <p class="resource-card__desc">A red disk shrinks as time runs out, so you can see time passing.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Paid</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Physical timer, iPhone app</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://www.timetimer.com" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Time Timer (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-hexagon-timer" data-tools="timers" aria-labelledby="title-tool-hexagon-timer">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-hexagon-timer">Hexagon rotating timer</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Hexagon rotating timer">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Visual timer</p>
+          <p class="resource-card__desc">A small timer you flip to a side to start a countdown.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Physical timer</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://www.amazon.com/dp/B07L2PXZK2" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Hexagon rotating timer (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-alarmy" data-tools="timers routines" aria-labelledby="title-tool-alarmy">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-alarmy">Alarmy</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Alarmy">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Alarm clock</p>
+          <p class="resource-card__desc">An alarm you can’t snooze forever: do a task, like a math problem or a photo, to turn it off.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Free, optional paid features</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>iPhone, iPad, Android</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://apps.apple.com/us/app/alarmy-loud-alarm-clock/id1163786766" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Alarmy (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-forest" data-tools="focus" aria-labelledby="title-tool-forest">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-forest">Forest</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Forest">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Focus timer</p>
+          <p class="resource-card__desc">Grow a virtual tree while you focus. Leave the app and the tree dies.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Free, optional subscription</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>iPhone, Android, Chrome, Firefox</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://www.forestapp.cc" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Forest (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-selfcontrol" data-tools="focus" aria-labelledby="title-tool-selfcontrol">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-selfcontrol">SelfControl</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save SelfControl">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Website blocker</p>
+          <p class="resource-card__desc">Blocks distracting websites, your email or anything else online for a set time, with no early undo.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Free</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Mac only</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://selfcontrolapp.com/index.html" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: SelfControl (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-connected-papers" data-tools="research" aria-labelledby="title-tool-connected-papers">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-connected-papers">Connected Papers</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Connected Papers">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Finding sources</p>
+          <p class="resource-card__desc">Shows a map of papers related to one you choose, to help you find sources.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Web</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://www.connectedpapers.com" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Connected Papers (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-litmaps" data-tools="research" aria-labelledby="title-tool-litmaps">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-litmaps">Litmaps</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Litmaps">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Literature reviews</p>
+          <p class="resource-card__desc">Maps how research papers cite each other, to help with literature reviews.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Free plan, paid Pro</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Web</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://www.litmaps.co" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Litmaps (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-scrivener" data-tools="research" aria-labelledby="title-tool-scrivener">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-scrivener">Scrivener</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Scrivener">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Long writing projects</p>
+          <p class="resource-card__desc">Writing software that keeps drafts, notes and research for long projects in one place.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Paid, free trial</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Mac, Windows, iPhone, iPad</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://www.literatureandlatte.com/scrivener/overview" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Scrivener (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-brili" data-tools="routines" aria-labelledby="title-tool-brili">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-brili">Brili</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Brili">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Daily routines</p>
+          <p class="resource-card__desc">A visual daily routine app built for people with ADHD.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Paid, free trial</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>iPhone, Android</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://brili.com" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Brili (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-habitica" data-tools="routines" aria-labelledby="title-tool-habitica">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-habitica">Habitica</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Habitica">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Habits and to-dos</p>
+          <p class="resource-card__desc">Turns habits and to-dos into a game to help with everyday life tasks.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Free</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://habitica.com" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Habitica (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+        <article class="resource-card" data-resource-id="tool-bullet-journal" data-tools="routines" aria-labelledby="title-tool-bullet-journal">
+          <div class="resource-card__top">
+            <h3 class="resource-card__title" id="title-tool-bullet-journal">Bullet journal</h3>
+            <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Bullet journal">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+          <p class="resource-card__provider">Paper planning</p>
+          <p class="resource-card__desc">One person’s simple paper bullet journal setup for managing ADHD.</p>
+          <ul class="resource-card__meta" aria-label="Cost and where it works">
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-tag"/></svg>Free to read</li>
+            <li><svg class="resource-card__icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Article</li>
+          </ul>
+          <div class="resource-card__actions">
+            <a class="next-steps-link" href="https://adhdhomestead.net/adhd-bullet-journal/" target="_blank" rel="noopener">
+              <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+              <span class="next-steps-link__text">Visit site<span class="sr-only">: Bullet journal (opens in a new tab)</span></span>
+            </a>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <!-- ===================== Other ways to get help ===================== -->
+  <section class="container detail-section detail-others" aria-labelledby="others-title">
+    <h2 class="detail-h2 detail-h2--sm" id="others-title">Not quite right? Other ways to get help</h2>
+    <p class="detail-others__intro">
+      <span>Want help choosing or setting up tools? <a href="one-on-one-coaching.html">One-on-one coaching</a></span>
+      <span>Need tools as an accommodation? <a href="../Classes%20and%20studying%20pages/accomodations.html">Getting academic accommodations</a></span>
+    </p>
+    <div class="detail-others__grid">
+      <a class="mini-card" href="https://www.cmu.edu/disability-resources/students/assistive-technology.html" target="_blank" rel="noopener">
+        <span class="mini-card__eyebrow mini-card__eyebrow--red">Guide</span>
+        <span class="mini-card__title">CMU&rsquo;s assistive technology list</span>
+        <span class="mini-card__sub">Office of Disability Resources<span class="sr-only"> (opens the official site in a new tab)</span></span>
+        <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+      </a>
+      <a class="mini-card" href="one-on-one-coaching.html">
+        <span class="mini-card__eyebrow mini-card__eyebrow--red">One-on-one</span>
+        <span class="mini-card__title">One-on-one coaching for planning and focus</span>
+        <span class="mini-card__sub">SASC, 1 hour</span>
+        <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+      </a>
+      <a class="mini-card" href="../Classes%20and%20studying%20pages/academic-workshops.html">
+        <span class="mini-card__eyebrow mini-card__eyebrow--blue">Workshop</span>
+        <span class="mini-card__title">Study and planning workshops</span>
+        <span class="mini-card__sub">SASC, Posner Hall</span>
+        <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+      </a>
+    </div>
+  </section>
+
+  </main>
+
+      <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <img class="brand__logo" src="../images/CMU-logo.png" alt="Carnegie Mellon University">
+        <p>Made with the Olitsky Career Readiness Program.</p>
+      </div>
+
+      <div id="urgent">
+        <h2 class="serif-h4">Urgent help</h2>
+        <ul>
+          <li>Counseling &amp; Psychological Services:</li>
+          <li><a href="tel:4122682922"><strong>412-268-2922</strong></a></li>
+          <li>Call or text <a href="tel:988"><strong>988</strong></a></li>
+          <li>In danger right now: <a href="tel:911"><strong>911</strong></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="serif-h4">About</h2>
+        <ul>
+          <li><a href="#">Privacy and accessibility</a></li>
+          <li><a href="#">Suggest a change</a></li>
+          <li><a href="#">About this guide</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <div class="container">
+        <p>This guide is not a crisis service. Carnegie Mellon University, Pittsburgh, PA</p>
+      </div>
+    </div>
+  </footer>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+<!-- Your custom JavaScript -->
+<script src="../global.js"></script>
+
+</body>
+</html>

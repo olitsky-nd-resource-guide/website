@@ -236,9 +236,19 @@
       <div class="detail-email__body">
         <div class="detail-email__head">
           <h2 class="detail-email__title">Rather send an email?</h2>
-          <button class="detail-email__copy" type="button" data-copy-target="email-template">Copy email</button>
+          <div class="detail-email__actions">
+            <a class="detail-email__open" href="mailto:success@andrew.cmu.edu" data-email-open="email-template" data-email-to="success@andrew.cmu.edu">Write this email</a>
+            <button class="detail-email__copy" type="button" data-copy-target="email-template">Copy message</button>
+          </div>
         </div>
-        <p class="detail-email__template" id="email-template">Hi,&nbsp; I&rsquo;m a CMU student and I&rsquo;d like to meet with a success coach about managing my time and getting started on assignments. I&rsquo;m free [DAYS AND TIMES]. Could you help me book a meeting?&nbsp; Thank you, [YOUR NAME]</p>
+        <div class="detail-email__template" id="email-template">
+          <p class="detail-email__subject"><span class="detail-email__label">Subject</span> <span data-email-part="subject">Booking a Success Coaching meeting</span></p>
+          <div data-email-part="body">
+            <p>Hi,</p>
+            <p>I&rsquo;m a CMU student and I&rsquo;d like to meet with a success coach about managing my time and getting started on assignments. I&rsquo;m free [DAYS AND TIMES]. Could you help me book a meeting?</p>
+          </div>
+          <p data-email-part="closing">Thank you,<br>[YOUR NAME]</p>
+        </div>
         <p class="detail-email__status" role="status" aria-live="polite"></p>
       </div>
     </div>
@@ -275,7 +285,7 @@
         <span class="mini-card__sub">Olitsky Program, work alongside others</span>
         <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
       </a>
-      <a class="mini-card" href="../all-resources.html?category=planning">
+      <a class="mini-card" href="../Classes%20and%20studying%20pages/academic-workshops.html">
         <span class="mini-card__eyebrow mini-card__eyebrow--blue">Workshop</span>
         <span class="mini-card__title">Study and planning workshops</span>
         <span class="mini-card__sub">SASC, one session</span>
