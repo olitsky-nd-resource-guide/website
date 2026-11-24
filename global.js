@@ -83,12 +83,13 @@ function setSaved(id, saved) {
   }));
 }
 
-document.querySelectorAll(BOOKMARK_SELECTOR).forEach(button => {
-  button.addEventListener("click", () => {
-    const saved = button.getAttribute("aria-pressed") !== "true";
-    setSaved(bookmarkId(button), saved);
-    syncBookmarkButtons(); // updates every copy of this resource on the page
-  });
+// listen on document so cards added later also work
+document.addEventListener("click", event => {
+  const button = event.target.closest(BOOKMARK_SELECTOR);
+  if (!button) return;
+  const saved = button.getAttribute("aria-pressed") !== "true";
+  setSaved(bookmarkId(button), saved);
+  syncBookmarkButtons(); // updates every copy of this resource on the page
 });
 
 // Keep bookmarks in sync if they change in another tab.
@@ -105,17 +106,21 @@ syncBookmarkButtons();
 // COMPARE CHECKBOXES
 // =================================
 
-document.querySelectorAll(".compare-check__input").forEach(input => {
-  input.checked = false;
-  input.addEventListener("change", () => {
-    if (input.checked) compareSelection.add(input.value);
-    else compareSelection.delete(input.value);
-    // Keep copies of the same resource in other categories in step.
-    document.querySelectorAll(".compare-check__input").forEach(other => {
-      if (other.value === input.value) other.checked = input.checked;
-    });
+function syncCompareChecks() {
+  document.querySelectorAll(".compare-check__input").forEach(input => {
+    input.checked = compareSelection.has(input.value);
   });
+}
+
+document.addEventListener("change", event => {
+  const input = event.target.closest(".compare-check__input");
+  if (!input) return;
+  if (input.checked) compareSelection.add(input.value);
+  else compareSelection.delete(input.value);
+  syncCompareChecks(); // keep copies of the same resource in other categories in step
 });
+
+syncCompareChecks();
 
 
 // =================================
@@ -124,8 +129,8 @@ document.querySelectorAll(".compare-check__input").forEach(input => {
 // "See next steps" / "See 10 tools" links use href="#" until their pages
 // exist. Stop them from jumping to the top of the page.
 
-document.querySelectorAll("[data-placeholder-link]").forEach(link => {
-  link.addEventListener("click", event => event.preventDefault());
+document.addEventListener("click", event => {
+  if (event.target.closest("[data-placeholder-link]")) event.preventDefault();
 });
 
 
@@ -214,9 +219,14 @@ document.querySelectorAll("[data-copy-target]").forEach(button => {
 
 
 // Public helpers for future features (e.g. My Resources, comparison page).
+// syncCards() refreshes Save / Compare state after adding cards to the page.
 window.StudentHelpGuide = {
   getSavedResources: () => [...savedResources],
-  getCompareSelection: () => [...compareSelection]
+  getCompareSelection: () => [...compareSelection],
+  syncCards: () => {
+    syncBookmarkButtons();
+    syncCompareChecks();
+  }
 };
 
 
@@ -266,69 +276,53 @@ if (toolButtons.length && toolCards.length) {
 
 
 // =================================
-// RESOURCE CATEGORY + FORMAT FILTERS
+// TOPIC TABS + FORMAT FILTER (all-resources.html)
 // =================================
-// all-resources.html?category=classes (etc.) opens on one category.
+// ?category=planning opens scrolled to a topic, ?format=group opens on one format.
 
 const categoryTabs = document.querySelectorAll(".browse-tab");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const resourceSections = document.querySelectorAll(".resource-category");
 const resourceStatus = document.getElementById("resource-status");
+const tabBar = document.querySelector(".browse-tabs");
+const resourceTop = document.querySelector(".resource-section");
 
 if (categoryTabs.length && resourceSections.length) {
 
-  const validCategories = [
-    "all", "classes", "planning", "feelings",
-    "health", "career", "community"
-  ];
+  const formats = [...filterButtons].map(button => button.dataset.filter);
+  const params = new URLSearchParams(window.location.search);
+  let selectedFilter = formats.includes(params.get("format")) ? params.get("format") : "all";
 
-  function categoryFromUrl() {
-    const category = new URLSearchParams(window.location.search).get("category");
-    return validCategories.includes(category) ? category : "all";
+  function sectionFor(category) {
+    return document.querySelector(`.resource-category[data-category="${category}"]`);
   }
 
-  let selectedCategory = categoryFromUrl();
-  let selectedFilter = "all";
+  function setUrlParam(name, value) {
+    const url = new URL(window.location.href);
+    if (value === "all") url.searchParams.delete(name);
+    else url.searchParams.set(name, value);
+    window.history.replaceState(null, "", url);
+  }
 
-  function updateResources() {
+  // ----- format filter -----
 
-    // Update category buttons
-    categoryTabs.forEach(tab => {
-      const active = tab.dataset.category === selectedCategory;
-
-      tab.classList.toggle("active", active);
-      tab.setAttribute("aria-pressed", String(active));
-    });
-
-    // Update format buttons
+  function updateFormatFilter() {
     filterButtons.forEach(button => {
       const active = button.dataset.filter === selectedFilter;
-
       button.classList.toggle("active", active);
       button.setAttribute("aria-pressed", String(active));
     });
 
     let totalVisible = 0;
 
-    // Filter sections and cards
     resourceSections.forEach(section => {
-
-      const matchesCategory =
-        selectedCategory === "all" ||
-        section.dataset.category === selectedCategory;
-
       let visibleCards = 0;
 
       section.querySelectorAll(".resource-card").forEach(card => {
-        const formats = (card.dataset.formats || "").split(" ");
-
-        const matchesFilter =
-          selectedFilter === "all" ||
-          formats.includes(selectedFilter);
-
-        card.hidden = !matchesFilter;
-
-        if (matchesFilter) visibleCards++;
+        const cardFormats = (card.dataset.formats || "").split(" ");
+        const show = selectedFilter === "all" || cardFormats.includes(selectedFilter);
+        card.hidden = !show;
+        if (show) visibleCards++;
       });
 
       // "Try on your own" strips aren't a format, so only show them unfiltered.
@@ -336,53 +330,133 @@ if (categoryTabs.length && resourceSections.length) {
         tools.hidden = selectedFilter !== "all";
       });
 
-      section.hidden = !matchesCategory || visibleCards === 0;
+      section.hidden = visibleCards === 0;
+      totalVisible += visibleCards;
+    });
 
-      if (!section.hidden) totalVisible += visibleCards;
+    // a topic with nothing left can't be jumped to
+    categoryTabs.forEach(tab => {
+      const section = sectionFor(tab.dataset.category);
+      tab.disabled = Boolean(section && section.hidden);
     });
 
     if (resourceStatus) {
-      resourceStatus.textContent = totalVisible === 0
-        ? "No matching resources. Try another format, or choose All Categories."
-        : "";
+      if (selectedFilter === "all") resourceStatus.textContent = "";
+      else if (totalVisible === 0) resourceStatus.textContent = "No matching resources. Try another format, or choose Everything.";
+      else resourceStatus.textContent = `Showing ${totalVisible} ${totalVisible === 1 ? "resource" : "resources"}.`;
     }
+
+    updateActiveTab();
   }
 
-  // Clicking a category (keeps the current format filter)
-  categoryTabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-
-      if (tab.dataset.category === selectedCategory) return;
-      selectedCategory = tab.dataset.category;
-
-      // Update URL without reloading the page
-      const url = new URL(window.location.href);
-
-      if (selectedCategory === "all") {
-        url.searchParams.delete("category");
-      } else {
-        url.searchParams.set("category", selectedCategory);
-      }
-
-      window.history.pushState({ category: selectedCategory }, "", url);
-
-      updateResources();
-    });
-  });
-
-  // Clicking a format filter
   filterButtons.forEach(button => {
     button.addEventListener("click", () => {
       selectedFilter = button.dataset.filter;
-      updateResources();
+      setUrlParam("format", selectedFilter);
+      updateFormatFilter();
     });
   });
 
-  // Support browser back/forward navigation
-  window.addEventListener("popstate", () => {
-    selectedCategory = categoryFromUrl();
-    updateResources();
+  // ----- jump to a topic -----
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Distance from the top of the screen where a section counts as "being read".
+  function readingLine() {
+    return (tabBar ? tabBar.offsetHeight : 0) + 24;
+  }
+
+  function scrollToCategory(category, smooth) {
+    const target = category === "all" ? resourceTop : sectionFor(category);
+    if (!target) return;
+    const offset = category === "all" ? (tabBar ? tabBar.offsetHeight : 0) : readingLine() - 8;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: smooth && !reduceMotion.matches ? "smooth" : "auto" });
+  }
+
+  // focus the topic heading after a jump
+  function focusCategory(category) {
+    const section = sectionFor(category);
+    const heading = section && section.querySelector("h2");
+    if (!heading) return;
+    heading.setAttribute("tabindex", "-1");
+    heading.focus({ preventScroll: true });
+  }
+
+  // last tab clicked, used at the bottom of the page
+  let clickedCategory = null;
+
+  categoryTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const category = tab.dataset.category;
+      clickedCategory = category;
+      setUrlParam("category", category);
+      scrollToCategory(category, true);
+      focusCategory(category);
+    });
   });
 
-  updateResources();
+  // ----- active tab while scrolling -----
+
+  function updateActiveTab() {
+    const visibleSections = [...resourceSections].filter(section => !section.hidden);
+    let current = "all";
+    visibleSections.forEach(section => {
+      if (section.getBoundingClientRect().top <= readingLine()) current = section.dataset.category;
+    });
+
+    // last topic can't reach the top, so use it at the bottom unless a visible topic was just clicked
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (atBottom && window.scrollY > 0 && visibleSections.length) {
+      const clicked = clickedCategory && sectionFor(clickedCategory);
+      const clickedOnScreen = clicked && !clicked.hidden && clicked.getBoundingClientRect().top < window.innerHeight;
+      current = clickedOnScreen ? clickedCategory : visibleSections[visibleSections.length - 1].dataset.category;
+    }
+
+    categoryTabs.forEach(tab => {
+      const active = tab.dataset.category === current;
+      const changed = active && !tab.classList.contains("active");
+      tab.classList.toggle("active", active);
+      if (active) tab.setAttribute("aria-current", "true");
+      else tab.removeAttribute("aria-current");
+      if (changed) keepTabInView(tab);
+    });
+  }
+
+  // keep the active tab visible in the sideways-scrolling tab row
+  function keepTabInView(tab) {
+    const row = tab.parentElement;
+    const tabBox = tab.getBoundingClientRect();
+    const rowBox = row.getBoundingClientRect();
+    if (tabBox.left < rowBox.left) row.scrollLeft -= rowBox.left - tabBox.left + 16;
+    else if (tabBox.right > rowBox.right) row.scrollLeft += tabBox.right - rowBox.right + 16;
+  }
+
+  let scrollQueued = false;
+  window.addEventListener("scroll", () => {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    window.requestAnimationFrame(() => {
+      scrollQueued = false;
+      updateActiveTab();
+    });
+  });
+  window.addEventListener("resize", updateActiveTab);
+
+  updateFormatFilter();
+
+  // jump to the ?category= topic, except on Back / reload
+  const navigation = performance.getEntriesByType("navigation")[0];
+  const returning = navigation && (navigation.type === "back_forward" || navigation.type === "reload");
+  const startSection = sectionFor(params.get("category"));
+
+  if (startSection && !startSection.hidden && !returning) {
+    const startCategory = startSection.dataset.category;
+    scrollToCategory(startCategory, false);
+    const jumpedTo = window.scrollY;
+    // jump again after images load, unless the reader has scrolled
+    window.addEventListener("load", () => {
+      if (window.scrollY === jumpedTo) scrollToCategory(startCategory, false);
+    }, { once: true });
+  }
 }

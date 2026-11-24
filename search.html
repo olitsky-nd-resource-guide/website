@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search · Student Help Guide · Carnegie Mellon University</title>
+  <meta name="description" content="Search the Student Help Guide in your own words.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="images/CMU-logo.png" alt="">
+        <span class="brand__text">
+          <strong>Student Help Guide</strong>
+          <span>Carnegie Mellon University</span>
+        </span>
+      </a>
+
+
+      <nav class="site-nav" aria-label="Main">
+
+        <!-- Bootstrap hamburger button -->
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse"
+                data-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Collapsible navigation -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul>
+            <li><a href="all-resources.html">All resources</a></li>
+            <li><a href="help-me-choose.html">Help me choose</a></li>
+            <li><a class="is-urgent" href="#urgent">Urgent help</a></li>
+            <li><a href="#resources">My Resources</a></li>
+            <li>
+              <button class="settings-btn" type="button"
+                      aria-label="Display settings">
+                <svg width="16" height="16"
+                     viewBox="0 0 16 16"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.4"
+                     stroke-linecap="round"
+                     aria-hidden="true">
+                  <path d="M2 4h7M13 4h1M2 12h1M7 12h7"/>
+                  <circle cx="11" cy="4" r="1.8"/>
+                  <circle cx="5" cy="12" r="1.8"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      
+      </nav>
+      
+
+      
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Search</li>
+          </ol>
+        </nav>
+
+        <h1 class="serif-h1">Results for your search</h1>
+
+        <form class="search input-group" role="search" action="search.html">
+          <input type="search" class="form-control" name="q" aria-label="Describe what you need help with" placeholder="Try &quot;I keep putting things off&quot;" data-search-input>
+          <div class="input-group-append">
+            <button class="btn search-btn" type="submit">Search</button>
+          </div>
+        </form>
+
+        <!-- ===================== Closest topic ===================== -->
+        <div class="search-topic" data-search-topic hidden>
+          <p>Closest topic</p>
+          <h2 class="serif-h4" data-search-topic-name></h2>
+          <p data-search-topic-desc></p>
+          <a class="btn btn--outline-dark" href="all-resources.html" data-search-topic-link>See all options</a>
+        </div>
+
+        <!-- ===================== Best matches ===================== -->
+        <h2 class="serif-h3">Best matches</h2>
+        <p class="resource-status" role="status" aria-live="polite" data-search-status></p>
+        <div class="resource-grid" data-search-results></div>
+
+        <p>Not what you meant? <a href="help-me-choose.html">Answer 2 quick questions instead</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <img class="brand__logo" src="images/CMU-logo.png" alt="Carnegie Mellon University">
+        <p>Made with the Olitsky Career Readiness Program.</p>
+      </div>
+
+      <div id="urgent">
+        <h2 class="serif-h4">Urgent help</h2>
+        <ul>
+          <li>Counseling &amp; Psychological Services:</li>
+          <li><a href="tel:4122682922"><strong>412-268-2922</strong></a></li>
+          <li>Call or text <a href="tel:988"><strong>988</strong></a></li>
+          <li>In danger right now: <a href="tel:911"><strong>911</strong></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="serif-h4">About</h2>
+        <ul>
+          <li><a href="#">Privacy and accessibility</a></li>
+          <li><a href="#">Suggest a change</a></li>
+          <li><a href="#">About this guide</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <div class="container">
+        <p>This guide is not a crisis service. Carnegie Mellon University, Pittsburgh, PA</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<script src="global.js"></script>
+
+<script src="js/resource-cards.js"></script>
+<script src="js/search.js"></script>
+
+</body>
+</html>

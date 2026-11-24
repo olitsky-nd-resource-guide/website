@@ -42,8 +42,8 @@
         <!-- Collapsible navigation -->
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul>
-            <li><a style="font-weight: 700;" href="#browse">All resources</a></li>
-            <li><a href="#choose">Help me choose</a></li>
+            <li><a style="font-weight: 700;" href="all-resources.html" aria-current="page">All resources</a></li>
+            <li><a href="help-me-choose.html">Help me choose</a></li>
             <li><a class="is-urgent" href="#urgent">Urgent help</a></li>
             <li><a href="#resources">My Resources</a></li>
             <li>
@@ -93,16 +93,16 @@
 
 
 <!-- ===================== Browse Categories ===================== -->
-  <!-- Plain toggle buttons (aria-pressed), not ARIA tabs: they filter the list below. -->
+  <!-- Jump links to each topic below, not ARIA tabs -->
   <nav class="browse-tabs" aria-label="Resource categories">
     <div class="browse-tabs__inner">
-      <button class="browse-tab active" type="button" data-category="all" aria-pressed="true" aria-controls="resource-results">All Categories</button>
-      <button class="browse-tab" type="button" data-category="classes" aria-pressed="false" aria-controls="resource-results">Classes and studying</button>
-      <button class="browse-tab" type="button" data-category="planning" aria-pressed="false" aria-controls="resource-results">Planning and focus</button>
-      <button class="browse-tab" type="button" data-category="feelings" aria-pressed="false" aria-controls="resource-results">Feelings and mental health</button>
-      <button class="browse-tab" type="button" data-category="health" aria-pressed="false" aria-controls="resource-results">Health, food and money</button>
-      <button class="browse-tab" type="button" data-category="career" aria-pressed="false" aria-controls="resource-results">Career and work</button>
-      <button class="browse-tab" type="button" data-category="community" aria-pressed="false" aria-controls="resource-results">Community</button>
+      <button class="browse-tab active" type="button" data-category="all" aria-current="true">All Categories</button>
+      <button class="browse-tab" type="button" data-category="classes">Classes and studying</button>
+      <button class="browse-tab" type="button" data-category="planning">Planning and focus</button>
+      <button class="browse-tab" type="button" data-category="feelings">Feelings and mental health</button>
+      <button class="browse-tab" type="button" data-category="health">Health, food and money</button>
+      <button class="browse-tab" type="button" data-category="career">Career and work</button>
+      <button class="browse-tab" type="button" data-category="community">Community</button>
     </div>
   </nav>
 
@@ -132,7 +132,7 @@
       <button class="filter-btn" type="button" data-filter="in-person" aria-pressed="false" aria-controls="resource-results"><i class="filter-icon" data-icon="location" aria-hidden="true"></i>In person</button>
     </div>
 
-    <!-- Announces "No matching resources" when filters hide everything. -->
+    <!-- Announces how many resources the format filter shows. -->
     <p class="resource-status" id="resource-status" role="status" aria-live="polite"></p>
 
     <div class="resource-sections" id="resource-results">
@@ -189,9 +189,9 @@
               <input class="compare-check__input" type="checkbox" value="sasc-peer-tutoring">
               <span>Compare<span class="sr-only"> Get help with a course from a peer tutor</span></span>
             </label>
-            <a class="next-steps-link" href="Planning,%20focus%20and%20getting%20started%20pages/one-on-one-coaching.html">
+            <a class="next-steps-link" href="https://www.cmu.edu/student-success/programs/tutoring.html" target="_blank" rel="noopener">
               <span class="next-steps-link__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
-              <span class="next-steps-link__text">See next steps<span class="sr-only">: Get help with a course from a peer tutor</span></span>
+              <span class="next-steps-link__text">View resource<span class="sr-only">: Get help with a course from a peer tutor (opens the official site in a new tab)</span></span>
             </a>
           </div>
         </article>
@@ -266,7 +266,7 @@
             </a>
           </div>
         </article>
-        <article class="resource-card" data-resource-id="odr-assistive-technology" data-formats="virtual" aria-labelledby="title-odr-assistive-technology">
+        <article class="resource-card" data-resource-id="odr-assistive-technology" data-formats="virtual self-guided" aria-labelledby="title-odr-assistive-technology">
           <div class="resource-card__top">
             <h3 class="resource-card__title" id="title-odr-assistive-technology">Tools for reading, writing and notes</h3>
             <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Tools for reading, writing and notes">
@@ -413,7 +413,7 @@
             </a>
           </div>
         </article>
-        <article class="resource-card" data-resource-id="timelycare-talknow" data-formats="virtual" aria-labelledby="title-timelycare-talknow">
+        <article class="resource-card" data-resource-id="timelycare-talknow" data-formats="virtual self-guided" aria-labelledby="title-timelycare-talknow">
           <div class="resource-card__top">
             <h3 class="resource-card__title" id="title-timelycare-talknow">Talk to someone online now</h3>
             <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Talk to someone online now">
@@ -461,7 +461,7 @@
             </a>
           </div>
         </article>
-        <article class="resource-card" data-resource-id="headspace" data-formats="virtual" aria-labelledby="title-headspace">
+        <article class="resource-card" data-resource-id="headspace" data-formats="virtual self-guided" aria-labelledby="title-headspace">
           <div class="resource-card__top">
             <h3 class="resource-card__title" id="title-headspace">Free meditation and sleep app</h3>
             <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Free meditation and sleep app">
@@ -664,7 +664,7 @@
             </a>
           </div>
         </article>
-        <article class="resource-card" data-resource-id="cmu-pantry" data-formats="in-person" aria-labelledby="title-cmu-pantry">
+        <article class="resource-card" data-resource-id="cmu-pantry" data-formats="in-person self-guided" aria-labelledby="title-cmu-pantry">
           <div class="resource-card__top">
             <h3 class="resource-card__title" id="title-cmu-pantry">Free groceries and personal care items</h3>
             <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Free groceries and personal care items">
@@ -688,7 +688,7 @@
             </a>
           </div>
         </article>
-        <article class="resource-card" data-resource-id="additional-food-resources" data-formats="virtual" aria-labelledby="title-additional-food-resources">
+        <article class="resource-card" data-resource-id="additional-food-resources" data-formats="virtual self-guided" aria-labelledby="title-additional-food-resources">
           <div class="resource-card__top">
             <h3 class="resource-card__title" id="title-additional-food-resources">More places to get food</h3>
             <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save More places to get food">
@@ -830,7 +830,7 @@
             </a>
           </div>
         </article>
-        <article class="resource-card" data-resource-id="sfs-financial-wellness" data-formats="virtual" aria-labelledby="title-sfs-financial-wellness">
+        <article class="resource-card" data-resource-id="sfs-financial-wellness" data-formats="virtual self-guided" aria-labelledby="title-sfs-financial-wellness">
           <div class="resource-card__top">
             <h3 class="resource-card__title" id="title-sfs-financial-wellness">Budgeting and money skills</h3>
             <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Budgeting and money skills">
@@ -963,7 +963,7 @@
             </a>
           </div>
         </article>
-        <article class="resource-card" data-resource-id="handshake" data-formats="virtual" aria-labelledby="title-handshake">
+        <article class="resource-card" data-resource-id="handshake" data-formats="virtual self-guided" aria-labelledby="title-handshake">
           <div class="resource-card__top">
             <h3 class="resource-card__title" id="title-handshake">Search jobs and internships</h3>
             <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Search jobs and internships">
@@ -987,7 +987,7 @@
             </a>
           </div>
         </article>
-        <article class="resource-card" data-resource-id="on-campus-employment" data-formats="" aria-labelledby="title-on-campus-employment">
+        <article class="resource-card" data-resource-id="on-campus-employment" data-formats="self-guided" aria-labelledby="title-on-campus-employment">
           <div class="resource-card__top">
             <h3 class="resource-card__title" id="title-on-campus-employment">Find a job on campus</h3>
             <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Find a job on campus">
@@ -1048,7 +1048,7 @@
             </a>
           </div>
         </article>
-        <article class="resource-card" data-resource-id="tartanconnect" data-formats="virtual" aria-labelledby="title-tartanconnect">
+        <article class="resource-card" data-resource-id="tartanconnect" data-formats="virtual self-guided" aria-labelledby="title-tartanconnect">
           <div class="resource-card__top">
             <h3 class="resource-card__title" id="title-tartanconnect">Find a student organization</h3>
             <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Find a student organization">
@@ -1118,7 +1118,7 @@
             </a>
           </div>
         </article>
-        <article class="resource-card" data-resource-id="student-affairs-calendar" data-formats="virtual" aria-labelledby="title-student-affairs-calendar">
+        <article class="resource-card" data-resource-id="student-affairs-calendar" data-formats="virtual self-guided" aria-labelledby="title-student-affairs-calendar">
           <div class="resource-card__top">
             <h3 class="resource-card__title" id="title-student-affairs-calendar">Find campus events</h3>
             <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="Save Find campus events">

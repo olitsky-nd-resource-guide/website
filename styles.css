@@ -717,6 +717,9 @@
   ================================= */
   
   .browse-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     background: var(--color-neutral-white);
     border-bottom: 1px solid var(--color-neutral-steel-gray);
   }
@@ -758,6 +761,14 @@
   .browse-tab:focus-visible {
     outline: 3px solid var(--color-accent-gold);
     outline-offset: -3px;
+  }
+
+  /* topic has nothing left under the current format filter */
+  .browse-tab:disabled {
+    color: var(--color-neutral-gray-700);
+    opacity: 0.5;
+    cursor: default;
+    background: transparent;
   }
   
   
