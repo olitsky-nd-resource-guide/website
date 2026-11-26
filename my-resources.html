@@ -72,31 +72,74 @@
     </div>
   </header>
 
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-arrow" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="7.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></symbol>
+  </svg>
+
   <main id="main">
     <!-- ===================== Hero ===================== -->
-    <section class="hero">
+    <section class="hero page-hero">
       <div class="container hero__inner">
         <div>
+          <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li aria-current="page">My Resources</li>
+            </ol>
+          </nav>
           <h1>My Resources</h1>
-          <p class="hero__lead">
-            Resources you saved, in one place. They are kept in this browser only, so they won't show up on another device.
-          </p>
+          <p class="hero__lead">The resources you saved, all in one place.</p>
         </div>
 
-        <img class="hero__art hero__art--resources" src="images/resources-header-icon.png" alt="">
+        <!-- Stand-in art until the Figma illustration is exported. -->
+        <svg class="hero__art page-hero__art" viewBox="0 0 220 160" aria-hidden="true" focusable="false">
+          <path d="M40 30h110v100H40z"/>
+          <path d="M58 56h56M58 72h70M58 88h48"/>
+          <path class="fill-red" d="M128 18h22v52l-11-9-11 9z"/>
+          <path class="stroke-gold" d="M160 120l8 8 16-18"/>
+        </svg>
       </div>
     </section>
 
-    <!-- ===================== Saved resources ===================== -->
-    <section class="resource-section" aria-labelledby="saved-title">
-      <h2 class="sr-only" id="saved-title">Saved resources</h2>
-      <p class="resource-status" role="status" aria-live="polite" data-saved-status></p>
-      <div class="resource-grid" data-saved-results></div>
+    <div class="note-strip">
+      <p class="container">
+        <svg aria-hidden="true" focusable="false"><use href="#icon-lock"/></svg>
+        Saved on this device only. No account needed.
+        <a href="privacy.html">How we handle privacy</a>
+      </p>
+    </div>
 
-      <div class="see-all see-all--stack" data-saved-empty hidden>
-        <span>Nothing saved yet. Use the bookmark on any resource to keep it here.</span>
-        <a class="btn btn--outline-dark" href="all-resources.html">See all resources</a>
-        <a class="btn btn--outline-dark" href="help-me-choose.html">Help me choose</a>
+    <!-- ===================== Saved resources ===================== -->
+    <section class="resource-section saved" aria-labelledby="saved-title">
+      <div data-saved-list hidden>
+        <span class="page-eyebrow">Saved</span>
+        <h2 class="serif-h3" id="saved-title">Saved resources <span data-saved-count></span></h2>
+        <p class="saved__status" role="status" aria-live="polite" data-saved-status></p>
+        <div class="resource-grid saved__grid" data-saved-results></div>
+      </div>
+
+      <!-- Added after the saved cards by my-resources.js -->
+      <a class="saved__more" href="all-resources.html" data-saved-more hidden>
+        <span class="saved__more-icon" aria-hidden="true">+</span>
+        <strong>Find more to save</strong>
+        <span>Browse by need</span>
+      </a>
+
+      <div class="saved-empty" data-saved-empty hidden>
+        <svg class="saved-empty__icon" viewBox="0 0 32 44" aria-hidden="true" focusable="false">
+          <path d="M3 3h26v38l-13-9-13 9z"/>
+          <path class="saved-empty__plus" d="M16 11v12M10 17h12"/>
+        </svg>
+        <h2 class="serif-h3">Nothing saved yet</h2>
+        <p>Tap the bookmark on any resource to keep it here. It stays on this device, so there is nothing to sign up for.</p>
+        <div class="saved-empty__actions">
+          <a class="btn-primary-arrow btn-primary-arrow--sm" href="all-resources.html">
+            <span class="btn-primary-arrow__text">Browse by need</span>
+            <span class="btn-primary-arrow__icon" aria-hidden="true"><svg focusable="false"><use href="#icon-arrow"/></svg></span>
+          </a>
+          <a class="btn btn--outline-dark" href="help-me-choose.html">Help me choose</a>
+        </div>
       </div>
     </section>
   </main>

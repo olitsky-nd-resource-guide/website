@@ -4,8 +4,11 @@
 // Shows the saved cards, newest first.
 //
 // Markup hooks:
+//   [data-saved-list]      heading + grid, shown once something is saved
 //   [data-saved-results]   a .resource-grid the saved cards go in
-//   [data-saved-status]    live region for the count
+//   [data-saved-count]     "(3)" after the heading
+//   [data-saved-status]    live region for loading, removals and errors
+//   [data-saved-more]      "Find more to save" tile, moved to the end of the grid
 //   [data-saved-empty]     shown when nothing is saved
 //
 // Un-saving a card here leaves it on the page until the next visit, so a
@@ -15,7 +18,10 @@
   const results = document.querySelector("[data-saved-results]");
   if (!results) return;
 
+  const list = document.querySelector("[data-saved-list]");
+  const count = document.querySelector("[data-saved-count]");
   const status = document.querySelector("[data-saved-status]");
+  const more = document.querySelector("[data-saved-more]");
   const empty = document.querySelector("[data-saved-empty]");
   let shown = [];
 
@@ -24,22 +30,15 @@
   }
 
   function showEmpty() {
-    results.replaceChildren();
+    if (list) list.hidden = true;
     if (empty) empty.hidden = false;
-    setStatus("");
-  }
-
-  function countText(count) {
-    return `${count} saved ${count === 1 ? "resource" : "resources"}.`;
   }
 
   function updateCount() {
     const saved = new Set(window.StudentHelpGuide.getSavedResources());
-    const count = shown.filter(resource => saved.has(resource.id)).length;
-    const removed = shown.length - count;
-    setStatus(removed
-      ? `${countText(count)} Removed ones stay here until you leave this page.`
-      : countText(count));
+    const kept = shown.filter(resource => saved.has(resource.id)).length;
+    if (count) count.textContent = `(${kept})`;
+    setStatus(kept < shown.length ? "Removed ones stay here until you leave this page." : "");
   }
 
   // saved IDs are in the order they were saved
@@ -49,6 +48,7 @@
     return;
   }
 
+  if (list) list.hidden = false;
   setStatus("Loading your saved resources...");
 
   window.StudentHelpGuide.loadResources()
@@ -62,6 +62,10 @@
         return;
       }
       window.StudentHelpGuide.renderCards(results, shown);
+      if (more) {
+        results.append(more);
+        more.hidden = false;
+      }
       updateCount();
       document.addEventListener("savedresourceschange", updateCount);
     })
