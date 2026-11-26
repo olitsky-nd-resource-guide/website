@@ -72,38 +72,219 @@
     </div>
   </header>
 
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-shield" viewBox="0 0 16 16"><path d="M8 1.5l5.5 2v4c0 3.4-2.3 5.9-5.5 7-3.2-1.1-5.5-3.6-5.5-7v-4z"/><path d="M5.5 8l1.8 1.8L10.8 6"/></symbol>
+    <symbol id="icon-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></symbol>
+  </svg>
+
   <main id="main">
     <!-- ===================== Hero ===================== -->
-    <section class="hero">
+    <section class="hero page-hero">
       <div class="container hero__inner">
         <div>
+          <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li aria-current="page">Privacy and accessibility</li>
+            </ol>
+          </nav>
           <h1>Privacy and accessibility</h1>
-          <p class="hero__lead">No accounts, no tracking. Here is exactly what the guide keeps and where.</p>
+          <p class="hero__lead">What this guide keeps, what it never asks for, and how CMU&rsquo;s privacy notice fits in.</p>
+          <nav class="jump-links" aria-label="On this page">
+            <a class="btn btn--outline-light" href="#short">The short version</a>
+            <a class="btn btn--outline-light" href="#this-guide">This guide</a>
+            <a class="btn btn--outline-light" href="#cmu-notice">CMU&rsquo;s privacy notice</a>
+            <a class="btn btn--outline-light" href="#accessibility">Accessibility</a>
+            <a class="btn btn--outline-light" href="#contact">Contact</a>
+          </nav>
         </div>
 
-        <img class="hero__art hero__art--resources" src="images/resources-header-icon.png" alt="">
+        <!-- Stand-in art until the Figma illustration is exported. -->
+        <svg class="hero__art page-hero__art" viewBox="0 0 220 160" aria-hidden="true" focusable="false">
+          <path d="M90 14l46 16v34c0 30-19 52-46 62-27-10-46-32-46-62V30z"/>
+          <path class="stroke-gold" d="M70 68l14 14 28-30"/>
+          <path d="M150 94a12 12 0 0 1 24 0v12"/>
+          <rect class="fill-red" x="142" y="104" width="40" height="32" rx="2"/>
+          <path d="M18 88h18M24 100h14M30 112h10"/>
+        </svg>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container text-page">
-        <h2 class="detail-h2 detail-h2--sm">What this guide keeps</h2>
-        <ul>
-          <li><strong>Saved resources</strong> are stored in this browser on this device. We can&rsquo;t see them. Un-save a resource, or clear this site&rsquo;s data in your browser, to remove them.</li>
-          <li><strong>Help me choose answers</strong> stay in this browser tab and are gone when you close it.</li>
-          <li><strong>What you search for</strong> becomes part of the page address. Like any web address, it is sent to the site&rsquo;s host when the page loads and shows up in your browser history.</li>
+    <!-- ===================== Short version ===================== -->
+    <section class="page-section" id="short">
+      <div class="container">
+        <span class="page-eyebrow">The short version</span>
+        <h2 class="serif-h3">Four things to know</h2>
+        <ul class="privacy-points">
+          <li>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-shield"/></svg>
+            <h3>No account needed</h3>
+            <p>You can browse, search, save resources and use Help me choose without signing in.</p>
+          </li>
+          <li>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-shield"/></svg>
+            <h3>We never ask about a diagnosis</h3>
+            <p>Nothing here asks for medical details, documents or which services you already use.</p>
+          </li>
+          <li>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-shield"/></svg>
+            <h3>Saved resources stay on this device</h3>
+            <p>My Resources is kept in your browser, not sent to us. Clearing this site&rsquo;s data in your browser clears it.</p>
+          </li>
+          <li>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-shield"/></svg>
+            <h3>Other sites have their own rules</h3>
+            <p>Booking tools like WCOnline or Handshake follow their own privacy policies once you leave this guide.</p>
+          </li>
         </ul>
-        <p>The guide has no sign-in and no analytics or advertising cookies.</p>
+      </div>
+    </section>
 
-        <h2 class="detail-h2 detail-h2--sm">Services the guide uses</h2>
-        <p>The site is hosted on GitHub Pages. To show you a page, your browser also loads fonts from Google Fonts and code from jsDelivr and jQuery. Like any website, these services receive your IP address and basic browser details when they send files. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub&rsquo;s privacy statement</a> for how GitHub handles this.</p>
-        <p>Links to CMU offices and other sites take you to pages with their own privacy policies.</p>
+    <!-- ===================== This guide ===================== -->
+    <section class="page-section" id="this-guide">
+      <div class="container">
+        <span class="page-eyebrow">This guide</span>
+        <h2 class="serif-h3">What happens when you use it</h2>
+        <dl class="privacy-table">
+          <div>
+            <dt>What we collect</dt>
+            <dd>Nothing that identifies you. The guide has no sign-in and no analytics or advertising.</dd>
+          </div>
+          <div>
+            <dt>Saved resources</dt>
+            <dd>Stored in this browser on this device. We can&rsquo;t see them. Un-save a resource, or clear this site&rsquo;s data in your browser, to remove them.</dd>
+          </div>
+          <div>
+            <dt>Search and Help me choose</dt>
+            <dd>Your Help me choose answers stay in this browser tab and are gone when you close it. What you search for becomes part of the page address. Like any web address, it is sent to the site&rsquo;s host when the page loads and shows up in your browser history.</dd>
+          </div>
+          <div>
+            <dt>Hosting and fonts</dt>
+            <dd>The site is hosted on GitHub Pages, and your browser also loads fonts from Google Fonts and code from jsDelivr and jQuery. Like any website, these services receive your IP address and basic browser details. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub&rsquo;s privacy statement</a>.</dd>
+          </div>
+          <div>
+            <dt>When you email us</dt>
+            <dd>Email links open your own email app. Nothing is sent until you send it.</dd>
+          </div>
+          <div>
+            <dt>Cookies</dt>
+            <dd>The guide doesn&rsquo;t set any cookies.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
 
-        <h2 class="detail-h2 detail-h2--sm">Carnegie Mellon&rsquo;s privacy notice</h2>
-        <p>Carnegie Mellon&rsquo;s <a href="https://www.cmu.edu/legal/privacy-notice">Privacy Notice</a> explains how the university collects and uses personal information.</p>
+    <!-- ===================== CMU's notice ===================== -->
+    <!-- One-line summaries of https://www.cmu.edu/legal/privacy-notice
+         (effective September 5, 2025). Recheck them if the notice changes. -->
+    <section class="page-section" id="cmu-notice">
+      <div class="container">
+        <span class="page-eyebrow">CMU&rsquo;s privacy notice</span>
+        <h2 class="serif-h3">The official notice, summarized</h2>
+        <p class="page-section__intro">Carnegie Mellon&rsquo;s Privacy Notice covers CMU websites and services. Open any part for a one-line summary.</p>
+        <div class="notice">
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">01</span>What CMU collects and why</summary>
+            <p>Things like contact details, browsing activity on CMU sites and education records, used to provide its services, run its programs, improve its websites and keep them secure.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">02</span>How long CMU keeps it</summary>
+            <p>Only as long as it needs to for the reason it was collected, or longer when the law or a dispute requires it.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">03</span>The reasons CMU is allowed to use it</summary>
+            <p>To carry out an agreement with you, meet its legal obligations, pursue its legitimate interests, or because you gave consent.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">04</span>Who CMU shares it with</summary>
+            <p>Staff and contractors who need it, service providers working for CMU, anyone you authorize, and anyone the law requires.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">05</span>Cookies and similar tools</summary>
+            <p>CMU sites use cookies, including Google analytics, to work properly and see how they are used. You can block cookies in your browser, but some pages may not work.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">06</span>Your choices and rights</summary>
+            <p>Depending on where you live, you may be able to ask CMU to show, correct or delete your information by emailing privacy@andrew.cmu.edu.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">07</span>Links to other sites</summary>
+            <p>CMU isn&rsquo;t responsible for the privacy practices of other sites, so check their policies.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">08</span>Social networks and public forums</summary>
+            <p>What you post on social sites or public forums can be seen by others and follows those sites&rsquo; own policies.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">09</span>Stopping marketing emails</summary>
+            <p>Use the unsubscribe link in the email or contact it-help@cmu.edu. You will still get important messages about your accounts.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">10</span>Data sent to other countries</summary>
+            <p>CMU and its providers may process your information outside your country, with safeguards to keep it protected.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">11</span>How CMU keeps data safe</summary>
+            <p>Security policies, controls and staff training. CMU will tell you about a breach that affects your information as the law requires.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">12</span>Children&rsquo;s data</summary>
+            <p>CMU services meant for children under 13 need a parent&rsquo;s consent first.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">13</span>Changes to the notice</summary>
+            <p>CMU posts changes on the notice page and gives extra notice for changes that materially affect your rights.</p>
+          </details>
+          <details class="notice__item">
+            <summary><span class="notice__num" aria-hidden="true">14</span>How to contact CMU</summary>
+            <p>Email privacy@andrew.cmu.edu, or write to the Data Protection Officer at 5000 Forbes Avenue, Pittsburgh, PA 15213.</p>
+          </details>
+        </div>
+        <p class="notice__source">A plain-language summary of CMU&rsquo;s Privacy Notice, effective September 5, 2025. If anything here differs from the official notice, the official notice applies. <a href="https://www.cmu.edu/legal/privacy-notice">Read the full notice on cmu.edu</a></p>
+      </div>
+    </section>
 
-        <h2 class="detail-h2 detail-h2--sm">Accessibility</h2>
-        <p>We built the guide to work with a keyboard and screen readers, with plain language and a few clear choices on each page. If something gets in your way, <a href="about.html#suggest">tell us</a> or <a href="https://rainier.accessiblelearning.com/s-CMU/Feedback.aspx?TID=2OZKVmkBkGikuPoGBST1ciVMcWKHwaTjhawfBSDPJQA">report a digital accessibility barrier to CMU</a>.</p>
+    <!-- ===================== Accessibility ===================== -->
+    <section class="page-section" id="accessibility">
+      <div class="container">
+        <span class="page-eyebrow">Accessibility</span>
+        <h2 class="serif-h3">Made to work for everyone</h2>
+        <div class="access">
+          <ul class="access__list">
+            <li><strong>Works with a keyboard</strong> Every link and button can be reached with Tab, with a clear focus outline.</li>
+            <li><strong>Works with screen readers</strong> Pages use real headings, labels and link text that makes sense on its own.</li>
+            <li><strong>Plain words, short pages</strong> Each page explains one thing, with steps broken into small parts.</li>
+          </ul>
+          <div class="access__report">
+            <h3>Something hard to use?</h3>
+            <p>Tell CMU which page and what got in the way, or <a href="about.html#suggest">tell us</a>.</p>
+            <a class="btn btn--light" href="https://rainier.accessiblelearning.com/s-CMU/Feedback.aspx?TID=2OZKVmkBkGikuPoGBST1ciVMcWKHwaTjhawfBSDPJQA">Report a problem</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Contact ===================== -->
+    <section class="page-section" id="contact">
+      <div class="container">
+        <span class="page-eyebrow">Contact</span>
+        <h2 class="serif-h3">Questions about your data</h2>
+        <ul class="contact-cards">
+          <li>
+            <span>About this guide</span>
+            <strong>Olitsky Program</strong>
+            <a href="mailto:atavares@andrew.cmu.edu?subject=Student%20Help%20Guide%20privacy">atavares@andrew.cmu.edu</a>
+          </li>
+          <li>
+            <span>CMU data protection</span>
+            <strong>Data Protection Officer</strong>
+            <a href="mailto:privacy@andrew.cmu.edu">privacy@andrew.cmu.edu</a>
+          </li>
+          <li>
+            <span>By mail</span>
+            <address>Carnegie Mellon University<br>Attention: Data Protection Officer<br>5000 Forbes Avenue, Pittsburgh, PA 15213</address>
+          </li>
+        </ul>
       </div>
     </section>
   </main>
