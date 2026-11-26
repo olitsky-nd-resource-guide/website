@@ -4,7 +4,8 @@
 // Loads the resource cards from all-resources.html so other pages can show them.
 //
 //   StudentHelpGuide.loadResources()  -> Promise of { resources, categories }
-//     resources:  [{ id, title, provider, description, formats, categories, card }]
+//     resources:  [{ id, title, provider, description, keywords, formats, categories, card }]
+//     keywords comes from data-keywords on the card: everyday words for search, not shown
 //     categories: [{ id, name, description, url, count }]
 //   StudentHelpGuide.renderCards(container, resources)
 //     puts copies of the cards in container (use a .resource-grid)
@@ -54,6 +55,7 @@
         title: text(card.querySelector(".resource-card__title")),
         provider: text(card.querySelector(".resource-card__provider")),
         description: text(card.querySelector(".resource-card__desc")),
+        keywords: card.dataset.keywords || "",
         formats: words(card.dataset.formats),
         categories: cardCategories,
         card

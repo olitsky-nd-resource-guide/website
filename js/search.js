@@ -70,12 +70,14 @@
     const title = toWords(resource.title);
     const provider = toWords(resource.provider);
     const description = toWords(resource.description);
+    const keywords = toWords(resource.keywords);
 
     let score = 0;
     terms.forEach(term => {
       if (mentions(title, term)) score += 3;
       if (mentions(provider, term)) score += 2;
       if (mentions(description, term)) score += 1;
+      if (mentions(keywords, term)) score += 2;
     });
     // the card's main topic counts more than topics it is also listed under
     resource.categories.forEach((category, index) => {
