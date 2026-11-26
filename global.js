@@ -135,6 +135,26 @@ document.addEventListener("click", event => {
 
 
 // =================================
+// PHONE LINKS
+// =================================
+// On a phone, a tel: link can start the call right away. Ask first so a
+// stray tap doesn't call an office (or 911).
+
+function formatPhone(digits) {
+  return digits.length === 10
+    ? `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`
+    : digits;
+}
+
+document.addEventListener("click", event => {
+  const link = event.target.closest('a[href^="tel:"]');
+  if (!link) return;
+  const number = formatPhone(link.getAttribute("href").slice(4).replace(/\D/g, ""));
+  if (!window.confirm(`Call ${number}?`)) event.preventDefault();
+});
+
+
+// =================================
 // EMAIL TEMPLATES
 // =================================
 // An email template is split into parts:
