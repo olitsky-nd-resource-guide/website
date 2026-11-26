@@ -20,17 +20,18 @@
   const TOPIC_WORDS = {
     classes: ["class", "course", "study", "studying", "exam", "test", "quiz", "homework", "assignment",
       "tutor", "writing", "essay", "paper", "presentation", "grade", "lecture", "professor", "behind",
-      "accommodat", "notes", "reading"],
+      "accommodat", "notes", "reading", "english", "language"],
     planning: ["procrastinat", "putting", "put", "focus", "distract", "deadline", "plan", "schedule",
       "time", "routine", "start", "organiz", "motivat", "late", "forget", "habit", "productiv"],
     feelings: ["stress", "anxious", "anxiety", "worry", "worried", "sad", "depress", "lonely", "talk",
       "counsel", "therap", "overwhelm", "panic", "mental", "feel", "upset", "cry", "sleep", "calm"],
     health: ["sick", "ill", "doctor", "nurse", "health", "food", "hungry", "grocer", "meal", "eat",
-      "money", "rent", "pay", "loan", "cost", "afford", "insurance", "prescript", "medic", "diet"],
+      "money", "rent", "pay", "loan", "cost", "afford", "insurance", "prescript", "medic", "diet",
+      "nutrition"],
     career: ["job", "intern", "career", "resume", "interview", "work", "employ", "hire", "hiring",
       "workplace", "boss", "networking"],
     community: ["friend", "meet", "people", "belong", "club", "community", "connect", "social",
-      "event", "mentor"]
+      "event", "mentor", "housing", "roommate"]
   };
 
   // Words that don't help tell resources apart.
