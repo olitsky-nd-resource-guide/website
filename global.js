@@ -92,14 +92,31 @@ document.addEventListener("click", event => {
   syncBookmarkButtons(); // updates every copy of this resource on the page
 });
 
+// "My Resources (2)" in the nav; no number when nothing is saved.
+function showSavedCount() {
+  document.querySelectorAll('.site-nav a[href$="my-resources.html"]').forEach(link => {
+    let count = link.querySelector(".nav-count");
+    if (!count) {
+      count = document.createElement("span");
+      count.className = "nav-count";
+      link.append(count);
+    }
+    count.textContent = savedResources.size ? ` (${savedResources.size})` : "";
+  });
+}
+
+document.addEventListener("savedresourceschange", showSavedCount);
+
 // Keep bookmarks in sync if they change in another tab.
 window.addEventListener("storage", event => {
   if (event.key !== SAVED_KEY) return;
   savedResources = new Set(readSavedResources());
   syncBookmarkButtons();
+  showSavedCount();
 });
 
 syncBookmarkButtons();
+showSavedCount();
 
 
 // =================================
