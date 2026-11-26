@@ -15,7 +15,69 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-arrow" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></symbol>
+    <symbol id="icon-back" viewBox="0 0 16 16"><path d="M13 8H3M7 4L3 8l4 4"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8"/></symbol>
+    <symbol id="icon-flag" viewBox="0 0 16 16"><path d="M4 14.5V2"/><path d="M4 2.5h8.5l-2 3 2 3H4z" fill="currentColor"/></symbol>
+    <symbol id="icon-bookmark" viewBox="0 0 16 20"><path d="M2 1.5h12v17l-6-4.5-6 4.5z"/></symbol>
+
+    <!-- Option art in the style of images/*-icon.png. Drawn here because the
+         Figma exports aren't in the repo yet; swap in PNGs when they are. -->
+    <symbol id="art-one-on-one" viewBox="0 0 80 48">
+      <g fill="none" stroke="#182C4B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="29" cy="15" r="6"/>
+        <path d="M18 38v-3a11 11 0 0 1 22 0v3z"/>
+        <circle cx="51" cy="15" r="6" fill="#C41230"/>
+        <path d="M40 38v-3a11 11 0 0 1 22 0v3z" fill="#C41230"/>
+        <path d="M12 41h56"/>
+      </g>
+    </symbol>
+    <symbol id="art-group" viewBox="0 0 80 48">
+      <g fill="none" stroke="#182C4B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="24" cy="17" r="5"/>
+        <path d="M15 38v-2a9 9 0 0 1 18 0v2"/>
+        <circle cx="56" cy="17" r="5"/>
+        <path d="M47 38v-2a9 9 0 0 1 18 0v2"/>
+        <circle cx="40" cy="13" r="6" fill="#C41230"/>
+        <path d="M29 38v-3a11 11 0 0 1 22 0v3z" fill="#C41230"/>
+        <path d="M10 41h60"/>
+      </g>
+    </symbol>
+    <symbol id="art-self-guided" viewBox="0 0 80 48">
+      <g fill="none" stroke="#182C4B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="20" y="8" width="40" height="28" rx="1.5"/>
+        <path d="M27 17h18M27 23h14M27 29h10"/>
+        <path d="M46 28l4 4 7-9" stroke="#C41230"/>
+        <path d="M14 41h52"/>
+      </g>
+    </symbol>
+    <symbol id="art-mix" viewBox="0 0 80 48">
+      <g fill="none" stroke="#182C4B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="17" y="17" width="14" height="20" rx="1.5"/>
+        <rect x="33" y="10" width="14" height="27" rx="1.5" fill="#C41230"/>
+        <rect x="49" y="17" width="14" height="20" rx="1.5"/>
+        <path d="M12 41h56"/>
+      </g>
+    </symbol>
+    <symbol id="art-not-sure" viewBox="0 0 80 48">
+      <g fill="none" stroke="#182C4B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M40 6v35M30 41h20"/>
+        <path d="M42 10h18l5 5-5 5H42z"/>
+        <path d="M38 22H20l-5 5 5 5h18z" fill="#C41230"/>
+      </g>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 40 32">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+        <rect x="2" y="6" width="32" height="22" rx="1"/>
+        <path d="M2 7l16 12L34 7"/>
+      </g>
+      <circle cx="34" cy="6" r="5" fill="#C41230"/>
+    </symbol>
+  </svg>
+
   <!-- ===================== Header ===================== -->
+  <!-- Just the brand and a way out while answering the questions. -->
   <header class="site-header">
     <div class="navbar">
       <a class="brand" href="index.html">
@@ -25,105 +87,139 @@
           <span>Carnegie Mellon University</span>
         </span>
       </a>
-
-
-      <nav class="site-nav" aria-label="Main">
-
-        <!-- Bootstrap hamburger button -->
-        <button class="navbar-toggler" type="button"
-                data-toggle="collapse"
-                data-target="#navbarMenu"
-                aria-controls="navbarMenu"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <!-- Collapsible navigation -->
-        <div class="collapse navbar-collapse" id="navbarMenu">
-          <ul>
-            <li><a href="all-resources.html">All resources</a></li>
-            <li><a href="help-me-choose.html" aria-current="page">Help me choose</a></li>
-            <li><a class="is-urgent" href="#urgent">Urgent help</a></li>
-            <li><a href="my-resources.html">My Resources</a></li>
-            <li>
-              <button class="settings-btn" type="button"
-                      aria-label="Display settings">
-                <svg width="16" height="16"
-                     viewBox="0 0 16 16"
-                     fill="none"
-                     stroke="currentColor"
-                     stroke-width="1.4"
-                     stroke-linecap="round"
-                     aria-hidden="true">
-                  <path d="M2 4h7M13 4h1M2 12h1M7 12h7"/>
-                  <circle cx="11" cy="4" r="1.8"/>
-                  <circle cx="5" cy="12" r="1.8"/>
-                </svg>
-              </button>
-            </li>
-          </ul>
-        </div>
-      
-      </nav>
-      
-
-      
+      <a class="leave-link" href="index.html">
+        <svg aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
+        Leave<span class="sr-only"> Help me choose and go to the home page</span>
+      </a>
     </div>
   </header>
 
-  <main id="main">
-    <section class="section">
+  <main id="main" class="choose">
+
+    <section class="hero choose-hero">
+      <div class="container">
+        <div class="choose-hero__top">
+          <p class="choose-hero__eyebrow" data-choose-step="1">Help me choose</p>
+          <button class="choose-back" type="button" data-choose-back hidden>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-back"/></svg>
+            Back
+          </button>
+
+          <ol class="choose-progress" aria-label="Progress">
+            <li data-choose-progress="1"><span aria-hidden="true">1</span><span class="sr-only">What you need</span></li>
+            <li data-choose-progress="2"><span aria-hidden="true">2</span><span class="sr-only">Kind of help</span></li>
+            <li data-choose-progress="3"><svg aria-hidden="true" focusable="false"><use href="#icon-flag"/></svg><span class="sr-only">Suggestions</span></li>
+          </ol>
+        </div>
+
+        <div data-choose-step="1">
+          <h1>What would you like help with right now?</h1>
+          <p class="choose-hero__lead">Pick the closest one. We won't ask about a diagnosis, and nothing you pick is saved or shared.</p>
+        </div>
+        <div data-choose-step="2" hidden>
+          <h1>What kind of help sounds good?</h1>
+          <p class="choose-hero__lead">You can change your mind later.</p>
+        </div>
+        <div data-choose-step="3" hidden>
+          <h1>Try one of these first</h1>
+          <p class="choose-hero__lead">Suggestions, not a diagnosis or a decision about what you can get.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="choose-body">
       <div class="container">
 
-        <ol class="choose-progress" aria-label="Progress">
-          <li data-choose-progress="1">What you need</li>
-          <li data-choose-progress="2">Kind of help</li>
-          <li data-choose-progress="3">Suggestions</li>
-        </ol>
-
-        <button class="btn btn--outline-dark" type="button" data-choose-back hidden>Back</button>
-
         <!-- ===================== Step 1 ===================== -->
-        <div data-choose-step="1">
-          <h1 class="serif-h1">What would you like help with right now?</h1>
-          <p>Pick the closest one. We won't ask about a diagnosis, and nothing you pick is saved or shared.</p>
-          <ul class="choose-options">
-            <li><button type="button" data-choose-answer="need" data-value="classes"><strong>Classes or studying</strong> <span>Coursework, writing, exams</span></button></li>
-            <li><button type="button" data-choose-answer="need" data-value="planning"><strong>Planning, focus or getting started</strong> <span>Time, procrastination, routines</span></button></li>
-            <li><button type="button" data-choose-answer="need" data-value="feelings"><strong>Feelings, stress or mental health</strong> <span>Someone to talk to</span></button></li>
-            <li><button type="button" data-choose-answer="need" data-value="health"><strong>Health, food or money</strong> <span>Feeling sick, groceries, costs</span></button></li>
-            <li><button type="button" data-choose-answer="need" data-value="career"><strong>Career or work</strong> <span>Jobs, internships, workplace needs</span></button></li>
-            <li><button type="button" data-choose-answer="need" data-value="unsure"><strong>Not sure yet</strong> <span>That is completely fine</span></button></li>
-          </ul>
-        </div>
+        <ul class="choose-topics" data-choose-step="1">
+          <li>
+            <button class="choose-topic" type="button" data-choose-answer="need" data-value="classes">
+              <span class="choose-topic__art"><img src="images/classes-and-studying-icon.png" alt=""></span>
+              <span class="choose-topic__text"><strong>Classes or studying</strong> <span>Coursework, writing, exams</span></span>
+              <svg class="choose-topic__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </button>
+          </li>
+          <li>
+            <button class="choose-topic" type="button" data-choose-answer="need" data-value="planning">
+              <span class="choose-topic__art choose-topic__art--red"><img src="images/planning-icon.png" alt=""></span>
+              <span class="choose-topic__text"><strong>Planning, focus or getting started</strong> <span>Time, procrastination, routines</span></span>
+              <svg class="choose-topic__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </button>
+          </li>
+          <li>
+            <button class="choose-topic" type="button" data-choose-answer="need" data-value="feelings">
+              <span class="choose-topic__art"><img src="images/feelings-and-stress-icon.png" alt=""></span>
+              <span class="choose-topic__text"><strong>Feelings, stress or mental health</strong> <span>Someone to talk to</span></span>
+              <svg class="choose-topic__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </button>
+          </li>
+          <li>
+            <button class="choose-topic" type="button" data-choose-answer="need" data-value="health">
+              <span class="choose-topic__art choose-topic__art--red"><img src="images/health-food-money-icon.png" alt=""></span>
+              <span class="choose-topic__text"><strong>Health, food or money</strong> <span>Feeling sick, groceries, costs</span></span>
+              <svg class="choose-topic__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </button>
+          </li>
+          <li>
+            <button class="choose-topic" type="button" data-choose-answer="need" data-value="career">
+              <span class="choose-topic__art"><img src="images/career-and-work-icon.png" alt=""></span>
+              <span class="choose-topic__text"><strong>Career or work</strong> <span>Jobs, internships, workplace needs</span></span>
+              <svg class="choose-topic__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </button>
+          </li>
+          <li>
+            <button class="choose-topic" type="button" data-choose-answer="need" data-value="unsure">
+              <span class="choose-topic__art choose-topic__art--red"><svg aria-hidden="true" focusable="false"><use href="#art-not-sure"/></svg></span>
+              <span class="choose-topic__text"><strong>Not sure yet</strong> <span>That is completely fine</span></span>
+              <svg class="choose-topic__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </button>
+          </li>
+        </ul>
 
         <!-- ===================== Step 2 ===================== -->
-        <div data-choose-step="2" hidden>
-          <h1 class="serif-h1">What kind of help sounds good?</h1>
-          <p>You can change your mind later.</p>
-          <ul class="choose-options">
-            <li><button type="button" data-choose-answer="format" data-value="one-on-one"><strong>Talk to one person</strong> <span>A private meeting</span></button></li>
-            <li><button type="button" data-choose-answer="format" data-value="group"><strong>Join a group</strong> <span>Learn alongside others</span></button></li>
-            <li><button type="button" data-choose-answer="format" data-value="self-guided"><strong>Read or try on my own</strong> <span>At my own pace</span></button></li>
-            <li><button type="button" data-choose-answer="format" data-value="unsure"><strong>Not sure</strong> <span>Show me a mix</span></button></li>
-          </ul>
-        </div>
+        <ul class="choose-formats" data-choose-step="2" hidden>
+          <li>
+            <button class="choose-format" type="button" data-choose-answer="format" data-value="one-on-one">
+              <span class="choose-format__art choose-format__art--red"><svg aria-hidden="true" focusable="false"><use href="#art-one-on-one"/></svg></span>
+              <span class="choose-format__text"><strong>Talk to one person</strong> <span>A private meeting</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="choose-format" type="button" data-choose-answer="format" data-value="group">
+              <span class="choose-format__art"><svg aria-hidden="true" focusable="false"><use href="#art-group"/></svg></span>
+              <span class="choose-format__text"><strong>Join a group</strong> <span>Learn alongside others</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="choose-format" type="button" data-choose-answer="format" data-value="self-guided">
+              <span class="choose-format__art choose-format__art--red"><svg aria-hidden="true" focusable="false"><use href="#art-self-guided"/></svg></span>
+              <span class="choose-format__text"><strong>Read or try on my own</strong> <span>At my own pace</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="choose-format" type="button" data-choose-answer="format" data-value="unsure">
+              <span class="choose-format__art"><svg aria-hidden="true" focusable="false"><use href="#art-mix"/></svg></span>
+              <span class="choose-format__text"><strong>Not sure</strong> <span>Show me a mix</span></span>
+            </button>
+          </li>
+        </ul>
 
         <!-- ===================== Step 3 ===================== -->
         <div data-choose-step="3" hidden>
-          <h1 class="serif-h1">Try one of these first</h1>
-          <p>Suggestions, not a diagnosis or a decision about what you can get.</p>
-          <p class="resource-status" role="status" aria-live="polite" data-choose-status></p>
-          <div class="resource-grid" data-choose-results></div>
+          <p class="choose-status" role="status" aria-live="polite" data-choose-status></p>
+          <div class="choose-results" data-choose-results></div>
 
           <div class="choose-fallback">
-            <h2 class="serif-h4">Still not sure?</h2>
-            <p>Email the Olitsky Program and a person will point you the right way.</p>
-            <!-- PLACEHOLDER: replace href="#" with the Olitsky Program email (mailto:). -->
-            <a class="btn btn--outline-dark" href="#" data-placeholder-link>Email the Olitsky Program</a>
-            <button class="btn btn--outline-dark" type="button" data-choose-restart>Start over</button>
-            <a class="btn btn--outline-dark" href="all-resources.html">Browse everything</a>
+            <svg class="choose-fallback__icon" aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg>
+            <div class="choose-fallback__text">
+              <h2>Still not sure?</h2>
+              <!-- PLACEHOLDER: replace href="#" with the Olitsky Program email (mailto:) and remove data-placeholder-link. -->
+              <p><a href="#" data-placeholder-link>Email the Olitsky Program</a> and a person will point you the right way.</p>
+            </div>
+            <div class="choose-fallback__actions">
+              <button class="btn btn--outline-light" type="button" data-choose-restart>Start over</button>
+              <a class="btn btn--light" href="all-resources.html">Browse everything</a>
+            </div>
           </div>
         </div>
 
