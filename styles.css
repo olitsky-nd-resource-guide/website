@@ -1610,6 +1610,80 @@
   .text-page a:hover { color: var(--color-brand-skibo-red); text-decoration-thickness: 2px; }
 
   /* =================================
+     INFO PAGES (my-resources.html, about.html, privacy.html)
+  ================================= */
+
+  .page-hero .hero__inner { padding-top: 32px; padding-bottom: 64px; }
+  .page-hero .breadcrumb-trail ol { margin-bottom: 28px; }
+  .page-hero h1 { white-space: normal; font-size: 56px; line-height: 1.1; }
+  .page-hero .hero__lead { max-width: 58ch; }
+  /* Line art drawn inline; same style as images/*-header-icon.png */
+  .page-hero__art {
+    justify-self: end;
+    width: 220px;
+    height: auto;
+    fill: none;
+    stroke: var(--color-surface-paper);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .page-hero__art .fill-red { fill: var(--color-brand-carnegie-red); stroke: var(--color-brand-carnegie-red); }
+  .page-hero__art .stroke-gold { stroke: var(--color-accent-gold); }
+
+  .page-section { padding: 56px 0; }
+  .page-section + .page-section { padding-top: 0; }
+  .page-eyebrow {
+    display: block;
+    margin-bottom: 6px;
+    font: 700 11px/1.4 var(--font-sans);
+    color: var(--color-brand-carnegie-red);
+  }
+  .page-section__intro {
+    margin-top: 8px;
+    font: 400 14px/1.6 var(--font-sans);
+    color: var(--color-neutral-gray-700);
+  }
+
+  /* Gradient call-to-action band (About "Suggest a change") */
+  .cta-band {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 24px;
+    padding: 28px 32px;
+    color: var(--color-neutral-white);
+    background: linear-gradient(115deg, var(--color-brand-weaver-blue) 0%, #3a2440 45%, var(--color-brand-skibo-red) 100%);
+  }
+  .cta-band h2 { font: 700 22px/1.3 var(--font-serif); }
+  .cta-band p { margin-top: 4px; font: 400 14px/1.5 var(--font-sans); color: var(--color-on-dark-muted); }
+
+  /* Strip under a hero, e.g. "Saved on this device only." */
+  .note-strip {
+    padding: 12px 0;
+    background: var(--color-surface-paper);
+    font: 400 13px/1.4 var(--font-sans);
+    color: var(--color-neutral-gray-700);
+  }
+  .note-strip .container { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+  .note-strip svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+  }
+  .note-strip a { color: var(--color-brand-carnegie-red); }
+
+  @media (max-width: 760px) {
+    .page-hero h1 { font-size: 40px; }
+    .page-section { padding: 44px 0; }
+    .cta-band { padding: 24px 20px; }
+  }
+
+  /* =================================
      HELP ME CHOOSE (help-me-choose.html)
   ================================= */
 
