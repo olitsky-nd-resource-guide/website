@@ -26,8 +26,8 @@ document.querySelectorAll(".resource-card[data-also-in]").forEach(card => {
 // SAVED RESOURCES (bookmarks)
 // =================================
 // Saved resource IDs live in localStorage so they survive refreshes and
-// page changes. Other features (e.g. "My Resources") can read them with
-// StudentHelpGuide.getSavedResources() and listen for the
+// page changes. my-resources.js reads them with
+// StudentHelpGuide.getSavedResources() and listens for the
 // "savedresourceschange" event on document.
 
 const SAVED_KEY = "studentHelpGuide.savedResources";
@@ -218,7 +218,6 @@ document.querySelectorAll("[data-copy-target]").forEach(button => {
 });
 
 
-// Public helpers for future features (e.g. My Resources, comparison page).
 // syncCards() refreshes Save / Compare state after adding cards to the page.
 window.StudentHelpGuide = {
   getSavedResources: () => [...savedResources],
