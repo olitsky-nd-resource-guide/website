@@ -1612,7 +1612,7 @@
 
   .page-hero .hero__inner { padding-top: 32px; padding-bottom: 64px; }
   .page-hero .breadcrumb-trail ol { margin-bottom: 28px; }
-  .page-hero h1 { white-space: normal; font-size: 56px; line-height: 1.1; }
+  .page-hero h1 { max-width: 12em; white-space: normal; font-size: 56px; line-height: 1.1; }
   .page-hero .hero__lead { max-width: 58ch; }
   /* Line art drawn inline; same style as images/*-header-icon.png */
   .page-hero__art {
@@ -1728,10 +1728,70 @@
   .btn-primary-arrow--sm .btn-primary-arrow__text { padding: 0 18px; font-size: 13px; }
   .btn-primary-arrow--sm .btn-primary-arrow__icon { width: 40px; }
 
+  /* About */
+  .team {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .team__member strong { display: block; margin-top: 12px; font: 700 14px/1.35 var(--font-sans); }
+  .team__member > span:last-child { font: 400 12px/1.4 var(--font-sans); color: var(--color-neutral-gray-600); }
+  .team__initials {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    font: 700 30px/1 var(--font-serif);
+    color: var(--color-neutral-white);
+  }
+  .team__initials--navy { background: var(--color-brand-weaver-blue); }
+  .team__initials--plum { background: #5a2440; }
+  .team__initials--red  { background: var(--color-brand-skibo-red); }
+  .team__initials--dark { background: #3a2440; }
+  .team__initials--blue { background: var(--color-brand-blue-thread); }
+
+  .about-why {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 48px;
+    margin-top: 20px;
+    font: 400 15px/1.6 var(--font-sans);
+    color: var(--color-neutral-gray-700);
+  }
+  .about-why__list { margin: 0; padding: 0; list-style: none; }
+  .about-why__list li { position: relative; padding-left: 22px; }
+  .about-why__list li + li { margin-top: 12px; }
+  .about-why__list li::before {
+    content: "";
+    position: absolute;
+    top: .55em;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: var(--color-brand-carnegie-red);
+  }
+  .about-why strong { color: var(--color-neutral-ink); }
+
+  .about-partners p {
+    max-width: 72ch;
+    margin-top: 12px;
+    font: 400 15px/1.6 var(--font-sans);
+    color: var(--color-neutral-gray-700);
+  }
+  .about-partners strong { color: var(--color-neutral-ink); }
+
+  @media (max-width: 960px) {
+    .team { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .about-why { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 760px) {
     .page-hero h1 { font-size: 40px; }
     .page-section { padding: 44px 0; }
     .cta-band { padding: 24px 20px; }
+    .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
   /* =================================

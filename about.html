@@ -74,39 +74,107 @@
 
   <main id="main">
     <!-- ===================== Hero ===================== -->
-    <section class="hero">
+    <section class="hero page-hero">
       <div class="container hero__inner">
         <div>
-          <h1>About this guide</h1>
-          <p class="hero__lead">A plain-language guide to support at CMU, sorted by what you need instead of which office runs it.</p>
+          <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li aria-current="page">About this guide</li>
+            </ol>
+          </nav>
+          <h1>Built with students, for students</h1>
+          <p class="hero__lead">One place for CMU support, sorted by what you need instead of which office runs it. Made by a student team with the Olitsky Career Readiness Program.</p>
         </div>
 
-        <img class="hero__art hero__art--resources" src="images/resources-header-icon.png" alt="">
+        <!-- Stand-in art until the Figma illustration is exported. -->
+        <svg class="hero__art page-hero__art" viewBox="0 0 220 160" aria-hidden="true" focusable="false">
+          <circle cx="62" cy="62" r="14"/>
+          <circle cx="110" cy="52" r="16"/>
+          <circle cx="158" cy="62" r="14"/>
+          <path d="M34 120a28 28 0 0 1 56 0M130 120a28 28 0 0 1 56 0"/>
+          <path class="fill-red" d="M78 120a32 32 0 0 1 64 0z"/>
+          <path d="M20 120h180"/>
+          <g class="stroke-gold">
+            <circle cx="186" cy="24" r="8"/>
+            <path d="M186 6v4M186 38v4M168 24h4M200 24h4"/>
+          </g>
+        </svg>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container text-page">
-        <h2 class="detail-h2 detail-h2--sm">Why we made it</h2>
-        <p>CMU has a lot of support, but it is usually listed by office. To use it, you often need to know the service exists, which office runs it, what it actually does and who to contact. That is a lot to figure out when you are already stuck.</p>
-        <p>This guide starts from what is going on for you, shows a few clear options, and spells out the next step: where to go, what to bring and what to say.</p>
-
-        <h2 class="detail-h2 detail-h2--sm">Who made it</h2>
-        <p>The guide was built in Fall 2026 by Carnegie Mellon students, as a course project with Professor Andrew Begel, in partnership with the Olitsky Family Foundation Career Readiness Program at the Career and Professional Development Center.</p>
-        <ul>
-          <li>Zida Anyachebelu</li>
-          <li>Amanda Cotumaccio</li>
-          <li>Nindy Aditya Dewi</li>
-          <li>Sarah Lu</li>
-          <li>Delena Pierre</li>
+    <!-- ===================== Team ===================== -->
+    <section class="page-section">
+      <div class="container">
+        <span class="page-eyebrow">Who made it</span>
+        <h2 class="serif-h3">Team Olitsky</h2>
+        <ul class="team">
+          <li class="team__member">
+            <span class="team__initials team__initials--navy" aria-hidden="true">AC</span>
+            <strong>Amanda Cotumaccio</strong>
+            <span>Front End Developer</span>
+          </li>
+          <li class="team__member">
+            <span class="team__initials team__initials--plum" aria-hidden="true">ND</span>
+            <strong>Nindy Aditya Dewi</strong>
+            <span>Product Designer</span>
+          </li>
+          <li class="team__member">
+            <span class="team__initials team__initials--red" aria-hidden="true">SL</span>
+            <strong>Sarah Lu</strong>
+            <span>Back End Developer</span>
+          </li>
+          <li class="team__member">
+            <span class="team__initials team__initials--dark" aria-hidden="true">DP</span>
+            <strong>Delena Pierre</strong>
+            <span>Project Manager</span>
+          </li>
+          <li class="team__member">
+            <span class="team__initials team__initials--blue" aria-hidden="true">ZA</span>
+            <strong>Zida Anyachebelu</strong>
+            <span>Researcher</span>
+          </li>
         </ul>
-        <p>Thank you to Amy Tavares and the Olitsky Program, and to the students who tried the guide and told us what to fix.</p>
+      </div>
+    </section>
 
-        <h2 class="detail-h2 detail-h2--sm">Where the information comes from</h2>
+    <!-- ===================== Why ===================== -->
+    <section class="page-section">
+      <div class="container">
+        <span class="page-eyebrow">Why we made it</span>
+        <h2 class="serif-h3">Finding help shouldn&rsquo;t mean knowing where to look first</h2>
+        <div class="about-why">
+          <p>CMU has a lot of support, but it is spread across many offices and websites. When we talked with students, the hard part was rarely the help itself. It was knowing where to look and what to do next.</p>
+          <ul class="about-why__list">
+            <li><strong>Start from what you need.</strong> Topics are named after problems, not offices.</li>
+            <li><strong>Same layout every time.</strong> Every resource tells you how to book and what happens next.</li>
+            <li><strong>No personal details needed.</strong> Nothing asks for a diagnosis or documents.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Partners ===================== -->
+    <section class="page-section">
+      <div class="container about-partners">
+        <span class="page-eyebrow">With thanks</span>
+        <h2 class="serif-h3">Partners</h2>
+        <p>Made with <strong>Amy Tavares</strong> and the Olitsky Career Readiness Program, as a course project at Carnegie Mellon with Professor Andrew Begel. Thank you to the students who tested it and told us where they got stuck.</p>
         <p>Details come from each office&rsquo;s official pages and from the resource gallery the Olitsky Program put together with those offices. Hours and steps can change, so check the official page linked on each resource before you go.</p>
+      </div>
+    </section>
 
-        <h2 class="detail-h2 detail-h2--sm" id="suggest">Suggest a change</h2>
-        <p>Spotted something out of date, or a resource we should add? Email the Olitsky Program at <a href="mailto:atavares@andrew.cmu.edu?subject=Student%20Help%20Guide%20suggestion">atavares@andrew.cmu.edu</a>.</p>
+    <!-- ===================== Suggest a change ===================== -->
+    <!-- Every footer links here (about.html#suggest). -->
+    <section class="page-section" id="suggest">
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>See something wrong or missing?</h2>
+            <p>Tell the Olitsky Program what to fix or what we should add.</p>
+          </div>
+          <a class="btn btn--light" href="mailto:atavares@andrew.cmu.edu?subject=Student%20Help%20Guide%20suggestion">Suggest a change</a>
+        </div>
       </div>
     </section>
   </main>
