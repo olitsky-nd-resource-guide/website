@@ -1584,3 +1584,24 @@
     height:60%;
     margin:auto;
   }
+  /* =================================
+     TEXT PAGES (about.html, privacy.html)
+  ================================= */
+
+  .text-page { max-width: 760px; }
+  .text-page h2 { margin: 48px 0 12px; }
+  .text-page h2:first-child { margin-top: 0; }
+  .text-page p,
+  .text-page li { font: 400 17px/1.6 var(--font-sans); color: var(--color-neutral-gray-700); }
+  .text-page p + p,
+  .text-page ul + p,
+  .text-page p + ul { margin-top: 12px; }
+  .text-page ul { padding-left: 22px; margin-bottom: 0; }
+  .text-page li + li { margin-top: 6px; }
+  .text-page strong { color: var(--color-neutral-ink); }
+  .text-page a {
+    color: var(--color-brand-carnegie-red);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .text-page a:hover { color: var(--color-brand-skibo-red); text-decoration-thickness: 2px; }
