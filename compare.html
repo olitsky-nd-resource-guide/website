@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compare resources · Student Help Guide · Carnegie Mellon University</title>
+  <meta name="description" content="See two or three CMU resources side by side: where they happen, how to sign up and what to do first.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-back" viewBox="0 0 16 16"><path d="M13 8H3M7 4L3 8l4 4"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></symbol>
+  </svg>
+
+  <!-- ===================== Header ===================== -->
+  <!-- Just the brand and a way back; compare.js points the link at the page
+       the resources were picked on. -->
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="images/CMU-logo.png" alt="">
+        <span class="brand__text">
+          <strong>Student Help Guide</strong>
+          <span>Carnegie Mellon University</span>
+        </span>
+      </a>
+      <a class="leave-link" href="all-resources.html" data-compare-back>
+        <svg aria-hidden="true" focusable="false"><use href="#icon-back"/></svg>
+        <span data-compare-back-label>Back to all resources</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-section compare">
+      <div class="container">
+        <h1>Which one fits you better?</h1>
+        <p class="compare__status" role="status" aria-live="polite" data-compare-status>Loading your picks...</p>
+
+        <p class="compare__hint" data-compare-closing hidden>Scroll sideways to see each resource.</p>
+        <div class="compare__scroll" role="region" aria-label="Comparison table" tabindex="0" data-compare-wrap hidden>
+          <table class="compare-table" data-compare-table></table>
+        </div>
+        <p class="compare__closing" data-compare-closing hidden>You can do more than one.</p>
+
+        <!-- Shown when there aren't 2 resources to compare -->
+        <div class="compare__empty" data-compare-empty hidden>
+          <p>Tick Compare on 2 or 3 resources, then come back here to see them side by side.</p>
+          <a class="btn btn--outline-dark" href="all-resources.html">Browse by need</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <img class="brand__logo" src="images/CMU-logo.png" alt="Carnegie Mellon University">
+        <p>Made with the Olitsky Career Readiness Program.</p>
+      </div>
+
+      <div id="urgent">
+        <h2 class="serif-h4">Urgent help</h2>
+        <ul>
+          <li>Counseling &amp; Psychological Services:</li>
+          <li><a href="tel:4122682922"><strong>412-268-2922</strong></a></li>
+          <li>Call or text <a href="tel:988"><strong>988</strong></a></li>
+          <li>In danger right now: <a href="tel:911"><strong>911</strong></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="serif-h4">About</h2>
+        <ul>
+          <li><a href="about.html">About this guide</a></li>
+          <li><a href="acronyms.html">Acronyms, spelled out</a></li>
+          <li><a href="who-youll-meet.html">Who you&rsquo;ll meet</a></li>
+          <li><a href="privacy.html">Privacy and accessibility</a></li>
+          <li><a href="about.html#suggest">Suggest a change</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <div class="container">
+        <p>This guide is not a crisis service. Carnegie Mellon University, Pittsburgh, PA</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<script src="global.js"></script>
+<script src="js/resource-cards.js"></script>
+<script src="js/compare.js"></script>
+
+
+</body>
+</html>

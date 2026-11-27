@@ -51,8 +51,10 @@ function writeSavedResources(ids) {
 
 let savedResources = new Set(readSavedResources());
 
-// IDs checked with "Compare". In-memory only for now; no comparison page yet.
-const compareSelection = new Set();
+// Resources ticked with "Compare". See COMPARE below.
+const COMPARE_KEY = "studentHelpGuide.compare";
+const COMPARE_MAX = 3;
+const compareUrl = new URL("compare.html", document.currentScript.src).href;
 
 // Card bookmarks take their ID from the card; standalone Save buttons
 // (e.g. on a resource's detail page) name it with data-save-resource.
@@ -120,21 +122,114 @@ showSavedCount();
 
 
 // =================================
-// COMPARE CHECKBOXES
+// COMPARE
 // =================================
+// Up to 3 ticked resources, kept in sessionStorage (this tab only) with the
+// page they were ticked on, so compare.html can link back to it.
+//   { items: [{ id, title, kind }], from: { href, label } }
+// The bar at the bottom shows on pages with Compare boxes once one is ticked.
 
-function syncCompareChecks() {
-  document.querySelectorAll(".compare-check__input").forEach(input => {
-    input.checked = compareSelection.has(input.value);
+function readCompare() {
+  try {
+    const stored = JSON.parse(sessionStorage.getItem(COMPARE_KEY) || "{}");
+    return { items: Array.isArray(stored.items) ? stored.items.slice(0, COMPARE_MAX) : [], from: stored.from || null };
+  } catch (err) {
+    return { items: [], from: null };
+  }
+}
+
+let compare = readCompare();
+
+function writeCompare() {
+  try {
+    sessionStorage.setItem(COMPARE_KEY, JSON.stringify(compare));
+  } catch (err) {
+    // Storage unavailable: picks still work on this page.
+  }
+}
+
+function compareItem(input) {
+  const card = input.closest(".resource-card");
+  const formats = (card.dataset.formats || "").split(/\s+/);
+  return {
+    id: input.value,
+    title: card.querySelector(".resource-card__title").textContent.trim(),
+    kind: formats.includes("one-on-one") ? "red" : "blue"
+  };
+}
+
+let compareBar = null;
+
+function buildCompareBar() {
+  compareBar = document.createElement("div");
+  compareBar.className = "compare-bar";
+  compareBar.hidden = true;
+  compareBar.innerHTML = `
+    <div class="container compare-bar__inner">
+      <div class="compare-bar__slots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="compare-bar__text">
+        <p class="compare-bar__count" role="status" aria-live="polite"></p>
+        <p class="compare-bar__names"></p>
+      </div>
+      <button class="compare-bar__clear" type="button">Clear</button>
+      <a class="next-steps-link compare-bar__go" href="${compareUrl}">
+        <span class="next-steps-link__icon" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></svg></span>
+        <span class="next-steps-link__text">Compare side by side</span>
+      </a>
+    </div>`;
+  compareBar.querySelector(".compare-bar__clear").addEventListener("click", () => {
+    compare = { items: [], from: null };
+    writeCompare();
+    syncCompareChecks();
   });
+  document.body.append(compareBar);
+}
+
+function updateCompareBar(message) {
+  const onPage = document.querySelector(".compare-check__input");
+  const count = compare.items.length;
+  if (!compareBar && (!onPage || !count)) return;
+  if (!compareBar) buildCompareBar();
+
+  const show = Boolean(onPage && count);
+  compareBar.hidden = !show;
+  document.documentElement.classList.toggle("has-compare-bar", show);
+  if (!show) return;
+
+  compareBar.querySelectorAll(".compare-bar__slots span").forEach((slot, i) => {
+    slot.className = compare.items[i] ? "is-" + compare.items[i].kind : "";
+  });
+  compareBar.querySelector(".compare-bar__names").textContent = compare.items.map(item => item.title).join(", ");
+  compareBar.querySelector(".compare-bar__go").hidden = count < 2;
+  compareBar.querySelector(".compare-bar__count").textContent = message ||
+    (count < 2 ? "1 of 3 selected. Pick one more to compare." : `${count} of ${COMPARE_MAX} selected`);
+}
+
+function syncCompareChecks(message) {
+  const ids = compare.items.map(item => item.id);
+  document.querySelectorAll(".compare-check__input").forEach(input => {
+    input.checked = ids.includes(input.value);
+  });
+  updateCompareBar(message);
 }
 
 document.addEventListener("change", event => {
   const input = event.target.closest(".compare-check__input");
   if (!input) return;
-  if (input.checked) compareSelection.add(input.value);
-  else compareSelection.delete(input.value);
-  syncCompareChecks(); // keep copies of the same resource in other categories in step
+
+  // copies of a card in other topics share an ID, so count by ID
+  compare.items = compare.items.filter(item => item.id !== input.value);
+  let message = "";
+  if (input.checked) {
+    if (compare.items.length < COMPARE_MAX) compare.items.push(compareItem(input));
+    else message = "You can compare up to 3. Untick one to add another.";
+  }
+  // a page can name itself for the back link with <body data-page-name>
+  const heading = document.querySelector("h1");
+  const label = document.body.dataset.pageName || (heading ? heading.textContent.replace(/\s+/g, " ").trim() : "");
+  compare.from = { href: window.location.href, label };
+  writeCompare();
+  syncCompareChecks(message);
 });
 
 syncCompareChecks();
@@ -258,7 +353,7 @@ document.querySelectorAll("[data-copy-target]").forEach(button => {
 // syncCards() refreshes Save / Compare state after adding cards to the page.
 window.StudentHelpGuide = {
   getSavedResources: () => [...savedResources],
-  getCompareSelection: () => [...compareSelection],
+  getCompare: () => readCompare(),
   syncCards: () => {
     syncBookmarkButtons();
     syncCompareChecks();
