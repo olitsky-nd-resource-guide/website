@@ -7,6 +7,7 @@
 //   [data-search-input]        search box, filled in with the current search
 //   [data-search-topic]        "Closest topic" box, hidden when there isn't one
 //     [data-search-topic-name] [data-search-topic-desc] [data-search-topic-link]
+//   [data-search-related]      feelings link, hidden when that's already the closest topic
 //   [data-search-status]       live region for the result message
 //   [data-search-results]      a .resource-grid the matches go in
 
@@ -112,6 +113,7 @@
   const input = document.querySelector("[data-search-input]");
   const status = document.querySelector("[data-search-status]");
   const topicBox = document.querySelector("[data-search-topic]");
+  const related = document.querySelector("[data-search-related]");
 
   if (input) input.value = query;
 
@@ -120,6 +122,7 @@
   }
 
   function showTopic(topic) {
+    if (related) related.hidden = Boolean(topic && topic.id === "feelings");
     if (!topicBox) return;
     topicBox.hidden = !topic;
     if (!topic) return;

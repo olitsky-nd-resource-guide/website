@@ -1996,12 +1996,93 @@
     .roles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
+  /* Search results */
+  .search-hero { padding: 32px 0 56px; }
+  .search-hero .search.input-group { max-width: 640px; }
+  .search .input-group-text svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+  }
+
+  .search-topic {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    margin-bottom: 40px;
+    padding: 22px 24px;
+    background: var(--color-surface-paper);
+  }
+  .search-topic__label { font: 600 11px/1.4 var(--font-sans); color: var(--color-neutral-gray-700); }
+  .search-topic h2 { margin-top: 4px; font: 700 22px/1.3 var(--font-serif); }
+  .search-topic p:last-child { margin-top: 4px; font: 400 14px/1.5 var(--font-sans); color: var(--color-neutral-gray-700); }
+  .search-topic__link { font: 700 14px/1.4 var(--font-sans); color: var(--color-brand-carnegie-red); }
+  .search-topic__link:hover { color: var(--color-brand-skibo-red); }
+
+  .search-results__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 24px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-neutral-ink);
+  }
+  .search-results__status { font: 400 14px/1.5 var(--font-sans); color: var(--color-neutral-gray-700); }
+
+  .search-next {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 32px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--color-neutral-steel-gray);
+    border-bottom: 1px solid var(--color-neutral-steel-gray);
+  }
+  .search-next li + li { border-left: 1px solid var(--color-neutral-steel-gray); }
+  .search-next a {
+    position: relative;
+    display: block;
+    padding: 18px 48px 18px 0;
+    color: var(--color-neutral-ink);
+    text-decoration: none;
+  }
+  .search-next li + li a { padding-left: 24px; }
+  .search-next a:hover strong { text-decoration: underline; }
+  .search-next strong { display: block; font: 700 15px/1.4 var(--font-sans); }
+  .search-next span { font: 400 13px/1.4 var(--font-sans); color: var(--color-neutral-gray-600); }
+  .search-next svg {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    fill: none;
+    stroke: var(--color-brand-carnegie-red);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  /* One tile left when the feelings link is hidden */
+  .search-next li[hidden] + li { border-left: 0; }
+  .search-next li[hidden] + li a { padding-left: 0; }
+
   @media (max-width: 760px) {
     .page-hero h1 { font-size: 40px; }
     .page-section { padding: 44px 0; }
     .cta-band { padding: 24px 20px; }
     .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .people { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .search-next { grid-template-columns: 1fr; }
+    .search-next li + li { border-left: 0; border-top: 1px solid var(--color-neutral-steel-gray); }
+    .search-next li + li a { padding-left: 0; }
     .roles { grid-template-columns: 1fr; }
     .privacy-points,
     .access__list { grid-template-columns: 1fr; }

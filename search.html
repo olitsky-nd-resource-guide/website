@@ -72,39 +72,72 @@
     </div>
   </header>
 
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-arrow" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.75"/><path d="M10.5 10.5L14 14"/></symbol>
+  </svg>
+
   <main id="main">
-    <section class="section">
+    <!-- ===================== Hero ===================== -->
+    <section class="hero page-hero search-hero">
       <div class="container">
         <nav class="breadcrumb-trail" aria-label="Breadcrumb">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Search</li>
+            <li aria-current="page">Search</li>
           </ol>
         </nav>
 
-        <h1 class="serif-h1">Results for your search</h1>
+        <h1>Results for your search</h1>
 
         <form class="search input-group" role="search" action="search.html">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><svg aria-hidden="true" focusable="false"><use href="#icon-search"/></svg></span>
+          </div>
           <input type="search" class="form-control" name="q" aria-label="Describe what you need help with" placeholder="Try &quot;I keep putting things off&quot;" data-search-input>
           <div class="input-group-append">
             <button class="btn search-btn" type="submit">Search</button>
           </div>
         </form>
+      </div>
+    </section>
 
+    <section class="page-section">
+      <div class="container">
         <!-- ===================== Closest topic ===================== -->
         <div class="search-topic" data-search-topic hidden>
-          <p>Closest topic</p>
-          <h2 class="serif-h4" data-search-topic-name></h2>
-          <p data-search-topic-desc></p>
-          <a class="btn btn--outline-dark" href="all-resources.html" data-search-topic-link>See all options</a>
+          <div>
+            <p class="search-topic__label">Closest topic</p>
+            <h2 data-search-topic-name></h2>
+            <p data-search-topic-desc></p>
+          </div>
+          <a class="search-topic__link" href="all-resources.html" data-search-topic-link>See all options</a>
         </div>
 
         <!-- ===================== Best matches ===================== -->
-        <h2 class="serif-h3">Best matches</h2>
-        <p class="resource-status" role="status" aria-live="polite" data-search-status></p>
+        <div class="search-results__head">
+          <h2 class="serif-h3">Best matches</h2>
+          <p class="search-results__status" role="status" aria-live="polite" data-search-status></p>
+        </div>
         <div class="resource-grid" data-search-results></div>
 
-        <p>Not what you meant? <a href="help-me-choose.html">Answer 2 quick questions instead</a></p>
+        <ul class="search-next">
+          <!-- Hidden by search.js when the closest topic is already feelings. -->
+          <li data-search-related>
+            <a href="all-resources.html?category=feelings">
+              <strong>Is stress or worry getting in the way?</strong>
+              <span>Feelings, stress and mental health</span>
+              <svg aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="help-me-choose.html">
+              <strong>Not what you meant?</strong>
+              <span>Answer 2 quick questions instead</span>
+              <svg aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
   </main>
