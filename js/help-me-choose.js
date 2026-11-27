@@ -101,24 +101,6 @@
     return link;
   }
 
-  // Title of step 1 on the resource's own page, or "" when it has no page here
-  // (official-site links) or the page has no steps.
-  function firstStep(link) {
-    if (link.target === "_blank" || new URL(link.href).origin !== location.origin) {
-      return Promise.resolve("");
-    }
-    return fetch(link.href)
-      .then(response => (response.ok ? response.text() : ""))
-      .then(html => {
-        const doc = new DOMParser().parseFromString(html, "text/html");
-        const title = doc.querySelector(".detail-step__title");
-        if (!title) return "";
-        title.querySelectorAll(".detail-step__num, .sr-only").forEach(el => el.remove());
-        return title.textContent.replace(/\s+/g, " ").trim();
-      })
-      .catch(() => "");
-  }
-
   function el(tag, className, text) {
     const node = document.createElement(tag);
     if (className) node.className = className;
@@ -192,7 +174,9 @@
       .then(data => {
         const { picks, exact } = pickSuggestions(data, need, format);
         const links = picks.map(cardLink);
-        return Promise.all(links.map(firstStep)).then(steps => {
+        const firstSteps = picks.map(resource =>
+          window.StudentHelpGuide.loadDetails(resource).then(found => found.firstStep));
+        return Promise.all(firstSteps).then(steps => {
           if (run !== latestRun) return;
           results.replaceChildren(...picks.map((resource, i) => suggestionCard(resource, format, links[i], steps[i])));
           window.StudentHelpGuide.syncCards();

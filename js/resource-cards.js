@@ -9,6 +9,9 @@
 //     categories: [{ id, name, description, url, count }]
 //   StudentHelpGuide.renderCards(container, resources)
 //     puts copies of the cards in container (use a .resource-grid)
+//   StudentHelpGuide.loadDetails(resource)  -> Promise of
+//     { url, firstStep, facts: [{ label, value }], before, action: { text, href, external } | null }
+//     read from the resource's own page; empty values if it has none or it won't load
 
 (function () {
   // relative to this file so it works from pages in subfolders
@@ -117,8 +120,55 @@
     if (window.StudentHelpGuide.syncCards) window.StudentHelpGuide.syncCards();
   }
 
+  // ----- details from the resource's own page -----
+
+  const details = new Map();
+
+  function readDetails(doc, url) {
+    const step = doc.querySelector(".detail-step__title");
+    if (step) step.querySelectorAll(".detail-step__num, .sr-only").forEach(el => el.remove());
+
+    const facts = [...doc.querySelectorAll(".detail-facts dt")]
+      .map(dt => ({ label: text(dt), value: text(dt.nextElementSibling) }));
+
+    const beforeHeading = [...doc.querySelectorAll(".detail-expect h3")].find(h => text(h) === "Before");
+    const before = beforeHeading ? text(beforeHeading.nextElementSibling) : "";
+
+    const button = doc.querySelector(".detail-hero__actions .btn-primary-arrow");
+    const action = button && {
+      text: text(button.querySelector(".btn-primary-arrow__text")),
+      href: new URL(button.getAttribute("href"), url).href,
+      external: button.target === "_blank"
+    };
+
+    return { url: url.href, firstStep: text(step), facts, before, action };
+  }
+
+  function loadDetails(resource) {
+    if (details.has(resource.id)) return details.get(resource.id);
+
+    const link = resource.card.querySelector(".next-steps-link");
+    const url = link && new URL(link.getAttribute("href"), allResourcesUrl);
+    const empty = { url: url ? url.href : "", firstStep: "", facts: [], before: "", action: null };
+
+    // official-site links have no page here to read
+    const loading = !url || url.origin !== window.location.origin
+      ? Promise.resolve(empty)
+      : fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error("Couldn't load " + url);
+          return response.text();
+        })
+        .then(html => readDetails(new DOMParser().parseFromString(html, "text/html"), url))
+        .catch(() => empty);
+
+    details.set(resource.id, loading);
+    return loading;
+  }
+
   window.StudentHelpGuide = window.StudentHelpGuide || {};
   window.StudentHelpGuide.loadResources = loadResources;
   window.StudentHelpGuide.renderCards = renderCards;
+  window.StudentHelpGuide.loadDetails = loadDetails;
   window.StudentHelpGuide.allResourcesUrl = allResourcesUrl.href;
 })();
