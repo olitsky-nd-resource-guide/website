@@ -15,6 +15,7 @@
 //   [data-choose-restart]            back to the first question
 //   [data-choose-results]            container the suggestion cards go in
 //   [data-choose-status]             live region for the result message
+//   [data-choose-email]              "Email the Olitsky Program" link; gets the topic they picked
 //
 // Answers are kept in history state only, not the URL or localStorage.
 
@@ -192,6 +193,29 @@
       });
   }
 
+  // ----- email -----
+
+  const emailLink = document.querySelector("[data-choose-email]");
+
+  // Starter email that names the topic they picked, so they don't have to explain it.
+  function updateEmail() {
+    if (!emailLink) return;
+    const answer = document.querySelector(`[data-choose-answer="need"][data-value="${state.need}"] strong`);
+    const topic = state.need !== "unsure" && answer ? answer.textContent.toLowerCase() : "";
+    const body = [
+      "Hi Amy,",
+      "",
+      "I used Help me choose on the Student Help Guide and I'm still not sure which resource fits me." +
+        (topic ? ` I'm looking for help with ${topic}.` : ""),
+      "Could you point me in the right direction?",
+      "",
+      "Thank you,",
+      "[YOUR NAME]"
+    ].join("\r\n");
+    emailLink.href = "mailto:atavares@andrew.cmu.edu?subject=" + encodeURIComponent("Help finding the right resource") +
+      "&body=" + encodeURIComponent(body);
+  }
+
   // ----- screens -----
 
   function render(moveFocus) {
@@ -215,7 +239,10 @@
       button.hidden = state.step === 1;
     });
 
-    if (state.step === 3) showSuggestions();
+    if (state.step === 3) {
+      showSuggestions();
+      updateEmail();
+    }
 
     // focus the new question
     if (moveFocus) {
