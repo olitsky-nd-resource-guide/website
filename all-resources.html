@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Student Help Guide · Carnegie Mellon University</title>
+  <title>Browse by need · Student Help Guide · Carnegie Mellon University</title>
   <meta name="description" content="Say what's going on in your own words. We'll point you to the right place at CMU and show you exactly what to do next.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,12 +74,16 @@
 
   <main id="main">
     <!-- ===================== Hero ===================== -->
-    <section class="hero">
+    <section class="hero page-hero">
       <div class="container hero__inner">
         <div>
-          <h1>
-            All resources
-          </h1>
+          <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li aria-current="page">Browse by need</li>
+            </ol>
+          </nav>
+          <h1>Browse by need</h1>
 
           <p class="hero__lead">
             Everything in this guide, sorted by what you need. Scroll through, or jump to a topic.
@@ -126,10 +130,10 @@
     <div class="resource-filters" role="group" aria-label="Filter resources by format">
       <span class="filter-label" aria-hidden="true">Show</span>
       <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true" aria-controls="resource-results">Everything</button>
-      <button class="filter-btn" type="button" data-filter="one-on-one" aria-pressed="false" aria-controls="resource-results"><i class="filter-icon" data-icon="person" aria-hidden="true"></i>One-on-one</button>
-      <button class="filter-btn" type="button" data-filter="group" aria-pressed="false" aria-controls="resource-results"><i class="filter-icon" data-icon="group" aria-hidden="true"></i>Group</button>
-      <button class="filter-btn" type="button" data-filter="virtual" aria-pressed="false" aria-controls="resource-results"><i class="filter-icon" data-icon="virtual" aria-hidden="true"></i>Virtual</button>
-      <button class="filter-btn" type="button" data-filter="in-person" aria-pressed="false" aria-controls="resource-results"><i class="filter-icon" data-icon="location" aria-hidden="true"></i>In person</button>
+      <button class="filter-btn" type="button" data-filter="one-on-one" aria-pressed="false" aria-controls="resource-results"><svg class="filter-icon" aria-hidden="true" focusable="false"><use href="#icon-person"/></svg>One-on-one</button>
+      <button class="filter-btn" type="button" data-filter="group" aria-pressed="false" aria-controls="resource-results"><svg class="filter-icon" aria-hidden="true" focusable="false"><use href="#icon-group"/></svg>Group</button>
+      <button class="filter-btn" type="button" data-filter="virtual" aria-pressed="false" aria-controls="resource-results"><svg class="filter-icon" aria-hidden="true" focusable="false"><use href="#icon-laptop"/></svg>Virtual</button>
+      <button class="filter-btn" type="button" data-filter="in-person" aria-pressed="false" aria-controls="resource-results"><svg class="filter-icon" aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>In person</button>
     </div>
 
     <!-- Announces how many resources the format filter shows. -->
@@ -1385,6 +1389,19 @@
       </div>
     </section>
 
+    </div>
+
+    <!-- Same band as the end of Help me choose -->
+    <div class="container browse-help">
+      <div class="choose-fallback">
+        <div class="choose-fallback__text">
+          <h2>Still not sure which one fits?</h2>
+          <p>Answer 2 quick questions and we&rsquo;ll suggest where to start.</p>
+        </div>
+        <div class="choose-fallback__actions">
+          <a class="btn btn--light" href="help-me-choose.html">Help me choose</a>
+        </div>
+      </div>
     </div>
   </section>
   </main>
