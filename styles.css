@@ -2217,8 +2217,8 @@
     stroke-linejoin: round;
   }
   /* Room under the page so the bar never covers the end of it or what has focus */
-  .has-compare-bar body { padding-bottom: 96px; }
-  .has-compare-bar { scroll-padding-bottom: 120px; }
+  .has-compare-bar body { padding-bottom: var(--compare-bar-height, 96px); }
+  .has-compare-bar { scroll-padding-bottom: calc(var(--compare-bar-height, 96px) + 24px); }
 
   @media (max-width: 760px) {
     .page-hero h1 { font-size: 40px; }
@@ -2242,8 +2242,6 @@
       width: 104px;
       background: var(--color-neutral-white);
     }
-    .has-compare-bar body { padding-bottom: 150px; }
-    .has-compare-bar { scroll-padding-bottom: 170px; }
     .search-next li + li { border-left: 0; border-top: 1px solid var(--color-neutral-steel-gray); }
     .search-next li + li a { padding-left: 0; }
     .roles { grid-template-columns: 1fr; }

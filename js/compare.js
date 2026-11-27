@@ -9,7 +9,7 @@
 //   [data-compare-back] [data-compare-back-label]  link back to where they were picked
 //   [data-compare-status]   live region for loading and errors
 //   [data-compare-wrap]     scroll region around [data-compare-table]
-//   [data-compare-closing]  shown with the table (phone hint, closing line)
+//   [data-compare-after]    shown with the table (phone hint, closing line)
 //   [data-compare-empty]    shown when there aren't 2 resources to compare
 
 (function () {
@@ -18,7 +18,7 @@
 
   const status = document.querySelector("[data-compare-status]");
   const wrap = document.querySelector("[data-compare-wrap]");
-  const afterLoad = document.querySelectorAll("[data-compare-closing]");
+  const afterLoad = document.querySelectorAll("[data-compare-after]");
   const empty = document.querySelector("[data-compare-empty]");
   const { items, from } = window.StudentHelpGuide.getCompare();
 

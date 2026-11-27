@@ -163,6 +163,8 @@ let compareBar = null;
 function buildCompareBar() {
   compareBar = document.createElement("div");
   compareBar.className = "compare-bar";
+  compareBar.setAttribute("role", "region");
+  compareBar.setAttribute("aria-label", "Compare");
   compareBar.hidden = true;
   compareBar.innerHTML = `
     <div class="container compare-bar__inner">
@@ -181,6 +183,9 @@ function buildCompareBar() {
     compare = { items: [], from: null };
     writeCompare();
     syncCompareChecks();
+    // the bar hides, so put focus back in the page
+    const firstBox = document.querySelector(".compare-check__input");
+    if (firstBox) firstBox.focus();
   });
   document.body.append(compareBar);
 }
@@ -203,6 +208,8 @@ function updateCompareBar(message) {
   compareBar.querySelector(".compare-bar__go").hidden = count < 2;
   compareBar.querySelector(".compare-bar__count").textContent = message ||
     (count < 2 ? "1 of 3 selected. Pick one more to compare." : `${count} of ${COMPARE_MAX} selected`);
+  // leave room under the page for the bar, however tall it wraps
+  document.documentElement.style.setProperty("--compare-bar-height", compareBar.offsetHeight + "px");
 }
 
 function syncCompareChecks(message) {
@@ -233,6 +240,13 @@ document.addEventListener("change", event => {
 });
 
 syncCompareChecks();
+
+// On Back/forward the browser can show a cached page or restore old checkbox
+// states after this script ran, and picks may have changed on another page.
+window.addEventListener("pageshow", () => {
+  compare = readCompare();
+  syncCompareChecks();
+});
 
 
 // =================================
