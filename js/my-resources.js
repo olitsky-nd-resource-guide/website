@@ -7,7 +7,7 @@
 //   [data-saved-list]      heading + grid, shown once something is saved
 //   [data-saved-results]   a .resource-grid the saved cards go in
 //   [data-saved-count]     "(3)" after the heading
-//   [data-saved-status]    live region for loading, removals and errors
+//   [data-saved-status]    live region for loading and errors
 //   [data-saved-more]      "Find more to save" tile, moved to the end of the grid
 //   [data-saved-empty]     shown when nothing is saved
 //
@@ -38,7 +38,6 @@
     const saved = new Set(window.StudentHelpGuide.getSavedResources());
     const kept = shown.filter(resource => saved.has(resource.id)).length;
     if (count) count.textContent = `(${kept})`;
-    setStatus(kept < shown.length ? "Removed ones stay here until you leave this page." : "");
   }
 
   // saved IDs are in the order they were saved
@@ -66,6 +65,7 @@
         results.append(more);
         more.hidden = false;
       }
+      setStatus("");
       updateCount();
       document.addEventListener("savedresourceschange", updateCount);
     })
