@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Urgent help · Student Help Guide · Carnegie Mellon University</title>
+  <meta name="description" content="Who to call or text right now: CaPS at 412-268-2922, 988, or 911.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="images/CMU-logo.png" alt="">
+        <span class="brand__text">
+          <strong>Student Help Guide</strong>
+          <span>Carnegie Mellon University</span>
+        </span>
+      </a>
+
+
+      <nav class="site-nav" aria-label="Main">
+
+        <!-- Bootstrap hamburger button -->
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse"
+                data-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Collapsible navigation -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul>
+            <li><a href="all-resources.html">Browse by need</a></li>
+            <li><a href="help-me-choose.html">Help me choose</a></li>
+            <li><a class="is-urgent" style="font-weight: 700;" href="urgent-help.html" aria-current="page">Urgent help</a></li>
+            <li><a href="my-resources.html">My Resources</a></li>
+            <li>
+              <button class="settings-btn" type="button"
+                      aria-label="Display settings">
+                <svg width="16" height="16"
+                     viewBox="0 0 16 16"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.4"
+                     stroke-linecap="round"
+                     aria-hidden="true">
+                  <path d="M2 4h7M13 4h1M2 12h1M7 12h7"/>
+                  <circle cx="11" cy="4" r="1.8"/>
+                  <circle cx="5" cy="12" r="1.8"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      
+      </nav>
+      
+
+      
+    </div>
+  </header>
+
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-phone" viewBox="0 0 16 16"><path d="M4.2 2h2.1l1 3-1.5 1a8 8 0 0 0 4.2 4.2l1-1.5 3 1v2.1c0 .7-.6 1.2-1.3 1.2A10.7 10.7 0 0 1 3 3.3C3 2.6 3.5 2 4.2 2z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></symbol>
+  </svg>
+
+  <main id="main">
+    <!-- ===================== Call now ===================== -->
+    <section class="urgent">
+      <div class="container">
+        <h1>Need help right now?</h1>
+        <p class="urgent__lead">You don&rsquo;t need to explain everything. Call or text one of these and say you need support.</p>
+
+        <ul class="urgent__options">
+          <li class="urgent__option urgent__option--caps">
+            <h2>Counseling &amp; Psychological Services</h2>
+            <p class="urgent__number">412-268-2922</p>
+            <p>Talk to a CMU counselor, day or night.</p>
+            <a href="tel:4122682922"><svg aria-hidden="true" focusable="false"><use href="#icon-phone"/></svg>Call CaPS</a>
+          </li>
+          <li class="urgent__option">
+            <h2>Call or text, any time</h2>
+            <p class="urgent__number">988</p>
+            <p>Suicide and Crisis Lifeline. Free and confidential.</p>
+            <a href="tel:988"><svg aria-hidden="true" focusable="false"><use href="#icon-phone"/></svg>Call or text 988</a>
+          </li>
+          <li class="urgent__option">
+            <h2>In danger right now</h2>
+            <p class="urgent__number">911</p>
+            <p>Or call CMU Police at <a class="urgent__inline" href="tel:4122682323">412-268-2323</a>.</p>
+            <a href="tel:911"><svg aria-hidden="true" focusable="false"><use href="#icon-phone"/></svg>Call 911</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== Talk soon ===================== -->
+    <section class="page-section">
+      <div class="container">
+        <h2 class="serif-h3">Not an emergency, but you want to talk soon</h2>
+        <ul class="urgent__soon">
+          <li>
+            <a class="mini-card" href="Feelings,%20stress%20and%20mental%20health%20pages/CaPS-initial-consultation.html">
+              <span class="mini-card__eyebrow mini-card__eyebrow--red">CaPS</span>
+              <span class="mini-card__title">A first conversation with a counselor</span>
+              <span class="mini-card__sub">A private, free first meeting about what is going on.</span>
+              <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="mini-card" href="Feelings,%20stress%20and%20mental%20health%20pages/virtual-support-timelycare.html">
+              <span class="mini-card__eyebrow mini-card__eyebrow--blue">TimelyCare TalkNow, outside service</span>
+              <span class="mini-card__title">Talk to someone online now</span>
+              <span class="mini-card__sub">Video or phone with a counselor, no appointment needed.</span>
+              <svg class="mini-card__arrow" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </a>
+          </li>
+        </ul>
+        <p class="urgent__note">This guide is not a crisis service.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <img class="brand__logo" src="images/CMU-logo.png" alt="Carnegie Mellon University">
+        <p>Made with the Olitsky Career Readiness Program.</p>
+      </div>
+
+      <div id="urgent">
+        <h2 class="serif-h4">Urgent help</h2>
+        <ul>
+          <li>Counseling &amp; Psychological Services:</li>
+          <li><a href="tel:4122682922"><strong>412-268-2922</strong></a></li>
+          <li>Call or text <a href="tel:988"><strong>988</strong></a></li>
+          <li>In danger right now: <a href="tel:911"><strong>911</strong></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="serif-h4">About</h2>
+        <ul>
+          <li><a href="about.html">About this guide</a></li>
+          <li><a href="acronyms.html">Acronyms, spelled out</a></li>
+          <li><a href="who-youll-meet.html">Who you&rsquo;ll meet</a></li>
+          <li><a href="privacy.html">Privacy and accessibility</a></li>
+          <li><a href="about.html#suggest">Suggest a change</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <div class="container">
+        <p>This guide is not a crisis service. Carnegie Mellon University, Pittsburgh, PA</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<script src="global.js"></script>
+
+
+</body>
+</html>
