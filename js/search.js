@@ -147,7 +147,8 @@
       window.StudentHelpGuide.renderCards(results, matches);
 
       if (matches.length) {
-        setStatus(`${matches.length} ${matches.length === 1 ? "option matches" : "options match"} “${query}”.`);
+        const tip = matches.length > 1 ? " Tick 2 or 3 to compare." : "";
+        setStatus(`${matches.length} ${matches.length === 1 ? "option matches" : "options match"} “${query}”.${tip}`);
       } else {
         setStatus(`Nothing matched “${query}”. Try different words, answer 2 quick questions, or browse all resources.`);
       }
